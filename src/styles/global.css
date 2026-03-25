@@ -1,3 +1,64 @@
+@import '@fontsource-variable/red-hat-display';
+@import '@fontsource-variable/public-sans';
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: silk --default, night --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
+
+@theme {
+  --font-display: 'Red Hat Display Variable', sans-serif;
+  --font-sans: 'Public Sans Variable', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.stagger-item {
+  animation: fade-in-up 600ms ease both;
+}
+
+.stagger-item:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.stagger-item:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
