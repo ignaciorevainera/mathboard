@@ -1,0 +1,38 @@
+---
+import SectionWrapper from "../ui/SectionWrapper.astro";
+import TopicCard from "../ui/TopicCard.astro";
+
+interface TopicItem {
+  id: string;
+  title: string;
+  description: string;
+  subtopicsCount: number;
+  icon: string;
+  colorVariant?: "primary" | "secondary" | "accent" | "neutral";
+}
+
+interface Props {
+  topics: TopicItem[];
+}
+
+const { topics } = Astro.props;
+---
+
+<SectionWrapper id="syllabus">
+  <h2 class="text-3xl font-semibold md:text-4xl">Temario Completo</h2>
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    {
+      topics.map((topic) => (
+        <TopicCard
+          id={topic.id}
+          title={topic.title}
+          description={topic.description}
+          subtopicsCount={topic.subtopicsCount}
+          icon={topic.icon}
+          colorVariant={topic.colorVariant ?? "primary"}
+        />
+      ))
+    }
+  </div>
+</SectionWrapper>

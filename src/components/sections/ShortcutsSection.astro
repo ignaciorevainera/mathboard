@@ -1,0 +1,32 @@
+---
+import SectionWrapper from "../ui/SectionWrapper.astro";
+import ShortcutPill from "../ui/ShortcutPill.astro";
+
+interface ShortcutItem {
+  href: string;
+  title: string;
+  variant?: "primary" | "secondary" | "accent" | "neutral";
+}
+
+interface Props {
+  shortcuts: ShortcutItem[];
+}
+
+const { shortcuts } = Astro.props;
+---
+
+<SectionWrapper id="shortcuts">
+  <h2 class="text-3xl font-semibold md:text-4xl">Atajos Rápidos</h2>
+
+  <div class="flex flex-wrap gap-3">
+    {
+      shortcuts.map((shortcut) => (
+        <ShortcutPill
+          href={shortcut.href}
+          title={shortcut.title}
+          variant={shortcut.variant ?? "primary"}
+        />
+      ))
+    }
+  </div>
+</SectionWrapper>

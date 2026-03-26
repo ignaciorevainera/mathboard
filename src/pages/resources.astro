@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionWrapper from "../components/ui/SectionWrapper.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<BaseLayout
+  title="Mathboard · Resources"
+  description="Herramientas extra y recursos de apoyo para estudio matemático."
+>
+  <SectionWrapper>
+    <div class="mx-auto max-w-3xl space-y-6 text-center">
+      <h1 class="font-display text-4xl md:text-5xl">
+        [Resources — herramientas complementarias]
+      </h1>
+      <p class="text-base-content/80">
+        [Descripción — sección para reunir calculadoras, tablas, guías de
+        estudio y materiales de apoyo]
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <article class="card border border-base-300 bg-base-100 shadow-sm">
+        <div class="card-body gap-3">
+          <Icon
+            name="tabler:calculator"
+            aria-hidden="true"
+            class="size-7 text-primary"
+          />
+          <h2 class="text-xl font-semibold">[Calculadoras]</h2>
+          <p>
+            [Contenido esperado — enlaces a herramientas para álgebra, cálculo y
+            estadística]
+          </p>
+        </div>
+      </article>
+
+      <article class="card border border-base-300 bg-base-100 shadow-sm">
+        <div class="card-body gap-3">
+          <Icon
+            name="tabler:table"
+            aria-hidden="true"
+            class="size-7 text-secondary"
+          />
+          <h2 class="text-xl font-semibold">[Tablas de referencia]</h2>
+          <p>
+            [Contenido esperado — identidades, fórmulas y conversiones rápidas
+            para consulta]
+          </p>
+        </div>
+      </article>
+
+      <article class="card border border-base-300 bg-base-100 shadow-sm">
+        <div class="card-body gap-3">
+          <Icon
+            name="tabler:book"
+            aria-hidden="true"
+            class="size-7 text-accent"
+          />
+          <h2 class="text-xl font-semibold">[Guías de práctica]</h2>
+          <p>
+            [Contenido esperado — rutas sugeridas por nivel y checklist de
+            repaso por unidad]
+          </p>
+        </div>
+      </article>
+    </div>
+  </SectionWrapper>
+</BaseLayout>

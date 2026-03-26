@@ -1,0 +1,91 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionWrapper from "../ui/SectionWrapper.astro";
+
+interface ContentSection {
+  id: string;
+  title: string;
+  summary: string;
+  items: string[];
+}
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  sections: ContentSection[];
+}
+
+const { title, description, icon, sections } = Astro.props;
+---
+
+<SectionWrapper>
+  <a href="/#syllabus" class="btn btn-ghost btn-sm w-fit">Volver al temario</a>
+
+  <header
+    class="relative overflow-hidden rounded-3xl border border-base-300 bg-base-200/70 p-8 md:p-10"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute right-4 top-4 size-28 rounded-full bg-primary/20 blur-2xl"
+    >
+    </div>
+    <div class="relative z-10 flex items-center gap-4">
+      <div class="rounded-2xl bg-primary/15 p-4 text-primary shadow-sm">
+        <Icon name={icon} aria-hidden="true" class="size-8" />
+      </div>
+      <div>
+        <h1 class="font-display text-3xl md:text-5xl">{title}</h1>
+        <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid gap-8 lg:grid-cols-12">
+    <aside class="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+      <nav
+        class="card border border-base-300 bg-base-100"
+        aria-label="Subtopics navigation"
+      >
+        <div class="card-body gap-4">
+          <h2 class="card-title text-xl">Subtemas</h2>
+          <ul class="menu rounded-box bg-base-100 p-0">
+            {
+              sections.map((section) => (
+                <li>
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="space-y-8 lg:col-span-8">
+      {
+        sections.map((section) => (
+          <article
+            id={section.id}
+            class="card border border-base-300 bg-base-100 shadow-sm"
+          >
+            <div class="card-body gap-4">
+              <h2 class="text-2xl font-semibold">{section.title}</h2>
+              <p class="text-base-content/80">{section.summary}</p>
+              <div class="space-y-4 border-t border-base-300 pt-4">
+                {section.items.map((item) => (
+                  <section class="space-y-2">
+                    <h3 class="text-lg font-medium">
+                      [Sección — desarrollo del concepto]
+                    </h3>
+                    <p class="text-base-content/80">{item}</p>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</SectionWrapper>

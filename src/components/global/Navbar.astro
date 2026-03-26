@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  class="navbar sticky top-0 z-50 border-b border-base-300/70 bg-base-100/90 px-3 backdrop-blur md:px-4"
+>
+  <div class="navbar-start">
+    <a href="/" class="btn btn-ghost btn-sm gap-2" aria-label="Go to home">
+      Home
+    </a>
+  </div>
+
+  <div class="navbar-center flex-1 px-2">
+    <form role="search" action="/" method="get" class="w-full">
+      <label
+        class="input input-bordered input-sm flex w-full items-center gap-2"
+      >
+        <Icon name="tabler:search" aria-hidden="true" class="size-4" />
+        <input
+          type="search"
+          name="q"
+          class="grow"
+          placeholder="Search topic, formula, or shortcut"
+          aria-label="Search content"
+        />
+      </label>
+    </form>
+  </div>
+
+  <div class="navbar-end">
+    <button
+      type="button"
+      class="btn btn-ghost btn-sm btn-circle"
+      data-toggle-theme="silk,night"
+      data-act-class="ACTIVECLASS"
+      aria-label="Toggle light and dark theme"
+      title="Toggle theme"
+    >
+      <Icon name="tabler:contrast-filled" aria-hidden="true" class="size-5" />
+    </button>
+  </div>
+</div>

@@ -1,17 +1,30 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
+import ImportantDocumentsSection from "../components/sections/ImportantDocumentsSection.astro";
+import SyllabusSection from "../components/sections/SyllabusSection.astro";
+import { getTopics } from "../lib/topics";
 
+const topics = getTopics();
+
+const shortcuts = topics.flatMap((topic) => topic.shortcuts).slice(0, 9);
+
+const topicCards = topics.map((topic) => ({
+  id: topic.id,
+  title: topic.title,
+  description: topic.description,
+  subtopicsCount: topic.sections.length,
+  icon: topic.icon,
+  colorVariant: topic.colorVariant,
+}));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Mathboard · Dashboard"
+  description="Math topics catalog with quick shortcuts and per-block subtopic access."
+>
+  <h1 class="sr-only">Catálogo de temas y subtemas de matemáticas</h1>
+  <ImportantDocumentsSection />
+  <ShortcutsSection shortcuts={shortcuts} />
+  <SyllabusSection topics={topicCards} />
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  variant?: "primary" | "secondary" | "accent" | "neutral";
+}
+
+const { href, title, variant = "primary" } = Astro.props;
+
+const variantClassMap = {
+  primary: "border-primary/30 bg-primary/10 text-primary",
+  secondary: "border-secondary/30 bg-secondary/10 text-secondary",
+  accent: "border-accent/30 bg-accent/10 text-accent",
+  neutral: "border-neutral/20 bg-base-200 text-base-content",
+};
+
+const variantClasses = variantClassMap[variant];
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium shadow-sm transition hover:shadow ${variantClasses}`}
+>
+  {title}
+</a>

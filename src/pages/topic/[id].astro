@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TopicContentSection from "../../components/sections/TopicContentSection.astro";
+import { getTopicById, getTopics } from "../../lib/topics";
+
+export function getStaticPaths() {
+  return getTopics().map((topic) => ({
+    params: { id: topic.id },
+  }));
+}
+
+const { id } = Astro.params;
+const topic = id ? getTopicById(id) : undefined;
+
+if (!topic) throw new Error("Topic not found");
+---
+
+<BaseLayout
+  title={`Mathboard · ${topic.title}`}
+  description={topic.description}
+>
+  <TopicContentSection
+    title={topic.title}
+    description={topic.description}
+    icon={topic.icon}
+    sections={topic.sections}
+  />
+</BaseLayout>
