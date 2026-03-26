@@ -2,493 +2,270 @@ import type { Topic } from '../types/topic'
 
 const topics: Topic[] = [
   {
-    id: 'arithmetic',
-    title: 'Aritmética',
-    description: '[Descripción del bloque de operaciones fundamentales y proporcionalidad]',
-    icon: 'tabler:calculator',
+    id: 'factoring-algebraic-expressions',
+    title: 'Factoreo y Expresiones Algebraicas',
+    description: 'Unidad orientada a la factorización de expresiones y al análisis avanzado de polinomios.',
+    icon: 'tabler:math-function',
     colorVariant: 'primary',
     shortcuts: [
-      { href: '/topic/arithmetic#integers', title: 'Números enteros', variant: 'primary' },
-      { href: '/topic/arithmetic#fractions', title: 'Fracciones', variant: 'secondary' },
-      { href: '/topic/arithmetic#percentages', title: 'Porcentajes', variant: 'accent' }
+      { href: '/topic/factoring-algebraic-expressions#methods-of-factorization', title: 'Métodos de Factorización', variant: 'primary' },
+      { href: '/topic/factoring-algebraic-expressions#advanced-polynomials', title: 'Polinomios Avanzados', variant: 'secondary' }
     ],
     sections: [
       {
-        id: 'integers',
-        title: 'Números enteros',
-        summary: '[Resumen de reglas operativas con enteros y signos]',
+        id: 'methods-of-factorization',
+        title: 'Métodos de Factorización',
+        summary: 'Técnicas esenciales para simplificar y descomponer expresiones polinómicas.',
         items: [
-          '[Contenido esperado — reglas de suma y resta con signos opuestos y ejercicios guiados]',
-          '[Contenido esperado — multiplicación y división de enteros con patrones de signos]'
+          'Factor Común: Identificación y extracción de factores constantes o variables presentes en todos los términos de una expresión.',
+          'Factor Común por Grupos: Aplicación en polinomios donde la extracción parcial en conjuntos de términos permite una segunda factorización general.',
+          'Diferencia de Cuadrados: Factorización de expresiones de la forma $a^2 - b^2 = (a-b)(a+b)$.',
+          'Trinomio Cuadrado Perfecto: Reconocimiento y simplificación de la estructura polinómica resultante de un binomio al cuadrado $(a \\pm b)^2$.'
         ]
       },
       {
-        id: 'fractions',
-        title: 'Fracciones',
-        summary: '[Resumen de equivalencias, simplificación y operaciones combinadas]',
+        id: 'advanced-polynomials',
+        title: 'Polinomios Avanzados',
+        summary: 'Herramientas para encontrar raíces, dividir polinomios y verificar resultados.',
         items: [
-          '[Contenido esperado — simplificación y ampliación de fracciones con ejemplos]',
-          '[Contenido esperado — suma, resta y producto de fracciones con denominadores distintos]'
-        ]
-      },
-      {
-        id: 'percentages',
-        title: 'Porcentajes',
-        summary: '[Resumen de aplicaciones en variaciones, descuentos e incrementos]',
-        items: [
-          '[Contenido esperado — porcentaje de una cantidad y porcentaje inverso]',
-          '[Contenido esperado — problemas de aumento y descuento en contextos cotidianos]'
+          'Cuatrinomio Cubo Perfecto: Reconocimiento de la estructura polinómica resultante de un binomio al cubo $(a \\pm b)^3$.',
+          'Teorema de Gauss: Determinación de posibles raíces racionales mediante el cociente entre los divisores del término independiente y los del coeficiente principal.',
+          'Regla de Ruffini: Algoritmo eficiente para la división de polinomios cuando el divisor es un binomio del tipo $(x \\pm r)$.',
+          'Teorema del Resto: Cálculo del residuo de una división para verificar si un valor es raíz de un polinomio sin realizar la operación completa.'
         ]
       }
     ]
   },
   {
-    id: 'algebra',
-    title: 'Álgebra',
-    description: '[Descripción del bloque de expresiones, ecuaciones y factorización]',
-    icon: 'tabler:math-function',
+    id: 'logarithms-exponentials',
+    title: 'Logaritmos y Exponenciales',
+    description: 'Estudio de funciones exponenciales, teoría logarítmica y resolución de ecuaciones asociadas.',
+    icon: 'tabler:chart-line',
     colorVariant: 'secondary',
     shortcuts: [
-      { href: '/topic/algebra#expressions', title: 'Expresiones', variant: 'secondary' },
-      { href: '/topic/algebra#equations', title: 'Ecuaciones', variant: 'primary' },
-      { href: '/topic/algebra#factoring', title: 'Factorización', variant: 'accent' }
+      { href: '/topic/logarithms-exponentials#exponential-functions', title: 'Funciones Exponenciales', variant: 'secondary' },
+      { href: '/topic/logarithms-exponentials#logarithm-theory', title: 'Teoría de Logaritmos', variant: 'primary' },
+      { href: '/topic/logarithms-exponentials#logarithmic-exponential-equations', title: 'Ecuaciones Logarítmicas y Exponenciales', variant: 'accent' }
     ],
     sections: [
       {
-        id: 'expressions',
-        title: 'Expresiones algebraicas',
-        summary: '[Resumen de términos, polinomios y operaciones elementales]',
+        id: 'exponential-functions',
+        title: 'Funciones Exponenciales',
+        summary: 'Comportamiento analítico y gráfico de funciones de la forma $f(x)=a^x$.',
         items: [
-          '[Contenido esperado — reducción de términos semejantes paso a paso]',
-          '[Contenido esperado — producto y división de monomios y polinomios simples]'
+          'Análisis de la Función: Estudio de la forma $f(x)=a^x$ (con $a > 0$ y $a \\neq 1$), su dominio en todos los reales e imagen en los reales positivos.',
+          'Comportamiento Gráfico: Determinación de crecimiento o decrecimiento según el valor de la base y ubicación de la asíntota horizontal.'
         ]
       },
       {
-        id: 'equations',
-        title: 'Ecuaciones lineales',
-        summary: '[Resumen de métodos de resolución y verificación de soluciones]',
+        id: 'logarithm-theory',
+        title: 'Teoría de Logaritmos',
+        summary: 'Definiciones y propiedades algebraicas para operar expresiones logarítmicas.',
         items: [
-          '[Contenido esperado — despeje de incógnitas en una variable]',
-          '[Contenido esperado — traducción de enunciados a ecuaciones lineales]'
+          'Definición y Propiedades: Relación fundamental $\\log_a(b)=c \\iff a^c=b$ junto a las leyes de logaritmo de un producto, cociente y potencia.',
+          'Cambio de Base: Uso de fórmulas para la conversión de bases y manejo de logaritmos naturales (base e) y decimales.'
         ]
       },
       {
-        id: 'factoring',
-        title: 'Factorización',
-        summary: '[Resumen de técnicas de factorización más frecuentes]',
+        id: 'logarithmic-exponential-equations',
+        title: 'Ecuaciones Logarítmicas y Exponenciales',
+        summary: 'Estrategias para despejar incógnitas en ecuaciones con exponentes y logaritmos.',
         items: [
-          '[Contenido esperado — factor común y diferencia de cuadrados]',
-          '[Contenido esperado — trinomio cuadrado perfecto y práctica guiada]'
+          'Estrategias de Resolución: Métodos para despejar incógnitas mediante la igualación de bases, cambio de variable o aplicación de logaritmos en ambos miembros.'
         ]
       }
     ]
   },
   {
-    id: 'calculus',
-    title: 'Cálculo',
-    description: '[Descripción del bloque de límites, derivadas e integrales introductorias]',
-    icon: 'tabler:chart-line',
+    id: 'inverse-functions',
+    title: 'Funciones Inversas',
+    description: 'Requisitos, procedimiento y propiedades para construir funciones inversas.',
+    icon: 'tabler:arrows-left-right',
     colorVariant: 'accent',
     shortcuts: [
-      { href: '/topic/calculus#limits', title: 'Límites', variant: 'accent' },
-      { href: '/topic/calculus#derivatives', title: 'Derivadas', variant: 'secondary' },
-      { href: '/topic/calculus#integrals', title: 'Integrales', variant: 'primary' }
+      { href: '/topic/inverse-functions#function-classification', title: 'Clasificación de Funciones', variant: 'accent' },
+      { href: '/topic/inverse-functions#inverse-function-calculation', title: 'Cálculo de la Función Inversa', variant: 'secondary' },
+      { href: '/topic/inverse-functions#properties-and-graph', title: 'Propiedades y Gráfica', variant: 'primary' }
     ],
     sections: [
       {
-        id: 'limits',
-        title: 'Límites',
-        summary: '[Resumen de aproximación, continuidad y límites laterales]',
+        id: 'function-classification',
+        title: 'Clasificación de Funciones',
+        summary: 'Criterios para determinar si una función es invertible.',
         items: [
-          '[Contenido esperado — interpretación gráfica de límites con tablas y curvas]',
-          '[Contenido esperado — indeterminaciones básicas y simplificación algebraica]'
+          'Análisis de Biyectividad: Verificación de las condiciones de inyectividad y sobreyectividad como requisito indispensable para la existencia de una función inversa.'
         ]
       },
       {
-        id: 'derivatives',
-        title: 'Derivadas',
-        summary: '[Resumen de tasa de cambio y reglas de derivación]',
+        id: 'inverse-function-calculation',
+        title: 'Cálculo de la Función Inversa',
+        summary: 'Procedimiento algebraico para obtener $f^{-1}(x)$ y validaciones de dominio.',
         items: [
-          '[Contenido esperado — regla de la potencia, suma y producto]',
-          '[Contenido esperado — aplicaciones a recta tangente y optimización básica]'
+          'Procedimiento Analítico: Técnica de intercambio de variables $(x \\leftrightarrow y)$ y despeje de la nueva variable dependiente para obtener $f^{-1}(x)$.',
+          'Restricción de Dominio: Ajustes en el dominio de funciones que no son biyectivas en todo su recorrido para permitir la inversión de una rama específica.'
         ]
       },
       {
-        id: 'integrals',
-        title: 'Integrales',
-        summary: '[Resumen de antiderivadas y área bajo la curva]',
+        id: 'properties-and-graph',
+        title: 'Propiedades y Gráfica',
+        summary: 'Relación entre composición, identidad y simetría gráfica.',
         items: [
-          '[Contenido esperado — integrales inmediatas y constantes de integración]',
-          '[Contenido esperado — interpretación geométrica y ejercicios introductorios]'
+          'Composición y Simetría: Verificación de la identidad mediante $f(f^{-1}(x))=x$ y representación gráfica como una reflexión simétrica respecto a la recta $y=x$.'
         ]
       }
     ]
   },
   {
-    id: 'geometry',
-    title: 'Geometría',
-    description: '[Descripción del bloque de figuras planas, cuerpos y relaciones métricas]',
-    icon: 'tabler:calculator',
+    id: 'geometry-trigonometry',
+    title: 'Geometría y Trigonometría',
+    description: 'Aplicación de geometría métrica, cónicas y herramientas trigonométricas avanzadas.',
+    icon: 'tabler:triangle',
     colorVariant: 'primary',
     shortcuts: [
-      { href: '/topic/geometry#triangles', title: 'Triángulos', variant: 'primary' },
-      { href: '/topic/geometry#circles', title: 'Circunferencias', variant: 'secondary' },
-      { href: '/topic/geometry#areas-volumes', title: 'Áreas y volúmenes', variant: 'accent' }
+      { href: '/topic/geometry-trigonometry#geometry-and-conics', title: 'Geometría y Cónicas', variant: 'primary' },
+      { href: '/topic/geometry-trigonometry#advanced-trigonometry', title: 'Trigonometría Avanzada', variant: 'accent' }
     ],
     sections: [
       {
-        id: 'triangles',
-        title: 'Triángulos',
-        summary: '[Resumen de clasificación, propiedades y teoremas básicos]',
+        id: 'geometry-and-conics',
+        title: 'Geometría y Cónicas',
+        summary: 'Modelado geométrico en $2\\text{D}/3\\text{D}$ y análisis de curvas cónicas.',
         items: [
-          '[Contenido esperado — clasificación por lados y ángulos con ejercicios visuales]',
-          '[Contenido esperado — aplicaciones del teorema de Pitágoras en problemas prácticos]'
+          'Geometría Métrica: Fórmulas y procedimientos para el cálculo de perímetros, áreas planas y volúmenes de cuerpos geométricos complejos.',
+          'Secciones Cónicas: Estudio analítico y representación de la Circunferencia, Parábola, Elipse e Hipérbola, incluyendo sus elementos característicos (focos, vértices y asíntotas).'
         ]
       },
       {
-        id: 'circles',
-        title: 'Circunferencias',
-        summary: '[Resumen de elementos de la circunferencia y longitud de arco]',
+        id: 'advanced-trigonometry',
+        title: 'Trigonometría Avanzada',
+        summary: 'Uso del círculo unitario e identidades para simplificación y resolución.',
         items: [
-          '[Contenido esperado — radio, diámetro, cuerda y ángulo central]',
-          '[Contenido esperado — cálculo de perímetro y área de círculos]'
-        ]
-      },
-      {
-        id: 'areas-volumes',
-        title: 'Áreas y volúmenes',
-        summary: '[Resumen de fórmulas para figuras planas y cuerpos tridimensionales]',
-        items: [
-          '[Contenido esperado — áreas de polígonos y figuras compuestas]',
-          '[Contenido esperado — volumen de prismas, cilindros y conos]'
+          'Ángulos Notables: Valores exactos de las funciones trigonométricas en el círculo unitario para $0^\\circ$, $30^\\circ$, $45^\\circ$, $60^\\circ$ y $90^\\circ$.',
+          'Identidades Trigonométricas: Uso de relaciones pitagóricas, recíprocas y aplicación de fórmulas de ángulos compuestos, ángulo doble y ángulo medio.'
         ]
       }
     ]
   },
   {
-    id: 'trigonometry',
-    title: 'Trigonometría',
-    description: '[Descripción del bloque de razones trigonométricas e identidades fundamentales]',
-    icon: 'tabler:math-function',
+    id: 'limits-continuity',
+    title: 'Análisis de Límites y Continuidad',
+    description: 'Técnicas de límites, análisis de continuidad y comportamiento asintótico de funciones.',
+    icon: 'tabler:chart-dots',
     colorVariant: 'secondary',
     shortcuts: [
-      { href: '/topic/trigonometry#ratios', title: 'Razones', variant: 'secondary' },
-      { href: '/topic/trigonometry#identities', title: 'Identidades', variant: 'primary' },
-      { href: '/topic/trigonometry#equations', title: 'Ecuaciones trigonométricas', variant: 'accent' }
+      { href: '/topic/limits-continuity#limit-calculation', title: 'Cálculo de Límites', variant: 'secondary' },
+      { href: '/topic/limits-continuity#continuity-asymptotes', title: 'Continuidad y Asíntotas', variant: 'primary' }
     ],
     sections: [
       {
-        id: 'ratios',
-        title: 'Razones trigonométricas',
-        summary: '[Resumen de seno, coseno y tangente en triángulos rectángulos]',
+        id: 'limit-calculation',
+        title: 'Cálculo de Límites',
+        summary: 'Resolución de indeterminaciones y uso de límites notables.',
         items: [
-          '[Contenido esperado — interpretación geométrica de las razones trigonométricas]',
-          '[Contenido esperado — resolución de triángulos con datos parciales]'
+          'Resolución de Indeterminaciones: Técnicas para salvar los casos críticos $\\frac{0}{0}$, $\\frac{\\infty}{\\infty}$, $1^{\\infty}$ y $\\infty-\\infty$.',
+          'Límites Especiales: Aplicación del límite fundamental trigonométrico y resolución de límites que conducen al número $e$.'
         ]
       },
       {
-        id: 'identities',
-        title: 'Identidades fundamentales',
-        summary: '[Resumen de identidades básicas y su uso en simplificaciones]',
+        id: 'continuity-asymptotes',
+        title: 'Continuidad y Asíntotas',
+        summary: 'Estudio local y global de funciones con teoremas de valor.',
         items: [
-          '[Contenido esperado — relaciones pitagóricas y cocientes trigonométricos]',
-          '[Contenido esperado — simplificación de expresiones paso a paso]'
-        ]
-      },
-      {
-        id: 'equations',
-        title: 'Ecuaciones trigonométricas',
-        summary: '[Resumen de estrategias de resolución en intervalos y soluciones generales]',
-        items: [
-          '[Contenido esperado — ecuaciones básicas con funciones seno y coseno]',
-          '[Contenido esperado — uso del círculo trigonométrico para validar soluciones]'
+          'Estudio de Continuidad: Evaluación de la existencia de límite e imagen en un punto y clasificación de discontinuidades (evitable y esencial).',
+          'Análisis Asintótico: Localización y cálculo de límites para determinar la existencia de asíntotas verticales, horizontales y oblicuas.',
+          'Teoremas de Valor: Aplicación práctica del Teorema de Bolzano para la detección de raíces y el Teorema del Valor Intermedio.'
         ]
       }
     ]
   },
   {
-    id: 'statistics',
-    title: 'Estadística',
-    description: '[Descripción del bloque de organización de datos, medidas descriptivas y gráficos]',
-    icon: 'tabler:chart-line',
+    id: 'differential-calculus-function-analysis',
+    title: 'Cálculo Diferencial y Estudio de Funciones',
+    description: 'Derivación y análisis completo de funciones para modelar variación y optimización.',
+    icon: 'tabler:math-function',
     colorVariant: 'accent',
     shortcuts: [
-      { href: '/topic/statistics#data-tables', title: 'Tablas de datos', variant: 'accent' },
-      { href: '/topic/statistics#central-tendency', title: 'Tendencia central', variant: 'secondary' },
-      { href: '/topic/statistics#dispersion', title: 'Dispersión', variant: 'primary' }
+      { href: '/topic/differential-calculus-function-analysis#derivative', title: 'La Derivada', variant: 'accent' },
+      { href: '/topic/differential-calculus-function-analysis#complete-function-analysis', title: 'Estudio Completo de una Función', variant: 'primary' }
     ],
     sections: [
       {
-        id: 'data-tables',
-        title: 'Tablas y frecuencia',
-        summary: '[Resumen de construcción de tablas de frecuencia y lectura de datos]',
+        id: 'derivative',
+        title: 'La Derivada',
+        summary: 'Fundamentos de derivación y aplicaciones en límites especiales.',
         items: [
-          '[Contenido esperado — clasificación de datos cualitativos y cuantitativos]',
-          '[Contenido esperado — tablas de frecuencia absoluta, relativa y acumulada]'
+          'Concepto y Mecánica: Definición mediante el límite del cociente incremental, reglas de derivación, regla de la cadena y derivación implícita.',
+          "Regla de L'Hôpital: Empleo de la derivada como herramienta para resolver límites con indeterminaciones de tipo cociente."
         ]
       },
       {
-        id: 'central-tendency',
-        title: 'Medidas de tendencia central',
-        summary: '[Resumen de media, mediana y moda con interpretación]',
+        id: 'complete-function-analysis',
+        title: 'Estudio Completo de una Función',
+        summary: 'Uso de derivadas para crecimiento, concavidad y problemas de optimización.',
         items: [
-          '[Contenido esperado — cálculo manual y comparación de medidas]',
-          '[Contenido esperado — selección de la medida adecuada según el contexto]'
-        ]
-      },
-      {
-        id: 'dispersion',
-        title: 'Medidas de dispersión',
-        summary: '[Resumen de rango, varianza y desviación estándar]',
-        items: [
-          '[Contenido esperado — interpretación de la variabilidad en conjuntos de datos]',
-          '[Contenido esperado — cálculo básico de desviación estándar]'
+          'Análisis de Primera Derivada: Identificación de puntos críticos para determinar intervalos de crecimiento, decrecimiento y extremos relativos (máximos y mínimos).',
+          'Análisis de Segunda Derivada: Evaluación de la concavidad (hacia arriba o hacia abajo) y localización precisa de puntos de inflexión.',
+          'Optimización: Modelado matemático y resolución de problemas que requieren hallar valores máximos o mínimos en contextos prácticos.'
         ]
       }
     ]
   },
   {
-    id: 'probability',
-    title: 'Probabilidad',
-    description: '[Descripción del bloque de eventos, conteo y modelos probabilísticos básicos]',
+    id: 'integral-calculus',
+    title: 'Cálculo Integral',
+    description: 'Métodos de integración e interpretación geométrica de la integral definida.',
     icon: 'tabler:math-function',
-    colorVariant: 'secondary',
-    shortcuts: [
-      { href: '/topic/probability#events', title: 'Eventos', variant: 'secondary' },
-      { href: '/topic/probability#counting', title: 'Conteo', variant: 'primary' },
-      { href: '/topic/probability#distributions', title: 'Distribuciones', variant: 'accent' }
-    ],
-    sections: [
-      {
-        id: 'events',
-        title: 'Eventos y espacio muestral',
-        summary: '[Resumen de tipos de eventos y operaciones entre conjuntos]',
-        items: [
-          '[Contenido esperado — unión, intersección y complemento de eventos]',
-          '[Contenido esperado — probabilidad clásica en experimentos simples]'
-        ]
-      },
-      {
-        id: 'counting',
-        title: 'Técnicas de conteo',
-        summary: '[Resumen de principio multiplicativo, permutaciones y combinaciones]',
-        items: [
-          '[Contenido esperado — conteo ordenado y no ordenado con ejemplos]',
-          '[Contenido esperado — aplicación de combinatoria a problemas de selección]'
-        ]
-      },
-      {
-        id: 'distributions',
-        title: 'Distribuciones básicas',
-        summary: '[Resumen de variables aleatorias y distribución binomial inicial]',
-        items: [
-          '[Contenido esperado — concepto de variable aleatoria discreta]',
-          '[Contenido esperado — modelado de escenarios simples con distribución binomial]'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'linear-algebra',
-    title: 'Álgebra lineal',
-    description: '[Descripción del bloque de vectores, matrices y sistemas de ecuaciones lineales]',
-    icon: 'tabler:calculator',
     colorVariant: 'primary',
     shortcuts: [
-      { href: '/topic/linear-algebra#vectors', title: 'Vectores', variant: 'primary' },
-      { href: '/topic/linear-algebra#matrices', title: 'Matrices', variant: 'secondary' },
-      { href: '/topic/linear-algebra#linear-systems', title: 'Sistemas lineales', variant: 'accent' }
+      { href: '/topic/integral-calculus#integration-methods', title: 'Métodos de Integración', variant: 'primary' },
+      { href: '/topic/integral-calculus#definite-integral-applications', title: 'Integral Definida y Aplicaciones', variant: 'secondary' }
     ],
     sections: [
       {
-        id: 'vectors',
-        title: 'Vectores',
-        summary: '[Resumen de representación, operaciones y producto escalar]',
+        id: 'integration-methods',
+        title: 'Métodos de Integración',
+        summary: 'Selección y aplicación de técnicas según la estructura de la función.',
         items: [
-          '[Contenido esperado — suma, resta y multiplicación por escalar]',
-          '[Contenido esperado — interpretación geométrica en el plano y el espacio]'
+          'Técnicas de Integración: Aplicación de los métodos de sustitución, integración por partes y descomposición en fracciones simples para funciones racionales.'
         ]
       },
       {
-        id: 'matrices',
-        title: 'Matrices',
-        summary: '[Resumen de operaciones matriciales y determinantes]',
+        id: 'definite-integral-applications',
+        title: 'Integral Definida y Aplicaciones',
+        summary: 'Cálculo de integrales definidas y áreas entre curvas.',
         items: [
-          '[Contenido esperado — suma, producto y transpuesta de matrices]',
-          '[Contenido esperado — cálculo de determinantes en matrices pequeñas]'
-        ]
-      },
-      {
-        id: 'linear-systems',
-        title: 'Sistemas de ecuaciones lineales',
-        summary: '[Resumen de métodos de sustitución, igualación y eliminación]',
-        items: [
-          '[Contenido esperado — clasificación de sistemas compatibles e incompatibles]',
-          '[Contenido esperado — resolución por eliminación gaussiana básica]'
+          'Regla de Barrow: Procedimiento fundamental para el cálculo de integrales definidas en intervalos cerrados y estudio de sus propiedades.',
+          'Cálculo de Áreas: Determinación de superficies planas delimitadas por una función y el eje de abscisas, o áreas encerradas entre dos o más curvas.'
         ]
       }
     ]
   },
   {
-    id: 'discrete-math',
-    title: 'Matemática discreta',
-    description: '[Descripción del bloque de lógica, conjuntos y estructuras discretas básicas]',
-    icon: 'tabler:math-function',
+    id: 'sequences-series',
+    title: 'Sucesiones y Series',
+    description: 'Convergencia de sucesiones y series, y aproximación funcional con series de potencias.',
+    icon: 'tabler:list-numbers',
     colorVariant: 'secondary',
     shortcuts: [
-      { href: '/topic/discrete-math#logic', title: 'Lógica', variant: 'secondary' },
-      { href: '/topic/discrete-math#sets', title: 'Conjuntos', variant: 'primary' },
-      { href: '/topic/discrete-math#graphs', title: 'Grafos', variant: 'accent' }
+      { href: '/topic/sequences-series#sequences-convergence', title: 'Sucesiones y Convergencia', variant: 'secondary' },
+      { href: '/topic/sequences-series#series-approximation', title: 'Series y Aproximación', variant: 'accent' }
     ],
     sections: [
       {
-        id: 'logic',
-        title: 'Lógica proposicional',
-        summary: '[Resumen de proposiciones, conectores y tablas de verdad]',
+        id: 'sequences-convergence',
+        title: 'Sucesiones y Convergencia',
+        summary: 'Análisis del término general y comportamiento al infinito.',
         items: [
-          '[Contenido esperado — equivalencias lógicas y simplificación de expresiones]',
-          '[Contenido esperado — validez de argumentos y reglas de inferencia]'
+          'Progresiones: Estudio del término general en progresiones aritméticas y geométricas, junto al análisis de su comportamiento y límite al infinito.'
         ]
       },
       {
-        id: 'sets',
-        title: 'Teoría de conjuntos',
-        summary: '[Resumen de operaciones entre conjuntos y cardinalidad]',
+        id: 'series-approximation',
+        title: 'Series y Aproximación',
+        summary: 'Criterios de convergencia y aproximación mediante desarrollos polinómicos.',
         items: [
-          '[Contenido esperado — unión, intersección, diferencia y complemento]',
-          '[Contenido esperado — diagramas de Venn para modelar problemas]'
-        ]
-      },
-      {
-        id: 'graphs',
-        title: 'Introducción a grafos',
-        summary: '[Resumen de vértices, aristas y recorridos elementales]',
-        items: [
-          '[Contenido esperado — tipos de grafos y representación en matrices]',
-          '[Contenido esperado — caminos mínimos en ejemplos introductorios]'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'analytic-geometry',
-    title: 'Geometría analítica',
-    description: '[Descripción del bloque de rectas, cónicas y coordenadas en el plano]',
-    icon: 'tabler:chart-line',
-    colorVariant: 'accent',
-    shortcuts: [
-      { href: '/topic/analytic-geometry#lines', title: 'Rectas', variant: 'accent' },
-      { href: '/topic/analytic-geometry#conics', title: 'Cónicas', variant: 'secondary' },
-      { href: '/topic/analytic-geometry#distance-midpoint', title: 'Distancia y punto medio', variant: 'primary' }
-    ],
-    sections: [
-      {
-        id: 'lines',
-        title: 'Rectas en el plano',
-        summary: '[Resumen de pendiente, ecuaciones y análisis de paralelismo]',
-        items: [
-          '[Contenido esperado — forma pendiente-intersección y forma general]',
-          '[Contenido esperado — rectas paralelas y perpendiculares con ejercicios]'
-        ]
-      },
-      {
-        id: 'conics',
-        title: 'Cónicas',
-        summary: '[Resumen de circunferencia, parábola, elipse e hipérbola]',
-        items: [
-          '[Contenido esperado — identificación de cónicas por su ecuación]',
-          '[Contenido esperado — elementos notables y representación gráfica]'
-        ]
-      },
-      {
-        id: 'distance-midpoint',
-        title: 'Distancia y punto medio',
-        summary: '[Resumen de fórmulas métricas entre dos puntos]',
-        items: [
-          '[Contenido esperado — cálculo de distancia en coordenadas cartesianas]',
-          '[Contenido esperado — aplicaciones del punto medio en segmentos]'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'financial-math',
-    title: 'Matemática financiera',
-    description: '[Descripción del bloque de interés, tasas y proyecciones de inversión]',
-    icon: 'tabler:calculator',
-    colorVariant: 'primary',
-    shortcuts: [
-      { href: '/topic/financial-math#simple-interest', title: 'Interés simple', variant: 'primary' },
-      { href: '/topic/financial-math#compound-interest', title: 'Interés compuesto', variant: 'secondary' },
-      { href: '/topic/financial-math#annuities', title: 'Rentas', variant: 'accent' }
-    ],
-    sections: [
-      {
-        id: 'simple-interest',
-        title: 'Interés simple',
-        summary: '[Resumen de capital, tasa y tiempo en operaciones básicas]',
-        items: [
-          '[Contenido esperado — cálculo de monto e interés simple]',
-          '[Contenido esperado — despeje de variables en fórmulas financieras]'
-        ]
-      },
-      {
-        id: 'compound-interest',
-        title: 'Interés compuesto',
-        summary: '[Resumen de capitalización periódica y crecimiento exponencial]',
-        items: [
-          '[Contenido esperado — cálculo de valor futuro y valor presente]',
-          '[Contenido esperado — comparación entre tasas nominales y efectivas]'
-        ]
-      },
-      {
-        id: 'annuities',
-        title: 'Rentas y anualidades',
-        summary: '[Resumen de pagos periódicos y valoración de flujos]',
-        items: [
-          '[Contenido esperado — anualidades vencidas y anticipadas]',
-          '[Contenido esperado — aplicaciones en créditos y ahorro programado]'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'numerical-methods',
-    title: 'Métodos numéricos',
-    description: '[Descripción del bloque de aproximaciones computacionales para resolver problemas matemáticos]',
-    icon: 'tabler:chart-line',
-    colorVariant: 'accent',
-    shortcuts: [
-      { href: '/topic/numerical-methods#roots', title: 'Búsqueda de raíces', variant: 'accent' },
-      { href: '/topic/numerical-methods#interpolation', title: 'Interpolación', variant: 'secondary' },
-      { href: '/topic/numerical-methods#numerical-integration', title: 'Integración numérica', variant: 'primary' }
-    ],
-    sections: [
-      {
-        id: 'roots',
-        title: 'Métodos de raíces',
-        summary: '[Resumen de bisección, secante y Newton-Raphson]',
-        items: [
-          '[Contenido esperado — criterios de convergencia y error absoluto]',
-          '[Contenido esperado — implementación guiada con iteraciones]'
-        ]
-      },
-      {
-        id: 'interpolation',
-        title: 'Interpolación polinómica',
-        summary: '[Resumen de métodos de Lagrange y diferencias finitas]',
-        items: [
-          '[Contenido esperado — construcción de polinomios interpolantes]',
-          '[Contenido esperado — estimación de valores intermedios con tablas]'
-        ]
-      },
-      {
-        id: 'numerical-integration',
-        title: 'Integración numérica',
-        summary: '[Resumen de reglas del trapecio y Simpson para aproximar áreas]',
-        items: [
-          '[Contenido esperado — comparación de precisión entre métodos]',
-          '[Contenido esperado — uso de particiones y control de error]'
+          'Convergencia de Series: Empleo de criterios numéricos para establecer si una serie infinita posee una suma finita.',
+          'Polinomios de Taylor y MacLaurin: Construcción de series de potencias para aproximar funciones trascendentes mediante polinomios en la vecindad de un punto.'
         ]
       }
     ]
