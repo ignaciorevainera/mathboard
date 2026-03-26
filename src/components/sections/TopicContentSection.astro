@@ -17,66 +17,79 @@ interface Props {
 }
 
 const { title, description, icon, sections } = Astro.props;
+
+const splitSubtopic = (item: string) => {
+  const [heading, ...rest] = item.split(":");
+  if (rest.length === 0) {
+    return { heading: "Desarrollo", content: item.trim() };
+  }
+
+  return {
+    heading: heading.trim(),
+    content: rest.join(":").trim(),
+  };
+};
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const normalizedSections = sections.map((section) => ({
+  ...section,
+  subtopics: section.items.map((item, index) => {
+    const parsed = splitSubtopic(item);
+    const parsedSlug = slugify(parsed.heading) || "subtopic";
+
+    return {
+      ...parsed,
+      id: `${section.id}-${parsedSlug}-${index + 1}`,
+    };
+  }),
+}));
 ---
 
 <SectionWrapper>
   <a href="/#syllabus" class="btn btn-ghost btn-sm w-fit">Volver al temario</a>
-
-  <header
-    class="relative overflow-hidden rounded-3xl border border-base-300 bg-base-200/70 p-8 md:p-10"
-  >
-    <div
-      aria-hidden="true"
-      class="absolute right-4 top-4 size-28 rounded-full bg-primary/20 blur-2xl"
-    >
-    </div>
-    <div class="relative z-10 flex items-center gap-4">
-      <div class="rounded-2xl bg-primary/15 p-4 text-primary shadow-sm">
-        <Icon name={icon} aria-hidden="true" class="size-8" />
-      </div>
-      <div>
-        <h1 class="font-display text-3xl md:text-5xl">{title}</h1>
-        <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
-      </div>
-    </div>
-  </header>
-
   <div class="grid gap-8 lg:grid-cols-12">
-    <aside class="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
-      <nav
-        class="card border border-base-300 bg-base-100"
-        aria-label="Subtopics navigation"
+    <div id="topic-content" class="space-y-8 lg:col-span-8">
+      <header
+        class="relative overflow-hidden rounded-3xl border border-base-300 bg-base-200/70 p-8 md:p-10"
       >
-        <div class="card-body gap-4">
-          <h2 class="card-title text-xl">Subtemas</h2>
-          <ul class="menu rounded-box bg-base-100 p-0">
-            {
-              sections.map((section) => (
-                <li>
-                  <a href={`#${section.id}`}>{section.title}</a>
-                </li>
-              ))
-            }
-          </ul>
+        <div
+          aria-hidden="true"
+          class="absolute right-4 top-4 size-28 rounded-full bg-primary/20 blur-2xl"
+        >
         </div>
-      </nav>
-    </aside>
+        <div class="relative z-10 flex items-center gap-4">
+          <div class="rounded-2xl bg-primary/15 p-4 text-primary shadow-sm">
+            <Icon name={icon} aria-hidden="true" class="size-8" />
+          </div>
+          <div>
+            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">{title}</h1>
+            <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
+          </div>
+        </div>
+      </header>
 
-    <div class="space-y-8 lg:col-span-8">
       {
-        sections.map((section) => (
+        normalizedSections.map((section) => (
           <article
-            id={section.id}
             class="card border border-base-300 bg-base-100 shadow-sm"
           >
             <div class="card-body gap-4">
-              <h2 class="text-2xl font-semibold">{section.title}</h2>
+              <h2 id={section.id} class="text-2xl font-semibold">{section.title}</h2>
               <p class="text-base-content/80">{section.summary}</p>
               <div class="space-y-4 border-t border-base-300 pt-4">
-                {section.items.map((item) => (
+                {section.subtopics.map((subtopic) => (
                   <section class="space-y-2">
-                    <h3 class="text-lg font-medium">Punto clave</h3>
-                    <p class="text-base-content/80">{item}</p>
+                    <h3 id={subtopic.id} class="text-lg font-medium">
+                      {subtopic.heading}
+                    </h3>
+                    <p class="text-base-content/80">{subtopic.content}</p>
                   </section>
                 ))}
               </div>
@@ -85,5 +98,55 @@ const { title, description, icon, sections } = Astro.props;
         ))
       }
     </div>
+
+    <aside class="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+      <nav
+        class="card border border-base-300/80 bg-base-200/70 shadow-sm backdrop-blur"
+        aria-label="Topic table of contents"
+      >
+        <div class="card-body gap-4">
+          <h2 class="card-title text-xl">Contenido del tema</h2>
+          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2"></ul>
+        </div>
+      </nav>
+    </aside>
   </div>
 </SectionWrapper>
+
+<script is:inline>
+  const tocContainer = document.getElementById("topic-toc-list");
+  const topicContent = document.getElementById("topic-content");
+
+  if (tocContainer && topicContent) {
+    const levelClasses = [
+      "",
+      "font-bold pl-1 text-base",
+      "font-semibold pl-3 text-sm",
+      "pl-5 text-sm",
+      "pl-7 text-sm opacity-90",
+      "pl-9 text-sm opacity-85",
+      "pl-11 text-sm opacity-80",
+    ];
+
+    const headings = Array.from(
+      topicContent.querySelectorAll("h1, h2, h3, h4, h5, h6"),
+    );
+
+    headings.forEach((heading) => {
+      const text = heading.textContent?.trim();
+      if (!text) return;
+
+      const level = Number(heading.tagName.substring(1));
+      const li = document.createElement("li");
+      const anchor = document.createElement("a");
+      const normalizedLevel = Math.min(Math.max(level, 1), 6);
+
+      anchor.href = `#${heading.id}`;
+      anchor.textContent = text;
+      anchor.className = `block rounded-md py-2 leading-snug transition-colors hover:bg-base-content/10 ${levelClasses[normalizedLevel]}`;
+
+      li.appendChild(anchor);
+      tocContainer.appendChild(li);
+    });
+  }
+</script>
