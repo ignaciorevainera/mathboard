@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionWrapper from "../components/ui/SectionWrapper.astro";
+import { Icon } from "astro-icon/components";
+import { getDocuments } from "../lib/documents";
+
+const documents = getDocuments();
+---
+
+<BaseLayout
+  title="Mathboard · Important Documents"
+  description="Tablas de derivadas, integrales e identidades trigonométricas para descarga en PDF."
+>
+  <SectionWrapper>
+    <div class="space-y-4">
+      <h1 class="font-display text-4xl md:text-5xl">Documentos importantes</h1>
+      <p class="max-w-3xl text-base-content/80">
+        Descargá archivos de apoyo en formato PDF para consultar durante el
+        estudio o práctica.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {
+        documents.map((doc) => (
+          <article class="card border border-base-300 bg-base-100 shadow-sm">
+            <div class="card-body gap-4">
+              <div class="rounded-xl bg-primary/15 p-3 text-primary w-fit">
+                <Icon
+                  name="tabler:file-type-pdf"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+              </div>
+              <h2 class="text-xl font-semibold">{doc.title}</h2>
+              <p class="text-base-content/80">{doc.description}</p>
+              <div class="card-actions mt-2 justify-end">
+                <a
+                  href={doc.filePath}
+                  download
+                  class="btn btn-primary btn-sm gap-2"
+                  aria-label={`Descargar ${doc.title} en PDF`}
+                >
+                  Descargar PDF
+                  <Icon
+                    name="tabler:download"
+                    aria-hidden="true"
+                    class="size-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </SectionWrapper>
+</BaseLayout>
