@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.8",
     "@astrojs/mdx": "^5.0.2",
     "@fontsource-variable/public-sans": "^5.2.7",
     "@fontsource-variable/red-hat-display": "^5.2.8",
@@ -21,7 +22,8 @@
     "astro-icon": "^1.1.5",
     "daisyui": "^5.5.19",
     "tailwindcss": "^4.2.2",
-    "theme-change": "^2.5.0"
+    "theme-change": "^2.5.0",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
