@@ -28,7 +28,9 @@ const { title, description, icon } = Astro.props;
             <Icon name={icon} aria-hidden="true" class="size-8" />
           </div>
           <div>
-            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">{title}</h1>
+            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">
+              {title}
+            </h1>
             <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
           </div>
         </div>
@@ -52,7 +54,8 @@ const { title, description, icon } = Astro.props;
       >
         <div class="card-body gap-4">
           <h2 class="card-title text-xl">Contenido del tema</h2>
-          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2"></ul>
+          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2">
+          </ul>
         </div>
       </nav>
     </aside>
@@ -74,7 +77,9 @@ const { title, description, icon } = Astro.props;
       "pl-11 text-sm opacity-80",
     ];
 
-    const headings = Array.from(topicContent.querySelectorAll("h1, h2, h3, h4, h5, h6"));
+    const headings = Array.from(
+      topicContent.querySelectorAll("h1, h2, h3, h4, h5, h6"),
+    );
 
     headings.forEach((heading) => {
       const text = heading.textContent?.trim();

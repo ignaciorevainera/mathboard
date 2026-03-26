@@ -69,7 +69,9 @@ const normalizedSections = sections.map((section) => ({
             <Icon name={icon} aria-hidden="true" class="size-8" />
           </div>
           <div>
-            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">{title}</h1>
+            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">
+              {title}
+            </h1>
             <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
           </div>
         </div>
@@ -77,11 +79,11 @@ const normalizedSections = sections.map((section) => ({
 
       {
         normalizedSections.map((section) => (
-          <article
-            class="card border border-base-300 bg-base-100 shadow-sm"
-          >
+          <article class="card border border-base-300 bg-base-100 shadow-sm">
             <div class="card-body gap-4">
-              <h2 id={section.id} class="text-2xl font-semibold">{section.title}</h2>
+              <h2 id={section.id} class="text-2xl font-semibold">
+                {section.title}
+              </h2>
               <p class="text-base-content/80">{section.summary}</p>
               <div class="space-y-4 border-t border-base-300 pt-4">
                 {section.subtopics.map((subtopic) => (
@@ -106,7 +108,8 @@ const normalizedSections = sections.map((section) => ({
       >
         <div class="card-body gap-4">
           <h2 class="card-title text-xl">Contenido del tema</h2>
-          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2"></ul>
+          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2">
+          </ul>
         </div>
       </nav>
     </aside>

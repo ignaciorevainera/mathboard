@@ -3,7 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
 import ImportantDocumentsSection from "../components/sections/ImportantDocumentsSection.astro";
 import SyllabusSection from "../components/sections/SyllabusSection.astro";
-import { getTopicCardsForHome, getTopicShortcutsForHome } from "../lib/topic-content";
+import {
+  getTopicCardsForHome,
+  getTopicShortcutsForHome,
+} from "../lib/topic-content";
 
 const [shortcuts, topicCards] = await Promise.all([
   getTopicShortcutsForHome(9),
