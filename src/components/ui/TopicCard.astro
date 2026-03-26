@@ -29,25 +29,33 @@ const iconColorClassMap = {
 const iconColorClasses = iconColorClassMap[colorVariant];
 ---
 
-<article
-  class="card h-full border border-base-300 bg-base-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+<a
+  href={`/topic/${id}`}
+  class="card group h-full cursor-pointer border border-base-300 bg-base-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+  aria-label={`Ingresar a ${title}`}
 >
   <div class="card-body gap-4">
-    <div class="flex items-start justify-between">
-      <div class={`rounded-xl p-3 shadow-sm ${iconColorClasses}`}>
-        <Icon name={icon} aria-hidden="true" class="size-6" />
-      </div>
-      <span class="badge badge-soft">{subtopicsCount} temas</span>
+    <div class={`w-fit rounded-xl p-3 shadow-sm ${iconColorClasses}`}>
+      <Icon name={icon} aria-hidden="true" class="size-6" />
     </div>
 
     <h3 class="card-title text-xl">{title}</h3>
     <p class="text-sm text-base-content/80">{description}</p>
 
-    <div class="card-actions mt-2 justify-end border-t border-base-300 pt-4">
-      <a href={`/topic/${id}`} class="btn btn-ghost btn-sm gap-1">
+    <div
+      class="card-actions mt-2 items-center justify-between border-t border-base-content/20 pt-4"
+    >
+      <span class="badge badge-soft">{subtopicsCount} temas</span>
+      <span
+        class="inline-flex items-center gap-1 text-sm font-medium text-base-content/80 transition-colors group-hover:text-primary"
+      >
         Ingresar
-        <Icon name="tabler:arrow-right" aria-hidden="true" class="size-4" />
-      </a>
+        <Icon
+          name="tabler:arrow-right"
+          aria-hidden="true"
+          class="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+        />
+      </span>
     </div>
   </div>
-</article>
+</a>
