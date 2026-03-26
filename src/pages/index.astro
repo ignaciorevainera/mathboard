@@ -3,20 +3,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
 import ImportantDocumentsSection from "../components/sections/ImportantDocumentsSection.astro";
 import SyllabusSection from "../components/sections/SyllabusSection.astro";
-import { getTopics } from "../lib/topics";
+import { getTopicCardsForHome, getTopicShortcutsForHome } from "../lib/topic-content";
 
-const topics = getTopics();
-
-const shortcuts = topics.flatMap((topic) => topic.shortcuts).slice(0, 9);
-
-const topicCards = topics.map((topic) => ({
-  id: topic.id,
-  title: topic.title,
-  description: topic.description,
-  subtopicsCount: topic.sections.length,
-  icon: topic.icon,
-  colorVariant: topic.colorVariant,
-}));
+const [shortcuts, topicCards] = await Promise.all([
+  getTopicShortcutsForHome(9),
+  getTopicCardsForHome(),
+]);
 ---
 
 <BaseLayout

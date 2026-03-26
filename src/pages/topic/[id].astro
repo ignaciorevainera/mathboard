@@ -1,28 +1,36 @@
 ---
+import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import TopicContentSection from "../../components/sections/TopicContentSection.astro";
-import { getTopicById, getTopics } from "../../lib/topics";
+import TopicMarkdownContentSection from "../../components/sections/TopicMarkdownContentSection.astro";
+import { getTopicDetailById, getTopicIds } from "../../lib/topic-content";
 
-export function getStaticPaths() {
-  return getTopics().map((topic) => ({
-    params: { id: topic.id },
+export async function getStaticPaths() {
+  const ids = await getTopicIds();
+
+  return ids.map((id) => ({
+    params: { id },
   }));
 }
 
 const { id } = Astro.params;
-const topic = id ? getTopicById(id) : undefined;
+const topic = id ? await getTopicDetailById(id) : undefined;
 
-if (!topic) throw new Error("Topic not found");
+if (!topic) {
+  throw new Error(`Topic not found: ${id ?? "unknown"}`);
+}
+
+const renderedContent = await render(topic);
 ---
 
 <BaseLayout
-  title={`Mathboard · ${topic.title}`}
-  description={topic.description}
+  title={`Mathboard · ${topic.data.title}`}
+  description={topic.data.description}
 >
-  <TopicContentSection
-    title={topic.title}
-    description={topic.description}
-    icon={topic.icon}
-    sections={topic.sections}
-  />
+  <TopicMarkdownContentSection
+    title={topic.data.title}
+    description={topic.data.description}
+    icon={topic.data.icon}
+  >
+    <renderedContent.Content />
+  </TopicMarkdownContentSection>
 </BaseLayout>
