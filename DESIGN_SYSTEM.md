@@ -92,6 +92,7 @@ Secciones:
 - src/components/sections/SyllabusSection.astro
 - src/components/sections/StudyFlowSection.astro
 - src/components/sections/TopicContentSection.astro
+- src/components/sections/TopicMarkdownContentSection.astro
 
 Páginas:
 
@@ -121,6 +122,7 @@ Páginas:
 - 2026-03-24: Pair tipográfico Red Hat Display + Public Sans para tono académico moderno
 - 2026-03-24: Arquitectura de componentes separada en global/ui/sections desde la maqueta inicial
 - 2026-03-24: Home simplificado a catálogo con Atajos Rápidos y Temario Completo
+- 2026-03-26: TOC de tema con superficie elevada (base-200) y jerarquía visual por nivel de heading para mejorar escaneabilidad
 
 ## Pendientes
 
