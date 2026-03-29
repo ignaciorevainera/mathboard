@@ -1,0 +1,239 @@
+---
+topicId: conic-sections
+title: "Secciones Cónicas"
+description: "Circunferencia, parábola, elipse e hipérbola con sus ecuaciones y elementos."
+icon: tabler:circle
+colorVariant: secondary
+order: 3
+sectionCount: 7
+shortcuts:
+  - href: "/topic/conic-sections#circunferencia"
+    title: "Circunferencia"
+    variant: secondary
+  - href: "/topic/conic-sections#parabola"
+    title: "Parábola"
+    variant: primary
+  - href: "/topic/conic-sections#hiperbola"
+    title: "Hipérbola"
+    variant: accent
+---
+
+## Secciones Cónicas
+
+Circunferencia, parábola, elipse e hipérbola con sus ecuaciones canónicas, elementos y criterios de identificación.
+
+### Circunferencia
+
+#### Ecuaciones
+
+| Forma | Ecuación | Descripción |
+| --- | --- | --- |
+| Ordinaria (canónica) | $(x-h)^2 + (y-k)^2 = r^2$ | Centro $(h,k)$ y radio $r$ |
+| Centro en origen | $x^2 + y^2 = r^2$ | Centro $(0,0)$ |
+| General | $x^2 + y^2 + Dx + Ey + F = 0$ | Forma expandida |
+
+#### Elementos
+
+| Elemento | Definición |
+| --- | --- |
+| Centro | Punto $(h,k)$ equidistante de la curva |
+| Radio | Distancia $r$ del centro a la circunferencia |
+
+#### Conversión general a ordinaria
+
+Dada $x^2 + y^2 + Dx + Ey + F = 0$:
+
+1. Centro: $h = -D/2$, $k = -E/2$.
+2. Radio: $r = \sqrt&#123;h^2 + k^2 - F&#125; = \sqrt&#123;D^2/4 + E^2/4 - F&#125;$.
+
+#### Ejemplo
+
+$x^2 + y^2 - 6x + 4y + 4 = 0$
+
+- $D=-6$, $E=4$, $F=4$
+- Centro: $(3,-2)$
+- Radio: $r = \sqrt&#123;9 + 4 - 4&#125; = 3$
+- Forma ordinaria: $(x-3)^2 + (y+2)^2 = 9$
+
+
+### Parábola
+
+#### Ecuaciones según orientación
+
+| Orientación | Ecuación | Vértice | Foco | Directriz | Eje de simetría |
+| --- | --- | --- | --- | --- | --- |
+| Vertical (arriba/abajo) | $(x-h)^2 = 4p(y-k)$ | $(h,k)$ | $(h,k+p)$ | $y = k-p$ | $x = h$ |
+| Horizontal (izq./der.) | $(y-k)^2 = 4p(x-h)$ | $(h,k)$ | $(h+p,k)$ | $x = h-p$ | $y = k$ |
+
+Si $p \gt 0$, abre arriba (vertical) o derecha (horizontal). Si $p \lt 0$, abre abajo o izquierda.
+
+#### Forma cuadrática vertical
+
+$$
+y = ax^2 + bx + c
+$$
+
+Vértice:
+
+$$
+V = \left(-\frac&#123;b&#125;&#123;2a&#125;, f\left(-\frac&#123;b&#125;&#123;2a&#125;\right)\right) = \left(-\frac&#123;b&#125;&#123;2a&#125;, c - \frac&#123;b^2&#125;&#123;4a&#125;\right)
+$$
+
+Eje: $x = -\frac&#123;b&#125;&#123;2a&#125;$.
+
+#### Ejemplo
+
+$y = x^2 - 4x + 3$
+
+- $a=1$, $b=-4$, $c=3$
+- $x_v = -\frac&#123;-4&#125;&#123;2\cdot1&#125; = 2$
+- $y_v = 2^2 - 4(2) + 3 = -1$
+- Vértice: $(2,-1)$
+- Eje: $x=2$
+- Abre hacia arriba ($a \gt 0$)
+
+
+### Elipse
+
+#### Ecuaciones
+
+| Orientación | Ecuación | Centro | Eje mayor |
+| --- | --- | --- | --- |
+| Horizontal | $((x-h)^2/a^2) + ((y-k)^2/b^2) = 1$ | $(h,k)$ | $2a$ horizontal |
+| Vertical | $((x-h)^2/b^2) + ((y-k)^2/a^2) = 1$ | $(h,k)$ | $2a$ vertical |
+| Origen (horizontal) | $(x^2/a^2) + (y^2/b^2) = 1$ | $(0,0)$ | $2a$ horizontal |
+
+Convención: $a \gt b$.
+
+#### Elementos
+
+| Elemento | Fórmula / Ubicación | Descripción |
+| --- | --- | --- |
+| Centro | $(h,k)$ | Punto central |
+| Eje mayor | $2a$ | Diámetro más largo |
+| Eje menor | $2b$ | Diámetro más corto |
+| Relación fundamental | $c^2 = a^2 - b^2$ | Semidistancia focal |
+| Excentricidad | $e = \frac&#123;c&#125;&#123;a&#125;$ | $0 \lt e \lt 1$ |
+
+#### Focos
+
+| Orientación | Focos |
+| --- | --- |
+| Horizontal | $(h-c,k)$ y $(h+c,k)$ |
+| Vertical | $(h,k-c)$ y $(h,k+c)$ |
+
+#### Ejemplo
+
+$((x-1)^2/25) + ((y+2)^2/9) = 1$
+
+- Centro: $(1,-2)$
+- $a^2=25 \Rightarrow a=5$
+- $b^2=9 \Rightarrow b=3$
+- $c = \sqrt&#123;25-9&#125; = 4$
+- Focos: $(5,-2)$ y $(-3,-2)$
+- Excentricidad: $e = 4/5 = 0.8$
+
+
+### Hipérbola
+
+#### Ecuaciones
+
+| Orientación | Ecuación | Centro | Eje transversal |
+| --- | --- | --- | --- |
+| Horizontal | $((x-h)^2/a^2) - ((y-k)^2/b^2) = 1$ | $(h,k)$ | Horizontal |
+| Vertical | $((y-k)^2/a^2) - ((x-h)^2/b^2) = 1$ | $(h,k)$ | Vertical |
+
+El término positivo marca la dirección del eje transversal.
+
+#### Elementos
+
+| Elemento | Fórmula / Ubicación | Descripción |
+| --- | --- | --- |
+| Centro | $(h,k)$ | Punto central |
+| Vértices | A distancia $a$ sobre eje transversal | Más cercanos al centro |
+| Relación fundamental | $c^2 = a^2 + b^2$ | Semidistancia focal |
+| Excentricidad | $e = \frac&#123;c&#125;&#123;a&#125;$ | $e \gt 1$ |
+
+#### Focos
+
+| Orientación | Focos |
+| --- | --- |
+| Horizontal | $(h-c,k)$ y $(h+c,k)$ |
+| Vertical | $(h,k-c)$ y $(h,k+c)$ |
+
+#### Asíntotas
+
+| Orientación | Ecuaciones |
+| --- | --- |
+| Horizontal | $y-k = \frac&#123;b&#125;&#123;a&#125;(x-h)$ y $y-k = -\frac&#123;b&#125;&#123;a&#125;(x-h)$ |
+| Vertical | $y-k = \frac&#123;a&#125;&#123;b&#125;(x-h)$ y $y-k = -\frac&#123;a&#125;&#123;b&#125;(x-h)$ |
+
+#### Ejemplo
+
+$((x-2)^2/16) - ((y+1)^2/9) = 1$
+
+- Centro: $(2,-1)$
+- $a^2=16 \Rightarrow a=4$
+- $b^2=9 \Rightarrow b=3$
+- $c = \sqrt&#123;16+9&#125; = 5$
+- Vértices: $(6,-1)$ y $(-2,-1)$
+- Focos: $(7,-1)$ y $(-3,-1)$
+- Asíntotas: $y+1 = \frac&#123;3&#125;&#123;4&#125;(x-2)$ y $y+1 = -\frac&#123;3&#125;&#123;4&#125;(x-2)$
+
+
+### Resumen Comparativo
+
+| Cónica | Ecuación canónica | Excentricidad | Característica |
+| --- | --- | --- | --- |
+| Circunferencia | $(x-h)^2 + (y-k)^2 = r^2$ | $e=0$ | Simetría perfecta |
+| Elipse | $((x-h)^2/a^2) + ((y-k)^2/b^2) = 1$ | $0 \lt e \lt 1$ | Curva cerrada |
+| Parábola | $(x-h)^2 = 4p(y-k)$ | $e=1$ | Curva abierta con un foco |
+| Hipérbola | $((x-h)^2/a^2) - ((y-k)^2/b^2) = 1$ | $e \gt 1$ | Dos ramas |
+
+
+### Identificación de Cónicas
+
+Dada $Ax^2 + Cy^2 + Dx + Ey + F = 0$ (sin término $Bxy$):
+
+| Condición | Cónica |
+| --- | --- |
+| $A = C$ y ambos distintos de 0 | Circunferencia |
+| $A \neq C$ y $A*C \gt 0$ | Elipse |
+| $A = 0$ o $C = 0$ (pero no ambos) | Parábola |
+| $A*C \lt 0$ | Hipérbola |
+
+
+### Problemas Tipo
+
+#### Hallar ecuación de una circunferencia
+
+Con centro $(h,k)$ y radio $r$:
+
+$$
+(x-h)^2 + (y-k)^2 = r^2
+$$
+
+Si pasa por $(x_0,y_0)$:
+
+1. Calcular $r = \sqrt&#123;(x_0-h)^2 + (y_0-k)^2&#125;$.
+2. Reemplazar en la ecuación canónica.
+
+#### Hallar vértice de una parábola
+
+Para $y=ax^2+bx+c$:
+
+1. $x_v = -b/(2a)$.
+2. $y_v = a x_v^2 + b x_v + c$.
+3. Vértice: $(x_v,y_v)$.
+
+#### Graficar una elipse
+
+Para $((x-h)^2/a^2) + ((y-k)^2/b^2) = 1$:
+
+1. Marcar centro $(h,k)$.
+2. Marcar $\pm a$ en eje mayor y $\pm b$ en eje menor.
+3. Trazar curva suave por esos cuatro vértices auxiliares.
+
+
+
+

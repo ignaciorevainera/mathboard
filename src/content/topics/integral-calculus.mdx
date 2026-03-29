@@ -1,62 +1,285 @@
 ---
 topicId: integral-calculus
-title: "Cálculo Integral"
-description: "Métodos de Integración e interpretación geométrica de la integral definida."
+title: "Integrales"
+description: "Integral definida, indefinida, propiedades y cálculo de áreas."
 icon: tabler:math-function
 colorVariant: primary
 order: 4
-sectionCount: 2
+sectionCount: 10
 shortcuts:
+  - href: "/topic/integral-calculus#integral-indefinida"
+    title: "Integral Indefinida"
+    variant: primary
+  - href: "/topic/integral-calculus#tabla-de-integrales-inmediatas"
+    title: "Tabla de Integrales"
+    variant: primary
   - href: "/topic/integral-calculus#metodos-de-integracion"
     title: "Métodos de Integración"
-    variant: primary
-  - href: "/topic/integral-calculus#integral-definida-y-aplicaciones"
-    title: "Integral Definida y Aplicaciones"
+    variant: secondary
+  - href: "/topic/integral-calculus#calculo-de-areas"
+    title: "Cálculo de Áreas"
     variant: secondary
 ---
 
+## Integral Indefinida
+
+### Definición
+
+$$
+\int f(x) \, dx = F(x) + C
+$$
+
+donde $F'(x) = f(x)$ y $C$ es la constante de integración.
+
+**$F(x)$ es la primitiva o antiderivada de $f(x)$**
+
+## Integral Definida
+
+$$
+    **⚠️ Nota importante:** Si $u'$ no aparece exactamente en el integrando pero es una constante, se puede ajustar multiplicando y dividiendo por esa constante. Si $u'$ no es constante o no aparece, este método no aplica directamente.
+\int_a^b f(x) \, dx = F(b) - F(a)
+$$
+
+donde $F'(x) = f(x)$
+
+**Notación:** $\left[F(x)\right]_a^b = F(b) - F(a)$
+
+### Ejemplo
+
+$$
+\int_1^3 x^2 \, dx = \left[\frac&#123;x^3&#125;&#123;3&#125;\right]_1^3 = \frac&#123;3^3&#125;&#123;3&#125; - \frac&#123;1^3&#125;&#123;3&#125; = \frac&#123;27&#125;&#123;3&#125; - \frac&#123;1&#125;&#123;3&#125; = \frac&#123;26&#125;&#123;3&#125;
+$$
+
+## Propiedades de la Integral Definida
+
+| Propiedad | Fórmula |
+| --- | --- |
+| Linealidad (constante) | $\int_a^b k \cdot f(x) \, dx = k \int_a^b f(x) \, dx$ |
+| Linealidad (suma/resta) | $\int_a^b [f(x) \pm g(x)] \, dx = \int_a^b f(x) \, dx \pm \int_a^b g(x) \, dx$ |
+| Límites iguales | $\int_a^a f(x) \, dx = 0$ |
+| Inversión de límites | $\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx$ |
+| Aditividad de intervalos | $\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$ |
+
+## Tabla de Integrales Inmediatas
+
+| Función | Integral |
+| --- | --- |
+| $k$ (constante) | $kx + C$ |
+| $x^n$ $(n \neq -1)$ | $\frac&#123;x^&#123;n+1&#125;&#125;&#123;n+1&#125; + C$ |
+| $\frac&#123;1&#125;&#123;x&#125;$ | $\ln |x| + C$ |
+| $e^x$ | $e^x + C$ |
+| $a^x$ | $\frac&#123;a^x&#125;&#123;\ln a&#125; + C$ |
+| $\sin x$ | $-\cos x + C$ |
+| $\cos x$ | $\sin x + C$ |
+| $\tan x$ | $-\ln |\cos x| + C$ o $\ln |\sec x| + C$ |
+| $\cot x$ | $\ln |\sin x| + C$ |
+| $\sec x$ | $\ln |\sec x + \tan x| + C$ |
+| $\csc x$ | $-\ln |\csc x + \cot x| + C$ |
+| $\sec^2 x$ | $\tan x + C$ |
+| $\csc^2 x$ | $-\cot x + C$ |
+| $\sec x \tan x$ | $\sec x + C$ |
+| $\csc x \cot x$ | $-\csc x + C$ |
+| $\frac&#123;1&#125;&#123;\sqrt&#123;1-x^2&#125;&#125;$ | $\arcsin x + C$ |
+| $\frac&#123;1&#125;&#123;1+x^2&#125;$ | $\arctan x + C$ |
+| $\frac&#123;1&#125;&#123;x\sqrt&#123;x^2-1&#125;&#125;$ | $\text&#123;arcsec &#125; x + C$ |
+
+## Tabla de Integrales por Sustitución
+
+**Estas fórmulas aplican cuando se tiene una función compuesta $u$ y su derivada $u'$**
+
+**Patrón general:** Si $u = g(x)$ y $u' = g'(x)$, entonces:
+
+| Forma con $u$ y $u'$ | Integral | Observación |
+| --- | --- | --- |
+| $\int u^n \cdot u' \, dx$ | $\frac&#123;u^&#123;n+1&#125;&#125;&#123;n+1&#125; + C$ | $n \neq -1$ |
+| $\int \frac&#123;u'&#125;&#123;u&#125; \, dx$ | $\ln |u| + C$ | Caso especial: $n = -1$ |
+| $\int e^u \cdot u' \, dx$ | $e^u + C$ | Exponencial |
+| $\int a^u \cdot u' \, dx$ | $\frac&#123;a^u&#125;&#123;\ln a&#125; + C$ | Base $a$ |
+| $\int \sin u \cdot u' \, dx$ | $-\cos u + C$ | Seno |
+| $\int \cos u \cdot u' \, dx$ | $\sin u + C$ | Coseno |
+| $\int \tan u \cdot u' \, dx$ | $-\ln |\cos u| + C$ | Tangente |
+| $\int \sec^2 u \cdot u' \, dx$ | $\tan u + C$ | Secante al cuadrado |
+| $\int \csc^2 u \cdot u' \, dx$ | $-\cot u + C$ | Cosecante al cuadrado |
+| $\int \sec u \tan u \cdot u' \, dx$ | $\sec u + C$ | Producto sec-tan |
+| $\int \csc u \cot u \cdot u' \, dx$ | $-\csc u + C$ | Producto csc-cot |
+| $\int \frac&#123;u'&#125;&#123;\sqrt&#123;1-u^2&#125;&#125; \, dx$ | $\arcsin u + C$ | Arcoseno |
+| $\int \frac&#123;u'&#125;&#123;1+u^2&#125; \, dx$ | $\arctan u + C$ | Arcotangente |
+
+### Ejemplos de Aplicación
+
+**Ejemplo 1:** $\int 2x \cdot e^&#123;x^2&#125; \, dx$
+
+- Identificar: $u = x^2$, $u' = 2x$
+- Aplicar fórmula: $\int e^u \cdot u' \, dx = e^u + C$
+- Resultado: $e^&#123;x^2&#125; + C$
+
+**Ejemplo 2:** $\int \frac&#123;3x^2&#125;&#123;x^3 + 1&#125; \, dx$
+
+- Identificar: $u = x^3 + 1$, $u' = 3x^2$
+- Aplicar fórmula: $\int \frac&#123;u'&#125;&#123;u&#125; \, dx = \ln |u| + C$
+- Resultado: $\ln |x^3 + 1| + C$
+
+**Ejemplo 3:** $\int \sin(5x) \, dx$
+
+- Identificar: $u = 5x$, $u' = 5$ (falta en el integrando)
+- Ajustar: $\int \sin(5x) \, dx = \frac&#123;1&#125;&#123;5&#125;\int \sin u \cdot 5 \, dx$
+- Resultado: $-\frac&#123;1&#125;&#123;5&#125;\cos(5x) + C$
+
+**Ejemplo 4:** $\int (2x+1)^7 \, dx$
+
+- Identificar: $u = 2x+1$, $u' = 2$ (falta en el integrando)
+- Ajustar: $\int (2x+1)^7 \, dx = \frac&#123;1&#125;&#123;2&#125;\int u^7 \cdot 2 \, dx$
+- Resultado: $\frac&#123;1&#125;&#123;2&#125; \cdot \frac&#123;u^8&#125;&#123;8&#125; + C = \frac&#123;(2x+1)^8&#125;&#123;16&#125; + C$
+
+**⚠️ Nota importante:** Si $u'$ no aparece exactamente en el integrando pero es una constante, se puede ajustar multiplicando y dividiendo por esa constante. Si $u'$ no es constante o no aparece, este método no aplica directamente.
+
 ## Métodos de Integración
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
 
-Selección y aplicación de técnicas según la estructura de la función.
+### Método de Sustitución (Cambio de Variable)
 
+**Cuándo usar:** Cuando aparece una función compuesta y su derivada
 
-### Técnicas de Integración
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+**Procedimiento:**
 
+1. Identificar $u = g(x)$ (generalmente la función interna)
+2. Calcular $du = g'(x) \, dx$
+3. Reemplazar en la integral: $\int f(g(x)) \cdot g'(x) \, dx = \int f(u) \, du$
+4. Integrar respecto a $u$
+5. Volver a la variable original
 
-## Integral Definida y Aplicaciones
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+**Ejemplo:**
 
-Cálculo de integrales definidas y áreas entre curvas.
+$$
+\int 2x \cdot e^&#123;x^2&#125; \, dx
+$$
 
+- $u = x^2$ → $du = 2x \, dx$
+- $\int e^u \, du = e^u + C = e^&#123;x^2&#125; + C$
 
-### Regla de Barrow
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Método de Integración por Partes
 
+**Fórmula:**
 
-### Cálculo de Áreas
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+$$
+\int u \, dv = u \cdot v - \int v \, du
+$$
+
+**Cuándo usar:** Producto de funciones de diferentes tipos (polinomio × exponencial, polinomio × trigonométrica, etc.)
+
+**Regla mnemotécnica ILATE** (orden de prioridad para elegir $u$):
+
+1. **I**nversa trigonométrica (arcsin, arctan, etc.)
+2. **L**ogarítmica (ln x, log x)
+3. **A**lgebraica (polinomios: $x^n$)
+4. **T**rigonométrica (sin, cos, tan)
+5. **E**xponencial ($e^x$, $a^x$)
+
+**Procedimiento:**
+
+1. Elegir $u$ (más arriba en ILATE) y $dv$ (el resto)
+2. Calcular $du$ y $v$
+3. Aplicar fórmula: $uv - \int v \, du$
+4. Integrar $\int v \, du$
+
+**Ejemplo:**
+
+$$
+\int x \cdot e^x \, dx
+$$
+
+- $u = x$ → $du = dx$
+- $dv = e^x \, dx$ → $v = e^x$
+- $\int x \cdot e^x \, dx = x \cdot e^x - \int e^x \, dx = xe^x - e^x + C$
+
+## Cálculo de Áreas
+
+### Área bajo una curva
+
+**Caso 1:** Función por encima del eje X en $[a,b]$
+
+$$
+A = \int_a^b f(x) \, dx
+$$
+
+**Caso 2:** Función por debajo del eje X en $[a,b]$
+
+$$
+A = -\int_a^b f(x) \, dx = \left|\int_a^b f(x) \, dx\right|
+$$
+
+**Caso 3:** Función que cruza el eje X
+
+Dividir en intervalos y sumar áreas:
+
+$$
+A = \left|\int_a^c f(x) \, dx\right| + \left|\int_c^b f(x) \, dx\right|
+$$
+
+donde $c$ es la raíz en $(a,b)$
+
+### Área entre dos curvas
+
+**Fórmula general:**
+
+$$
+A = \int_a^b [f(x) - g(x)] \, dx
+$$
+
+donde $f(x) \geq g(x)$ en $[a,b]$
+
+**Mnemotecnia:** “Techo menos Piso”
+
+**Procedimiento:**
+
+1. Graficar o determinar cuál función está arriba
+2. Encontrar puntos de intersección: $f(x) = g(x)$
+3. Integrar la diferencia: $\int_a^b [f_&#123;\text&#123;arriba&#125;&#125;(x) - f_&#123;\text&#123;abajo&#125;&#125;(x)] \, dx$
+
+**Ejemplo:**
+
+Área entre $f(x) = x$ y $g(x) = x^2$ en $[0, 1]$:
+
+- Intersecciones: $x = x^2$ → $x = 0$ y $x = 1$
+- En $[0,1]$: $x \geq x^2$ (recta arriba, parábola abajo)
+- $A = \int_0^1 (x - x^2) \, dx = \left[\frac&#123;x^2&#125;&#123;2&#125; - \frac&#123;x^3&#125;&#123;3&#125;\right]_0^1 = \frac&#123;1&#125;&#123;2&#125; - \frac&#123;1&#125;&#123;3&#125; = \frac&#123;1&#125;&#123;6&#125;$
+
+## Integrales de Funciones Racionales
+
+### Fracciones Simples
+
+**Caso 1:** Grado numerador < Grado denominador
+
+Descomponer en fracciones parciales según los factores del denominador
+
+**Caso 2:** Grado numerador ≥ Grado denominador
+
+1. Dividir polinomios primero
+2. Aplicar fracciones parciales al resto
+
+### Tipos de descomposición
+
+| Tipo de factor | Descomposición |
+| --- | --- |
+| $(x-a)$ | $\frac&#123;A&#125;&#123;x-a&#125;$ |
+| $(x-a)^n$ | $\frac&#123;A_1&#125;&#123;x-a&#125; + \frac&#123;A_2&#125;&#123;(x-a)^2&#125; + \cdots + \frac&#123;A_n&#125;&#123;(x-a)^n&#125;$ |
+| $x^2 + bx + c$ (irreducible) | $\frac&#123;Ax + B&#125;&#123;x^2 + bx + c&#125;$ |
+
+## Integración de Funciones Trigonométricas
+
+### Identidades útiles
+
+| Integral | Identidad útil | Resultado |
+| --- | --- | --- |
+| $\int \sin^2 x \, dx$ | $\sin^2 x = \frac&#123;1 - \cos 2x&#125;&#123;2&#125;$ | $\frac&#123;x&#125;&#123;2&#125; - \frac&#123;\sin 2x&#125;&#123;4&#125; + C$ |
+| $\int \cos^2 x \, dx$ | $\cos^2 x = \frac&#123;1 + \cos 2x&#125;&#123;2&#125;$ | $\frac&#123;x&#125;&#123;2&#125; + \frac&#123;\sin 2x&#125;&#123;4&#125; + C$ |
+| $\int \tan^2 x \, dx$ | $\tan^2 x = \sec^2 x - 1$ | $\tan x - x + C$ |
+
+## Consejos Prácticos
+
+1. **Verificación:** Siempre puedes verificar derivando el resultado
+2. **Constante de integración:** No olvidar $+ C$ en integrales indefinidas
+3. **Simplificación:** Simplificar antes de integrar cuando sea posible
+4. **Tabla de integrales:** Memorizar las integrales inmediatas más comunes
 
 
 

@@ -1,0 +1,106 @@
+---
+topicId: asymptotes
+title: "Asíntotas"
+description: "Asíntotas verticales, horizontales y oblicuas para funciones racionales."
+icon: tabler:chart-line
+colorVariant: accent
+order: 9
+sectionCount: 5
+shortcuts:
+  - href: "/topic/asymptotes#tipos-de-asintotas"
+    title: "Tipos de Asíntotas"
+    variant: accent
+  - href: "/topic/asymptotes#resumen-de-procedimiento"
+    title: "Resumen de Procedimiento"
+    variant: secondary
+---
+
+## Tipos de Asíntotas
+
+| Tipo | Condición | Cómo obtenerla | Ecuación |
+| --- | --- | --- | --- |
+| Vertical (A.V.) | $\lim_&#123;x \to a&#125; f(x) = \pm\infty$ | Igualar denominador a cero: $Q(x) = 0$. Verificar que el límite sea $\pm\infty$ | $x = a$ |
+| Horizontal (A.H.) | $\lim_&#123;x \to \pm\infty&#125; f(x) = L$ (finito) | Si $GN \lt GD$ → $L = 0$ ; Si $GN = GD$ → $L = \frac&#123;CPN&#125;&#123;CPD&#125;$ ; Si $GN > GD$ → No hay A.H. | $y = L$ |
+| Oblicua (A.O.) | No hay A.H. y $GN - GD = 1$ | División polinómica $P(x) \div Q(x)$. El cociente (sin resto) es la ecuación. | $y = mx + b$ |
+
+**Nota:** $GN$ = Grado del Numerador, $GD$ = Grado del Denominador, $CPN$ = Coeficiente Principal del Numerador, $CPD$ = Coeficiente Principal del Denominador
+
+## Asíntota Vertical (A.V.)
+
+### Procedimiento
+
+1. Igualar el denominador a cero: $Q(x) = 0$
+2. Resolver para encontrar candidatos a A.V.
+3. **IMPORTANTE:** Verificar que el límite realmente dé $\pm\infty$
+   - Si al simplificar se cancela el factor, NO es A.V. (es discontinuidad evitable)
+
+### Ejemplo
+
+Para $f(x) = \frac&#123;1&#125;&#123;x-2&#125;$:
+
+- Candidato: $x - 2 = 0$ → $x = 2$
+- Verificar: $\lim_&#123;x \to 2&#125; \frac&#123;1&#125;&#123;x-2&#125; = \pm\infty$ ✓
+- **Asíntota Vertical:** $x = 2$
+
+## Asíntota Horizontal (A.H.)
+
+### Regla según grados
+
+| Caso | Condición | Límite | Asíntota |
+| --- | --- | --- | --- |
+| Grado Numerador < Grado Denominador | $GN \lt GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = 0$ | $y = 0$ |
+| Grado Numerador = Grado Denominador | $GN = GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = \frac&#123;CPN&#125;&#123;CPD&#125;$ | $y = \frac&#123;CPN&#125;&#123;CPD&#125;$ |
+| Grado Numerador > Grado Denominador | $GN > GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = \pm\infty$ | No hay A.H. |
+
+### Ejemplos
+
+| Función | Grados | Asíntota Horizontal |
+| --- | --- | --- |
+| $f(x) = \frac&#123;2x&#125;&#123;x^2+1&#125;$ | $GN=1, GD=2$ | $y = 0$ |
+| $f(x) = \frac&#123;3x^2+1&#125;&#123;x^2-4&#125;$ | $GN=2, GD=2$ | $y = \frac&#123;3&#125;&#123;1&#125; = 3$ |
+| $f(x) = \frac&#123;x^3&#125;&#123;x^2+1&#125;$ | $GN=3, GD=2$ | No hay A.H. |
+
+## Asíntota Oblicua (A.O.)
+
+### Condiciones
+
+- No hay asíntota horizontal
+- El grado del numerador es exactamente 1 mayor que el del denominador ($GN - GD = 1$)
+
+### Método 1: División Polinómica
+
+Dividir $P(x) \div Q(x)$ y tomar el cociente (ignorar el resto)
+
+**Ejemplo:** $f(x) = \frac&#123;x^2 + 3x + 2&#125;&#123;x + 1&#125;$
+
+División: $x^2 + 3x + 2 = (x+1)(x+2) + 0$
+
+**Asíntota Oblicua:** $y = x + 2$
+
+### Método 2: Fórmulas de límites
+
+$$
+m = \lim_&#123;x \to \infty&#125; \frac&#123;f(x)&#125;&#123;x&#125;
+$$
+
+$$
+b = \lim_&#123;x \to \infty&#125; [f(x) - mx]
+$$
+
+**Asíntota Oblicua:** $y = mx + b$
+
+## Resumen de Procedimiento
+
+Para funciones racionales $f(x) = \frac&#123;P(x)&#125;&#123;Q(x)&#125;$:
+
+1. **Asíntotas Verticales:**
+   - Resolver $Q(x) = 0$
+   - Verificar que el límite sea $\pm\infty$
+2. **Asíntotas Horizontales:**
+   - Comparar grados de $P(x)$ y $Q(x)$
+   - Aplicar regla según el caso
+3. **Asíntotas Oblicuas:**
+   - Solo si no hay A.H. y $GN - GD = 1$
+   - Usar división polinómica o fórmulas de límites
+
+**Nota:** Una función NO puede tener simultáneamente A.H. y A.O.

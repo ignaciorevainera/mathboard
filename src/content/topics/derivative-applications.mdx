@@ -1,0 +1,297 @@
+---
+topicId: derivative-applications
+title: "Aplicaciones de Derivadas"
+description: "Extremos, monotonía y concavidad para el análisis cualitativo de funciones."
+icon: tabler:chart-line
+colorVariant: primary
+order: 2
+sectionCount: 2
+shortcuts:
+  - href: "/topic/derivative-applications#aplicaciones-de-la-derivada"
+    title: "Aplicaciones"
+    variant: primary
+  - href: "/topic/derivative-applications#extremos-de-una-funcion"
+    title: "Extremos"
+    variant: accent
+  - href: "/topic/derivative-advanced-analysis"
+    title: "Bloque Avanzado"
+    variant: secondary
+---
+
+## Aplicaciones de la Derivada
+
+| Aplicación | Fórmula/Criterio |
+| --- | --- |
+| Recta Tangente en $(x_0, y_0)$ | $y - y_0 = f'(x_0)(x - x_0)$ |
+| Recta Normal en $(x_0, y_0)$ | $y - y_0 = -\frac&#123;1&#125;&#123;f'(x_0)&#125;(x - x_0)$ |
+| Velocidad instantánea | $v(t) = s'(t)$ donde $s(t)$ es posición |
+| Aceleración instantánea | $a(t) = v'(t) = s''(t)$ |
+
+## Aplicaciones de la Derivada Avanzadas
+
+### Resumen Rápido - Guía de Consulta
+
+#### Cómo Encontrar Extremos Relativos (Locales)
+
+| Paso | Acción | Fórmula/Criterio |
+| --- | --- | --- |
+| 1 | Calcular $f'(x)$ | - |
+| 2 | Encontrar puntos críticos | $f'(x) = 0$ o $f'(x)$ no existe |
+| 3a | Criterio 1ra derivada | Si $f'$ cambia de $+$ a $-$ → Máximo; de $-$ a $+$ → Mínimo |
+| 3b | Criterio 2da derivada | Si $f''(c) \lt 0$ → Máximo; si $f''(c) \gt 0$ → Mínimo |
+
+#### Cómo Encontrar Extremos Absolutos en $[a,b]$
+
+| Paso | Acción | Nota |
+| --- | --- | --- |
+| 1 | Encontrar puntos críticos en $(a,b)$ | Resolver $f'(x) = 0$ |
+| 2 | Evaluar $f$ en puntos críticos | Calcular $f(c_1), f(c_2), \ldots$ |
+| 3 | Evaluar $f$ en los extremos | Calcular $f(a)$ y $f(b)$ |
+| 4 | Comparar todos los valores | El mayor es el máximo absoluto; el menor es el mínimo absoluto |
+
+#### Cómo Analizar Monotonía (Crecimiento/Decrecimiento)
+
+| Paso | Acción | Interpretación |
+| --- | --- | --- |
+| 1 | Calcular $f'(x)$ | - |
+| 2 | Encontrar donde $f'(x) = 0$ o no existe | Puntos que dividen intervalos |
+| 3 | Hacer tabla de signos de $f'(x)$ | Probar valores en cada intervalo |
+| 4 | Clasificar intervalos | $f' \gt 0$ → Creciente; $f' \lt 0$ → Decreciente |
+
+#### Cómo Analizar Concavidad
+
+| Paso | Acción | Interpretación |
+| --- | --- | --- |
+| 1 | Calcular $f''(x)$ | - |
+| 2 | Encontrar donde $f''(x) = 0$ o no existe | Candidatos a puntos de inflexión |
+| 3 | Hacer tabla de signos de $f''(x)$ | Probar valores en cada intervalo |
+| 4 | Clasificar intervalos | $f'' \gt 0$ → Cóncava arriba ∪; $f'' \lt 0$ → Cóncava abajo ∩ |
+
+#### Cómo Encontrar Puntos de Inflexión
+
+| Paso | Acción | Criterio |
+| --- | --- | --- |
+| 1 | Resolver $f''(x) = 0$ | Candidatos |
+| 2 | Verificar cambio de signo de $f''$ | Si cambia → Es punto de inflexión; si no cambia → No es |
+
+#### L'Hôpital (Indeterminaciones)
+
+| Indeterminación | Procedimiento |
+| --- | --- |
+| $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$ | $\lim_&#123;x \to a&#125; \frac&#123;f(x)&#125;&#123;g(x)&#125; = \lim_&#123;x \to a&#125; \frac&#123;f'(x)&#125;&#123;g'(x)&#125;$ |
+
+#### Tabla de Criterios Rápidos
+
+| Quiero saber… | Uso… | Criterio |
+| --- | --- | --- |
+| ¿Dónde crece? | $f'(x)$ | $f'(x) \gt 0$ |
+| ¿Dónde decrece? | $f'(x)$ | $f'(x) \lt 0$ |
+| ¿Máximo relativo? | $f'(x)$ y $f''(x)$ | $f'(c) = 0$ y $f''(c) \lt 0$ |
+| ¿Mínimo relativo? | $f'(x)$ y $f''(x)$ | $f'(c) = 0$ y $f''(c) \gt 0$ |
+| ¿Cóncava arriba? | $f''(x)$ | $f''(x) \gt 0$ |
+| ¿Cóncava abajo? | $f''(x)$ | $f''(x) \lt 0$ |
+| ¿Punto de inflexión? | $f''(x)$ | $f''(c) = 0$ y cambia de signo |
+
+### Extremos de una Función
+
+#### Definiciones
+
+| Tipo | Definición | Alcance |
+| --- | --- | --- |
+| **Máximo Relativo (Local)** | $f(c) \geq f(x)$ para todo $x$ en un intervalo alrededor de $c$ | Local (vecindario) |
+| **Mínimo Relativo (Local)** | $f(c) \leq f(x)$ para todo $x$ en un intervalo alrededor de $c$ | Local (vecindario) |
+| **Máximo Absoluto (Global)** | $f(c) \geq f(x)$ para TODO $x$ en el dominio | Todo el dominio |
+| **Mínimo Absoluto (Global)** | $f(c) \leq f(x)$ para TODO $x$ en el dominio | Todo el dominio |
+
+**Nota importante:** Un extremo absoluto siempre es también un extremo relativo, pero un extremo relativo NO necesariamente es absoluto.
+
+#### Teorema de los Valores Extremos (Weierstrass)
+
+**Enunciado:** Si $f$ es **continua** en un intervalo **cerrado** $[a,b]$, entonces $f$ tiene un máximo absoluto y un mínimo absoluto en $[a,b]$.
+
+**Condiciones necesarias:**
+
+1. La función debe ser continua
+2. El intervalo debe ser cerrado y acotado
+
+### Extremos Relativos (Locales)
+
+#### Puntos Críticos
+
+Un punto $x = c$ es **crítico** si:
+
+- $f'(c) = 0$, o
+- $f'(c)$ no existe
+
+> Advertencia: No todos los puntos críticos son extremos.
+
+#### Criterio de la Primera Derivada
+
+**Procedimiento:**
+
+1. Encontrar puntos críticos
+2. Analizar el signo de $f'(x)$ a la izquierda y derecha de cada punto crítico
+3. Clasificar según cambio de signo:
+
+| Cambio de signo de $f'$ | Tipo de extremo en $x = c$ |
+| --- | --- |
+| De $+$ a $-$ | Máximo relativo |
+| De $-$ a $+$ | Mínimo relativo |
+| No cambia | No es extremo (puede ser punto de inflexión horizontal) |
+
+**Ejemplo:** $f(x) = x^3 - 3x$
+
+1. $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$
+2. Puntos críticos: $x = -1, x = 1$
+3. Tabla de signos:
+
+| Intervalo | $x \lt -1$ | $x = -1$ | $-1 \lt x \lt 1$ | $x = 1$ | $x \gt 1$ |
+| --- | --- | --- | --- | --- | --- |
+| $f'(x)$ | $+$ | $0$ | $-$ | $0$ | $+$ |
+| $f(x)$ | Creciente | **Máximo** | Decreciente | **Mínimo** | Creciente |
+
+4. Resultados:
+  - Máximo relativo en $x = -1$ con $f(-1) = 2$
+  - Mínimo relativo en $x = 1$ con $f(1) = -2$
+
+#### Criterio de la Segunda Derivada
+
+**Procedimiento:**
+
+1. Encontrar puntos críticos donde $f'(c) = 0$
+2. Calcular $f''(c)$
+3. Clasificar según el signo:
+
+| Signo de $f''(c)$ | Tipo de extremo | Interpretación |
+| --- | --- | --- |
+| $f''(c) \gt 0$ | Mínimo relativo | Cóncava hacia arriba ∪ |
+| $f''(c) \lt 0$ | Máximo relativo | Cóncava hacia abajo ∩ |
+| $f''(c) = 0$ | Indeterminado | Usar otro método |
+
+**Mnemotecnia:**
+
+- $f'' \gt 0$ → Forma de "U" → Mínimo en el fondo
+- $f'' \lt 0$ → Forma de "∩" → Máximo en la cima
+
+**Ejemplo:** $f(x) = x^3 - 3x$
+
+1. $f'(x) = 3x^2 - 3 = 0$ → $x = \pm 1$
+2. $f''(x) = 6x$
+3. Evaluar:
+  - $f''(-1) = -6 \lt 0$ → Máximo relativo en $x = -1$
+  - $f''(1) = 6 \gt 0$ → Mínimo relativo en $x = 1$
+
+### Extremos Absolutos
+
+#### Procedimiento para encontrar extremos absolutos en $[a,b]$
+
+**Paso 1:** Encontrar todos los puntos críticos en el intervalo abierto $(a,b)$
+
+- Resolver $f'(x) = 0$
+- Identificar donde $f'(x)$ no existe
+
+**Paso 2:** Evaluar $f$ en:
+
+- Todos los puntos críticos: $f(c_1), f(c_2), \ldots$
+- Los extremos del intervalo: $f(a)$ y $f(b)$
+
+**Paso 3:** Comparar todos los valores obtenidos:
+
+- El **valor más grande** es el máximo absoluto
+- El **valor más pequeño** es el mínimo absoluto
+
+#### Ejemplo Completo
+
+**Problema:** Encontrar los extremos absolutos de $f(x) = x^3 - 3x$ en $[-2, 2]$
+
+**Solución:**
+
+**Paso 1:** Puntos críticos en $(-2, 2)$
+
+- $f'(x) = 3x^2 - 3 = 0$ → $x = -1, x = 1$
+
+**Paso 2:** Evaluar $f$ en todos los candidatos:
+
+- $f(-2) = (-2)^3 - 3(-2) = -8 + 6 = -2$
+- $f(-1) = (-1)^3 - 3(-1) = -1 + 3 = 2$
+- $f(1) = (1)^3 - 3(1) = 1 - 3 = -2$
+- $f(2) = (2)^3 - 3(2) = 8 - 6 = 2$
+
+**Paso 3:** Comparar:
+
+| Punto | $x = -2$ | $x = -1$ | $x = 1$ | $x = 2$ |
+| --- | --- | --- | --- | --- |
+| Valor | $-2$ | $2$ | $-2$ | $2$ |
+
+**Respuestas:**
+
+- **Máximo absoluto:** $2$ (ocurre en $x = -1$ y $x = 2$)
+- **Mínimo absoluto:** $-2$ (ocurre en $x = -2$ y $x = 1$)
+
+#### Casos especiales
+
+| Situación | Qué hacer |
+| --- | --- |
+| Intervalo abierto $(a,b)$ | NO hay garantía de que existan extremos absolutos |
+| Intervalo infinito $(-\infty, b]$ | Evaluar límite cuando $x \to -\infty$ |
+| Función discontinua | Los extremos pueden ocurrir en puntos de discontinuidad |
+
+### Monotonía (Crecimiento y Decrecimiento)
+
+#### Criterios
+
+| Criterio | Signo de $f'(x)$ | Comportamiento |
+| --- | --- | --- |
+| Creciente | $f'(x) \gt 0$ | La función sube |
+| Decreciente | $f'(x) \lt 0$ | La función baja |
+| Constante | $f'(x) = 0$ | La función es horizontal |
+
+#### Procedimiento completo
+
+1. Calcular $f'(x)$
+2. Encontrar puntos críticos: $f'(x) = 0$ o $f'(x)$ no existe
+3. Hacer tabla de signos de $f'(x)$ (elegir valores de prueba en cada intervalo)
+4. Determinar intervalos de crecimiento y decrecimiento
+
+### Concavidad
+
+#### Criterios
+
+| Criterio | Signo de $f''(x)$ | Forma de la gráfica | Símbolo |
+| --- | --- | --- | --- |
+| Cóncava hacia arriba | $f''(x) \gt 0$ | Como una "U" | ∪ |
+| Cóncava hacia abajo | $f''(x) \lt 0$ | Como una "∩" | ∩ |
+
+#### Puntos de Inflexión
+
+**Definición:** Un punto $x = c$ es de **inflexión** si:
+
+1. $f''(c) = 0$ o $f''(c)$ no existe, **Y**
+2. $f''(x)$ cambia de signo en $x = c$
+
+**Interpretación:** La función cambia de cóncava arriba a cóncava abajo (o viceversa)
+
+**Advertencia:** Si $f''(c) = 0$ pero NO hay cambio de signo, entonces NO es punto de inflexión.
+
+#### Ejemplo
+
+**Función:** $f(x) = x^3$
+
+1. $f''(x) = 6x$
+2. $f''(0) = 0$ (candidato)
+3. Tabla de signos:
+
+| Intervalo | $x \lt 0$ | $x = 0$ | $x \gt 0$ |
+| --- | --- | --- | --- |
+| $f''(x)$ | $-$ | $0$ | $+$ |
+| Concavidad | ∩ | **Inflexión** | ∪ |
+
+4. Hay cambio de signo → $x = 0$ es punto de inflexión
+
+
+## Continuación Avanzada
+
+Para Regla de L'Hôpital, optimización y teoremas (Rolle y Valor Medio), continuar en:
+
+- [Análisis Avanzado con Derivadas](/topic/derivative-advanced-analysis)
+

@@ -19,72 +19,225 @@ shortcuts:
 ---
 
 ## Funciones Exponenciales
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Comportamiento analítico y gráfico de funciones de la forma $f(x)=a^x$.
 
-### Análisis de la función
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Propiedades de Exponenciales
+
+| Propiedad | Fórmula | Ejemplo |
+| --- | --- | --- |
+| Identidad | $a^0 = 1$ | $5^0 = 1$ |
+| Identidad | $a^1 = a$ | $7^1 = 7$ |
+| Producto | $a^m a^n = a^(m+n)$ | $2^3 2^5 = 2^8$ |
+| Cociente | $(a^m)/(a^n) = a^(m-n)$ | $(5^7)/(5^3) = 5^4$ |
+| Potencia de potencia | $(a^m)^n = a^(mn)$ | $(3^2)^4 = 3^8$ |
+| Producto elevado | $(ab)^n = a^n b^n$ | $(2 5)^3 = 2^3 5^3$ |
+| Cociente elevado | $((a)/(b))^n = (a^n)/(b^n)$ | $((3)/(4))^2 = 9/16$ |
+| Exponente negativo | $a^(-n) = 1/(a^n)$ | $2^(-3) = 1/8$ |
+| Raíz como potencia | $\sqrt[n]&#123;a&#125; = a^(1/n)$ | $\sqrt[3]&#123;8&#125; = 2$ |
+| Raíz con exponente | $\sqrt[n]&#123;a^m&#125; = a^(m/n)$ | $\sqrt&#123;x^3&#125; = x^(3/2)$ |
 
 
-### Comportamiento gráfico
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Ecuaciones Exponenciales
+
+#### Tipo 1: Bases iguales
+
+$$
+a^&#123;f(x)&#125; = a^&#123;g(x)&#125; \Rightarrow f(x) = g(x)
+$$
+
+Ejemplo: $2^(x+1) = 2^5 \Rightarrow x+1 = 5 \Rightarrow x=4$.
+
+#### Tipo 2: Igualación de bases
+
+$$
+a^&#123;f(x)&#125; = b \Rightarrow f(x) = \log_a b
+$$
+
+Ejemplo: $3^x = 81 = 3^4 \Rightarrow x=4$.
+
+#### Tipo 3: Aplicar logaritmo
+
+$$
+a^&#123;f(x)&#125; = b \Rightarrow f(x) = (\log b)/(\log a)
+$$
+
+Ejemplo: $5^x=20 \Rightarrow x=(\log 20)/(\log 5) \approx 1.86$.
+
+### Aplicaciones de Exponenciales
+
+#### Crecimiento o decrecimiento
+
+$$
+A(t) = A_0 e^(kt)
+$$
+
+- $k \gt 0$: crecimiento.
+- $k \lt 0$: decrecimiento.
+
+#### Vida media
+
+$$
+A(t) = A_0 (1/2)^&#123;t/T_&#123;1/2&#125;&#125;
+$$
+
+#### Interés compuesto
+
+$$
+A = P(1 + r/n)^&#123;nt&#125;
+$$
+
+Capitalización continua:
+
+$$
+A = Pe^(rt)
+$$
 
 
 ## Teoría de Logaritmos
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Definiciones y propiedades algebraicas para operar expresiones logarítmicas.
 
 
-### Definición y Propiedades
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Propiedades de Logaritmos
+
+| Propiedad | Fórmula | Descripción |
+| --- | --- | --- |
+| Definición | $\log_a b = c \iff a^c=b$ | El logaritmo es exponente |
+| Logaritmo de 1 | $\log_a 1=0$ | Porque $a^0=1$ |
+| Logaritmo de la base | $\log_a a=1$ | Porque $a^1=a$ |
+| Producto | $\log_a(xy)=\log_a x + \log_a y$ | Suma de logs |
+| Cociente | $\log_a((x)/(y))=\log_a x-\log_a y$ | Resta de logs |
+| Potencia | $\log_a(x^n)=n\log_a x$ | Baja exponente |
+| Cambio de base | $\log_a b=(\log_c b)/(\log_c a)$ | Cualquier base $c$ |
+| Inversa | $a^&#123;\log_a x&#125;=x$ | Se cancelan |
+| Inversa | $\log_a(a^x)=x$ | Se cancelan |
+
+
+### Logaritmo Natural y Decimal
+
+#### Logaritmo natural
+
+| Propiedad | Fórmula | Nota |
+| --- | --- | --- |
+| Base | $\ln x = \log_e x$ | $e \approx 2.718$ |
+| Valor notable | $\ln 1 = 0$ | |
+| Valor notable | $\ln e = 1$ | |
+| Producto | $\ln(xy)=\ln x + \ln y$ | |
+| Cociente | $\ln((x)/(y))=\ln x-\ln y$ | |
+| Potencia | $\ln(x^n)=n\ln x$ | |
+
+#### Logaritmo decimal
+
+| Propiedad | Fórmula | Nota |
+| --- | --- | --- |
+| Base | $\log x = \log_&#123;10&#125; x$ | Log común |
+| Valor notable | $\log 1=0$ | |
+| Valor notable | $\log 10=1$ | |
+| Valor notable | $\log 100=2$ | |
+| Valor notable | $\log 1000=3$ | |
 
 
 ### Cambio de Base
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Fórmula general
+
+$$
+\log_a b = (\log_c b)/(\log_c a)
+$$
+
+También puede usarse con log común o log natural:
+
+$$
+\log_a b = (\log b)/(\log a) = (\ln b)/(\ln a)
+$$
+
+#### Ejemplo
+
+$$
+\log_3 27 = (\ln 27)/(\ln 3) = 3
+$$
+
+
+### Ejemplos de Aplicación
+
+#### Simplificar potencias
+
+$$
+(x^5 x^3)/(x^2) = x^6
+$$
+
+#### Simplificar logaritmos
+
+$$
+\log_2(8x^3)=\log_2 8 + \log_2(x^3)=3+3\log_2 x
+$$
 
 
 ## Ecuaciones Logarítmicas y Exponenciales
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Estrategias para despejar incógnitas en ecuaciones con exponentes y logaritmos.
 
 
 ### Estrategias de Resolución
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Procedimiento general para ecuaciones logarítmicas
+
+1. Agrupar logaritmos en un lado.
+2. Combinar propiedades (suma a producto, resta a cociente).
+3. Convertir a forma exponencial.
+4. Resolver ecuación resultante.
+5. Verificar dominio (argumentos positivos).
+
+#### Ejemplo 1
+
+$$
+2^x = 8
+$$
+
+Por bases iguales: $2^x = 2^3 \Rightarrow x=3$.
+
+También:
+
+$$
+x = (\log 8)/(\log 2)=3
+$$
+
+#### Ejemplo 2
+
+$$
+\log_2 x + \log_2(x-3)=2
+$$
+
+1. Combinar: $\log_2(x(x-3))=2$.
+2. Pasar a exponencial: $x(x-3)=4$.
+3. Resolver: $x^2-3x-4=0 \Rightarrow (x-4)(x+1)=0$.
+4. Soluciones candidatas: $x=4$ o $x=-1$.
+5. Dominio: $x \gt 0$ y $x-3 \gt 0 \Rightarrow x \gt 3$.
+
+Respuesta: $x=4$.
+
+#### Ejemplo 3
+
+$$
+\log_3(x+1)-\log_3(x-2)=1
+$$
+
+1. Cociente: $\log_3((x+1)/(x-2))=1$.
+2. Exponencial: $(x+1)/(x-2)=3$.
+3. Resolver: $x+1=3x-6 \Rightarrow 7=2x \Rightarrow x=3.5$.
+4. Dominio: $x+1 \gt 0$ y $x-2 \gt 0$ (se cumple).
+
+
+### Función Exponencial vs Logarítmica
+
+| Característica | Exponencial $y=a^x$ | Logarítmica $y=\log_a x$ |
+| --- | --- | --- |
+| Dominio | Todos los reales | $x \gt 0$ |
+| Rango | $y \gt 0$ | Todos los reales |
+| Asíntota | Horizontal: $y=0$ | Vertical: $x=0$ |
+| Si $a \gt 1$ | Creciente | Creciente |
+| Punto notable | $(0,1)$ | $(1,0)$ |
+| Relación | Inversa de la logarítmica | Inversa de la exponencial |
+
+La curva logarítmica es el reflejo de la exponencial respecto de $y=x$.
 
 
 

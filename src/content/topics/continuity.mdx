@@ -1,0 +1,122 @@
+---
+topicId: continuity
+title: "Continuidad"
+description: "Continuidad de funciones, discontinuidades y teoremas fundamentales."
+icon: tabler:chart-dots
+colorVariant: neutral
+order: 10
+sectionCount: 6
+shortcuts:
+  - href: "/topic/continuity#condiciones-de-continuidad"
+    title: "Condiciones de Continuidad"
+    variant: neutral
+  - href: "/topic/continuity#teoremas-sobre-continuidad"
+    title: "Teoremas sobre Continuidad"
+    variant: accent
+---
+
+## Condiciones de Continuidad
+
+Una función $f(x)$ es **continua en $x = a$** si se cumplen estas 3 condiciones:
+
+| Condición | Descripción | Verificación |
+| --- | --- | --- |
+| 1. Existe $f(a)$ | La función está definida en el punto | $a \in \text&#123;Dom&#125;(f)$ |
+| 2. Existe $\lim_&#123;x \to a&#125; f(x)$ | El límite existe | $\lim_&#123;x \to a^-&#125; f(x) = \lim_&#123;x \to a^+&#125; f(x)$ |
+| 3. $f(a) = \lim_&#123;x \to a&#125; f(x)$ | El valor coincide con el límite | Igualdad numérica |
+
+**Si falla alguna condición, la función es discontinua en $x = a$**
+
+## Límites Laterales
+
+| Límite | Notación | Significado |
+| --- | --- | --- |
+| Límite por izquierda | $\lim_&#123;x \to a^-&#125; f(x)$ | $x$ se acerca a $a$ por valores menores |
+| Límite por derecha | $\lim_&#123;x \to a^+&#125; f(x)$ | $x$ se acerca a $a$ por valores mayores |
+
+**El límite existe** si y solo si: $\lim_&#123;x \to a^-&#125; f(x) = \lim_&#123;x \to a^+&#125; f(x)$
+
+## Tipos de Discontinuidad
+
+### Discontinuidad Evitable (Removible)
+
+| Característica | Descripción |
+| --- | --- |
+| Definición | Existe $\lim_&#123;x \to a&#125; f(x) = L$ (finito) pero $f(a) \neq L$ o $f(a)$ no existe |
+| Gráficamente | "Hueco" o punto aislado en la gráfica |
+| Se puede evitar | Redefiniendo $f(a) = L$ |
+
+**Ejemplo:**
+
+$$
+f(x) = \begin&#123;cases&#125; \frac&#123;x^2-4&#125;&#123;x-2&#125; & \text&#123;si &#125; x \neq 2 \\ 1 & \text&#123;si &#125; x = 2 \end&#123;cases&#125;
+$$
+
+- $\lim_&#123;x \to 2&#125; f(x) = 4$ pero $f(2) = 1$
+- Discontinuidad evitable en $x = 2$
+
+### Discontinuidad Esencial (No Removible)
+
+| Tipo | Descripción | Ejemplo |
+| --- | --- | --- |
+| Salto finito | Los límites laterales existen pero son diferentes | Función escalón: $\lim_&#123;x \to 0^-&#125; f(x) \neq \lim_&#123;x \to 0^+&#125; f(x)$ |
+| Salto infinito | Al menos un límite lateral es $\pm\infty$ | $f(x) = \frac&#123;1&#125;&#123;x&#125;$ en $x = 0$ |
+
+**No se puede evitar:** El límite no existe, no hay forma de redefinir la función para hacerla continua.
+
+## Teoremas sobre Continuidad
+
+### Teorema de Bolzano
+
+**Enunciado:**
+
+Si $f$ es continua en $[a,b]$ y $f(a) \cdot f(b) \lt 0$, entonces existe al menos un $c \in (a,b)$ tal que $f(c) = 0$
+
+**Interpretación:**
+
+- Si la función es continua en un intervalo
+- Y cambia de signo (uno positivo, otro negativo)
+- Entonces la función cruza el eje X (tiene al menos una raíz)
+
+**Ejemplo de uso:**
+
+Demostrar que $f(x) = x^3 - x - 1$ tiene una raíz en $(1, 2)$:
+
+- $f(1) = 1 - 1 - 1 = -1$ (negativo)
+- $f(2) = 8 - 2 - 1 = 5$ (positivo)
+- $f(1) \cdot f(2) = -5 \lt 0$ ✓
+- Por Bolzano, $\exists c \in (1,2)$ tal que $f(c) = 0$
+
+### Teorema del Valor Intermedio
+
+**Enunciado:**
+
+Si $f$ es continua en $[a,b]$ y $k$ es un valor entre $f(a)$ y $f(b)$, entonces existe $c \in (a,b)$ tal que $f(c) = k$
+
+**Interpretación:**
+
+Una función continua toma todos los valores intermedios entre dos puntos.
+
+## Funciones Continuas Conocidas
+
+Estas funciones son continuas en todo su dominio:
+
+| Función | Dominio | Observaciones |
+| --- | --- | --- |
+| Polinomios | $\mathbb&#123;R&#125;$ | Siempre continuas |
+| $\sin x$, $\cos x$ | $\mathbb&#123;R&#125;$ | Continuas en todo $\mathbb&#123;R&#125;$ |
+| $e^x$ | $\mathbb&#123;R&#125;$ | Continua en todo $\mathbb&#123;R&#125;$ |
+| $\ln x$ | $(0, +\infty)$ | Continua en su dominio |
+| Racionales $\frac&#123;P(x)&#125;&#123;Q(x)&#125;$ | $\mathbb&#123;R&#125; - \{x : Q(x)=0\}$ | Continuas donde $Q(x) \neq 0$ |
+
+## Procedimiento para Estudiar Continuidad
+
+1. **Determinar el dominio** de $f(x)$
+2. **Identificar puntos problemáticos:**
+   - Donde el denominador se anula
+   - Cambios de definición (funciones por partes)
+3. **Para cada punto $x = a$ problemático:**
+   - Verificar si $f(a)$ existe
+   - Calcular $\lim_&#123;x \to a^-&#125; f(x)$ y $\lim_&#123;x \to a^+&#125; f(x)$
+   - Comparar límites y valor de la función
+4. **Clasificar la discontinuidad** (si existe)

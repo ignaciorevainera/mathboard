@@ -1,78 +1,261 @@
 ---
 topicId: limits-continuity
-title: "Análisis de Límites y Continuidad"
-description: "Técnicas de límites, análisis de continuidad y comportamiento asintótico de funciones."
+title: "Análisis de Límites"
+description: "Técnicas de límites, indeterminaciones y comportamiento asintótico de funciones."
 icon: tabler:chart-dots
 colorVariant: secondary
 order: 6
-sectionCount: 2
+sectionCount: 7
 shortcuts:
-  - href: "/topic/limits-continuity#calculo-de-limites"
-    title: "Cálculo de Límites"
+  - href: "/topic/limits-continuity#propiedades-de-limites"
+    title: "Propiedades de Límites"
     variant: secondary
-  - href: "/topic/limits-continuity#continuidad-y-asintotas"
-    title: "Continuidad y Asíntotas"
+  - href: "/topic/limits-continuity#resolucion-de-indeterminaciones"
+    title: "Resolución de Indeterminaciones"
     variant: primary
 ---
 
-## Cálculo de Límites
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+## Propiedades de Límites
 
-Resolución de indeterminaciones y uso de límites notables.
+| Propiedad | Fórmula |
+| --- | --- |
+| Constante | $\lim_&#123;x \to a&#125; c = c$ |
+| Constante por función | $\lim_&#123;x \to a&#125; [k \cdot f(x)] = k \cdot \lim_&#123;x \to a&#125; f(x)$ |
+| Suma/Resta | $\lim_&#123;x \to a&#125; [f(x) \pm g(x)] = \lim_&#123;x \to a&#125; f(x) \pm \lim_&#123;x \to a&#125; g(x)$ |
+| Producto | $\lim_&#123;x \to a&#125; [f(x) \cdot g(x)] = \lim_&#123;x \to a&#125; f(x) \cdot \lim_&#123;x \to a&#125; g(x)$ |
+| Cociente | $\lim_&#123;x \to a&#125; \frac&#123;f(x)&#125;&#123;g(x)&#125; = \frac&#123;\lim_&#123;x \to a&#125; f(x)&#125;&#123;\lim_&#123;x \to a&#125; g(x)&#125;$ , si $\lim_&#123;x \to a&#125; g(x) \neq 0$ |
+| Potencia | $\lim_&#123;x \to a&#125; [f(x)]^n = [\lim_&#123;x \to a&#125; f(x)]^n$ |
+| Raíz | $\lim_&#123;x \to a&#125; \sqrt[n]&#123;f(x)&#125; = \sqrt[n]&#123;\lim_&#123;x \to a&#125; f(x)&#125;$ |
+
+## Aritmética del Infinito
+
+| Operación | Resultado | Tipo |
+| --- | --- | --- |
+| $\frac&#123;c&#125;&#123;\infty&#125;$ | $0$ | Definido |
+| $\frac&#123;\infty&#125;&#123;c&#125;$ | $\infty$ | Definido |
+| $c + \infty$ | $\infty$ | Definido |
+| $c \cdot \infty$ | $\infty$ | Definido |
+| $\infty \cdot \infty$ | $\infty$ | Definido |
+| $\frac&#123;0&#125;&#123;0&#125;$ | Indeterminado | Requiere técnica |
+| $\frac&#123;\infty&#125;&#123;\infty&#125;$ | Indeterminado | Requiere técnica |
+| $\infty - \infty$ | Indeterminado | Requiere técnica |
+| $0 \cdot \infty$ | Indeterminado | Requiere técnica |
+| $1^\infty$ | Indeterminado | Requiere técnica |
+| $0^0$ | Indeterminado | Requiere técnica |
+| $\infty^0$ | Indeterminado | Requiere técnica |
+
+## Resolución de Indeterminaciones
+
+| Indeterminación | Contexto | Método |
+| --- | --- | --- |
+| $\frac&#123;0&#125;&#123;0&#125;$ | Polinomios | Factorización (Factor común, Diferencia de cuadrados, Ruffini) |
+| $\frac&#123;0&#125;&#123;0&#125;$ | Raíces | Multiplicar por conjugado |
+| $\frac&#123;0&#125;&#123;0&#125;$ | Trigonométricas | Límites notables + identidades |
+| $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$ | Cualquier función derivable | L'Hôpital: $\lim \frac&#123;f(x)&#125;&#123;g(x)&#125; = \lim \frac&#123;f'(x)&#125;&#123;g'(x)&#125;$ |
+| $\frac&#123;\infty&#125;&#123;\infty&#125;$ | Racionales $(x \to \infty)$ | Dividir por la mayor potencia de $x$ |
+| $\infty - \infty$ | Con raíces | Conjugado → $\frac&#123;\infty&#125;&#123;\infty&#125;$ → Dividir por mayor potencia |
+| $\infty - \infty$ | Fracciones | Común denominador |
+| $0 \cdot \infty$ | Producto | Convertir a $\frac&#123;f(x)&#125;&#123;1/g(x)&#125;$ → $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$ |
+| $1^\infty$ | Exponenciales | Llevar a forma del número $e$ : $e^&#123;\lim [f(x)-1] \cdot g(x)&#125;$ |
+| $0^0$ , $\infty^0$ | Potencias | Logaritmos: $y = f(x)^&#123;g(x)&#125;$ → $\ln y = g(x) \ln f(x)$ → L'Hôpital → $e^L$ |
+
+## Límites Notables
+
+### Límites Trigonométricos $(x \to 0)$
+
+| Límite | Resultado |
+| --- | --- |
+| $\lim_&#123;x \to 0&#125; \frac&#123;\sin x&#125;&#123;x&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;x&#125;&#123;\sin x&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;\sin Kx&#125;&#123;Kx&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;\tan x&#125;&#123;x&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;x&#125;&#123;\tan x&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;\tan Kx&#125;&#123;Kx&#125;$ | $1$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;1 - \cos x&#125;&#123;x&#125;$ | $0$ |
+| $\lim_&#123;x \to 0&#125; \frac&#123;1 - \cos x&#125;&#123;x^2&#125;$ | $\frac&#123;1&#125;&#123;2&#125;$ |
+| $\lim_&#123;x \to 0&#125; \sin x$ | $0$ |
+| $\lim_&#123;x \to 0&#125; \cos x$ | $1$ |
+
+### Número $e$
+
+| Límite | Resultado |
+| --- | --- |
+| $\lim_&#123;u \to \pm\infty&#125; \left(1 + \frac&#123;1&#125;&#123;u&#125;\right)^u$ | $e$ |
+| $\lim_&#123;u \to 0&#125; (1 + u)^&#123;\frac&#123;1&#125;&#123;u&#125;&#125;$ | $e$ |
+
+## Límites Infinitos en un Punto
+
+### Regla General: $\frac&#123;k&#125;&#123;0&#125;$
+
+| Forma | Resultado |
+| --- | --- |
+| $\frac&#123;k&#125;&#123;0^+&#125;$ ($k > 0$) | $+\infty$ |
+| $\frac&#123;k&#125;&#123;0^+&#125;$ ($k \lt  0$) | $-\infty$ |
+| $\frac&#123;k&#125;&#123;0^-&#125;$ ($k > 0$) | $-\infty$ |
+| $\frac&#123;k&#125;&#123;0^-&#125;$ ($k \lt  0$) | $+\infty$ |
+
+### Ejemplos
+
+| Límite | Resultado |
+| --- | --- |
+| $\lim_&#123;x \to 0^+&#125; \frac&#123;1&#125;&#123;x&#125;$ | $+\infty$ |
+| $\lim_&#123;x \to 0^-&#125; \frac&#123;1&#125;&#123;x&#125;$ | $-\infty$ |
+| $\lim_&#123;x \to 2^+&#125; \frac&#123;1&#125;&#123;x-2&#125;$ | $+\infty$ |
+| $\lim_&#123;x \to 2^-&#125; \frac&#123;1&#125;&#123;x-2&#125;$ | $-\infty$ |
+
+### Regla Mnemotécnica
+
+- **Positivo / Positivo = Positivo** → $\frac&#123;k>0&#125;&#123;0^+&#125; = +\infty$
+- **Positivo / Negativo = Negativo** → $\frac&#123;k>0&#125;&#123;0^-&#125; = -\infty$
+- **Negativo / Positivo = Negativo** → $\frac&#123;k\lt 0&#125;&#123;0^+&#125; = -\infty$
+- **Negativo / Negativo = Positivo** → $\frac&#123;k\lt 0&#125;&#123;0^-&#125; = +\infty$
+
+## Límites Laterales
+
+### Definición
+
+**Límite por la izquierda** (cuando $x$ se acerca a $a$ por valores menores):
+
+$$
+\lim_&#123;x \to a^-&#125; f(x) = L
+$$
+
+**Límite por la derecha** (cuando $x$ se acerca a $a$ por valores mayores):
+
+$$
+\lim_&#123;x \to a^+&#125; f(x) = L
+$$
+
+### Existencia del Límite
+
+| Condición | Resultado |
+| --- | --- |
+| $\lim_&#123;x \to a^-&#125; f(x) = \lim_&#123;x \to a^+&#125; f(x) = L$ | $\lim_&#123;x \to a&#125; f(x) = L$ (el límite existe) |
+| $\lim_&#123;x \to a^-&#125; f(x) \neq \lim_&#123;x \to a^+&#125; f(x)$ | $\lim_&#123;x \to a&#125; f(x)$ no existe |
+
+**Regla:** Para que el límite en $a$ exista, los límites laterales deben ser iguales.
+
+### Ejemplos
+
+**Ejemplo 1:** $f(x) = \frac&#123;|x|&#125;&#123;x&#125;$
+
+- $\lim_&#123;x \to 0^-&#125; \frac&#123;|x|&#125;&#123;x&#125; = \lim_&#123;x \to 0^-&#125; \frac&#123;-x&#125;&#123;x&#125; = -1$
+- $\lim_&#123;x \to 0^+&#125; \frac&#123;|x|&#125;&#123;x&#125; = \lim_&#123;x \to 0^+&#125; \frac&#123;x&#125;&#123;x&#125; = 1$
+- Como $-1 \neq 1$ → $\lim_&#123;x \to 0&#125; \frac&#123;|x|&#125;&#123;x&#125;$ **no existe**
+
+**Ejemplo 2:** Función definida por tramos
+
+$$
+f(x) = \begin&#123;cases&#125; x^2 & \text&#123;si &#125; x \lt  2 \\ 2x & \text&#123;si &#125; x \geq 2 \end&#123;cases&#125;
+$$
+
+- $\lim_&#123;x \to 2^-&#125; f(x) = \lim_&#123;x \to 2^-&#125; x^2 = 4$
+- $\lim_&#123;x \to 2^+&#125; f(x) = \lim_&#123;x \to 2^+&#125; 2x = 4$
+- Como $4 = 4$ → $\lim_&#123;x \to 2&#125; f(x) = 4$ (el límite existe)
+
+### Notación Alternativa
+
+| Notación | Significado |
+| --- | --- |
+| $\lim_&#123;x \to a^-&#125;$ | Límite por la izquierda |
+| $\lim_&#123;x \to a^+&#125;$ | Límite por la derecha |
+| $\lim_&#123;x \nearrow a&#125;$ | Límite por la izquierda (menos común) |
+| $\lim_&#123;x \searrow a&#125;$ | Límite por la derecha (menos común) |
+
+## Límites al Infinito
+
+### Límites cuando $x \to \pm\infty$
+
+**Definición:** Estudia el comportamiento de $f(x)$ cuando $x$ crece indefinidamente (hacia $+\infty$ o $-\infty$).
+
+### Funciones Racionales: $\lim_&#123;x \to \infty&#125; \frac&#123;P(x)&#125;&#123;Q(x)&#125;$
+
+**Regla de comparación de grados:**
+
+| Caso | Condición | Límite | Ejemplo |
+| --- | --- | --- | --- |
+| Grado numerador \lt  Grado denominador | $GN \lt  GD$ | $0$ | $\lim_&#123;x \to \infty&#125; \frac&#123;x&#125;&#123;x^2+1&#125; = 0$ |
+| Grado numerador = Grado denominador | $GN = GD$ | $\frac&#123;a_n&#125;&#123;b_m&#125;$ (cociente coeficientes principales) | $\lim_&#123;x \to \infty&#125; \frac&#123;3x^2+1&#125;&#123;2x^2-5&#125; = \frac&#123;3&#125;&#123;2&#125;$ |
+| Grado numerador > Grado denominador | $GN > GD$ | $\pm\infty$ | $\lim_&#123;x \to \infty&#125; \frac&#123;x^3&#125;&#123;x+1&#125; = +\infty$ |
+
+**Procedimiento práctico:** Dividir numerador y denominador por la **mayor potencia de $x$** que aparece.
+
+**Ejemplo:**
+
+$$
+\lim_&#123;x \to \infty&#125; \frac&#123;3x^2 + 2x - 1&#125;&#123;5x^2 - 4&#125; = \lim_&#123;x \to \infty&#125; \frac&#123;\frac&#123;3x^2&#125;&#123;x^2&#125; + \frac&#123;2x&#125;&#123;x^2&#125; - \frac&#123;1&#125;&#123;x^2&#125;&#125;&#123;\frac&#123;5x^2&#125;&#123;x^2&#125; - \frac&#123;4&#125;&#123;x^2&#125;&#125; = \lim_&#123;x \to \infty&#125; \frac&#123;3 + \frac&#123;2&#125;&#123;x&#125; - \frac&#123;1&#125;&#123;x^2&#125;&#125;&#123;5 - \frac&#123;4&#125;&#123;x^2&#125;&#125; = \frac&#123;3&#125;&#123;5&#125;
+$$
+
+### Límites de Funciones Comunes al Infinito
+
+| Función | $\lim_&#123;x \to +\infty&#125;$ | $\lim_&#123;x \to -\infty&#125;$ |
+| --- | --- | --- |
+| $x^n$ $(n > 0)$ | $+\infty$ | $+\infty$ si $n$ par; $-\infty$ si $n$ impar |
+| $e^x$ | $+\infty$ | $0$ |
+| $e^&#123;-x&#125;$ | $0$ | $+\infty$ |
+| $\ln x$ | $+\infty$ | No definido |
+| $\frac&#123;1&#125;&#123;x&#125;$ | $0^+$ | $0^-$ |
+| $\frac&#123;1&#125;&#123;x^2&#125;$ | $0^+$ | $0^+$ |
+| $\sin x$ | No existe (oscila) | No existe (oscila) |
+| $\cos x$ | No existe (oscila) | No existe (oscila) |
+| $\arctan x$ | $\frac&#123;\pi&#125;&#123;2&#125;$ | $-\frac&#123;\pi&#125;&#123;2&#125;$ |
+
+### Jerarquía de Infinitos (de más rápido a más lento)
+
+Cuando $x \to \infty$, el orden de crecimiento es:
+
+$$
+e^x \gg x^n \gg \ln x \gg 1
+$$
+
+**Significado:**
+
+- $\lim_&#123;x \to \infty&#125; \frac&#123;e^x&#125;&#123;x^n&#125; = +\infty$ (exponencial crece más rápido que cualquier potencia)
+- $\lim_&#123;x \to \infty&#125; \frac&#123;x^n&#125;&#123;\ln x&#125; = +\infty$ (potencia crece más rápido que logaritmo)
+- $\lim_&#123;x \to \infty&#125; \frac&#123;\ln x&#125;&#123;1&#125; = +\infty$ (logaritmo crece, pero muy lentamente)
+
+### Límites al Infinito con Raíces
+
+**Forma $\infty - \infty$:** Multiplicar por el conjugado
+
+**Ejemplo:**
+
+$$
+\lim_&#123;x \to \infty&#125; (\sqrt&#123;x^2+x&#125; - x)
+$$
+
+Multiplicar por conjugado:
+
+$$
+= \lim_&#123;x \to \infty&#125; \frac&#123;(\sqrt&#123;x^2+x&#125; - x)(\sqrt&#123;x^2+x&#125; + x)&#125;&#123;\sqrt&#123;x^2+x&#125; + x&#125; = \lim_&#123;x \to \infty&#125; \frac&#123;x^2+x-x^2&#125;&#123;\sqrt&#123;x^2+x&#125; + x&#125;
+$$
+
+$$
+= \lim_&#123;x \to \infty&#125; \frac&#123;x&#125;&#123;\sqrt&#123;x^2+x&#125; + x&#125;
+$$
+
+Dividir por $x$:
+
+$$
+= \lim_&#123;x \to \infty&#125; \frac&#123;1&#125;&#123;\sqrt&#123;1+\frac&#123;1&#125;&#123;x&#125;&#125; + 1&#125; = \frac&#123;1&#125;&#123;1+1&#125; = \frac&#123;1&#125;&#123;2&#125;
+$$
+
+### Tabla de Límites al Infinito (Casos Comunes)
+
+| Límite | Resultado | Técnica |
+| --- | --- | --- |
+| $\lim_&#123;x \to \infty&#125; \frac&#123;P(x)&#125;&#123;Q(x)&#125;$ | Depende de grados | Dividir por mayor potencia |
+| $\lim_&#123;x \to \infty&#125; \sqrt&#123;x^2+ax+b&#125; - x$ | $\frac&#123;a&#125;&#123;2&#125;$ | Conjugado |
+| $\lim_&#123;x \to \infty&#125; \left(1+\frac&#123;k&#125;&#123;x&#125;\right)^x$ | $e^k$ | Forma del número $e$ |
+| $\lim_&#123;x \to \infty&#125; \frac&#123;e^x&#125;&#123;x^n&#125;$ | $+\infty$ | Jerarquía (exponencial > potencia) |
+| $\lim_&#123;x \to \infty&#125; \frac&#123;x^n&#125;&#123;\ln x&#125;$ | $+\infty$ | Jerarquía (potencia > logaritmo) |
+| $\lim_&#123;x \to \infty&#125; x \cdot e^&#123;-x&#125;$ | $0$ | Convertir: $\frac&#123;x&#125;&#123;e^x&#125;$ → L'Hôpital |
 
 
-### Resolución de Indeterminaciones
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
 
 
-### Límites Especiales
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
 
 
-## Continuidad y Asíntotas
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
-Estudio local y global de funciones con teoremas de valor.
-
-
-### Estudio de Continuidad
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
-
-### Análisis asintótico
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
-
-### Teoremas de Valor
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
 
 
 

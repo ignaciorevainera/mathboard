@@ -16,47 +16,320 @@ shortcuts:
 ---
 
 ## Sucesiones y Convergencia
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Análisis del término general y comportamiento al infinito.
+
+### Definición de sucesión
+
+Una sucesión es una función definida en los naturales:
+
+$$
+a_n: \mathbb&#123;N&#125; \to \mathbb&#123;R&#125;
+$$
+
+Se representa como:
+
+$$
+\{a_n\} = a_1, a_2, a_3, \ldots
+$$
+
+Ejemplo: si $a_n = \frac&#123;1&#125;&#123;n&#125;$, entonces la sucesión es
+$1, \frac&#123;1&#125;&#123;2&#125;, \frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;4&#125;, \ldots$
+
+### Límite de una sucesión
+
+Decimos que $\{a_n\}$ converge a $L$ si:
+
+$$
+\lim_&#123;n \to \infty&#125; a_n = L
+$$
+
+| Tipo | Condición | Ejemplo |
+| --- | --- | --- |
+| Convergente | Existe $L \in \mathbb&#123;R&#125;$ tal que $a_n \to L$ | $a_n = \frac&#123;1&#125;&#123;n&#125; \to 0$ |
+| Divergente | No existe límite finito | $a_n = (-1)^n$ |
+| Divergente a $+\infty$ | Los términos crecen sin cota superior | $a_n = n^2$ |
+
+### Reglas y criterios útiles
+
+| Herramienta | Resultado |
+| --- | --- |
+| Linealidad | Si $a_n \to L$ y $b_n \to M$, entonces $\alpha a_n + \beta b_n \to \alpha L + \beta M$ |
+| Producto | Si $a_n \to L$ y $b_n \to M$, entonces $a_nb_n \to LM$ |
+| Cociente | Si $a_n \to L$, $b_n \to M$, $M \neq 0$, entonces $\frac&#123;a_n&#125;&#123;b_n&#125; \to \frac&#123;L&#125;&#123;M&#125;$ |
+| Sándwich | Si $a_n \le b_n \le c_n$ y $a_n, c_n \to L$, entonces $b_n \to L$ |
+| Monótona y acotada | Toda sucesión monótona y acotada converge |
+
+### Ejemplos rápidos
+
+1. $a_n = \frac&#123;3n+1&#125;&#123;n+5&#125; \Rightarrow \lim a_n = 3$.
+2. $a_n = \left(1+\frac&#123;1&#125;&#123;n&#125;\right)^n \Rightarrow \lim a_n = e$.
+3. $a_n = (-1)^n$ no converge (oscila entre $1$ y $-1$).
+
+### Errores frecuentes
+
+1. Concluir convergencia solo porque los primeros términos parecen estabilizarse.
+2. Confundir sucesión acotada con sucesión convergente (no toda acotada converge).
+3. Omitir justificación del criterio usado en límites no inmediatos.
 
 
 ### Progresiones
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Progresión aritmética (PA)
+
+Una PA tiene diferencia constante $d$ entre términos consecutivos:
+
+$$
+a_&#123;n+1&#125; = a_n + d
+$$
+
+Término general:
+
+$$
+a_n = a_1 + (n-1)d
+$$
+
+Suma de los primeros $n$ términos:
+
+$$
+S_n = \frac&#123;n&#125;&#123;2&#125;(a_1 + a_n) = \frac&#123;n&#125;&#123;2&#125;\left[2a_1 + (n-1)d\right]
+$$
+
+Ejemplo: $a_1=3$, $d=4$.
+
+- $a_5 = 3 + 4(5-1) = 19$
+- $S_5 = \frac&#123;5&#125;&#123;2&#125;(3+19) = 55$
+
+#### Progresión geométrica (PG)
+
+Una PG tiene razón constante $r$:
+
+$$
+a_&#123;n+1&#125; = a_n \cdot r
+$$
+
+Término general:
+
+$$
+a_n = a_1 r^&#123;n-1&#125;
+$$
+
+Suma de los primeros $n$ términos ($r \neq 1$):
+
+$$
+S_n = a_1\frac&#123;r^n-1&#125;&#123;r-1&#125;
+$$
+
+Si $|r| \lt 1$, la suma infinita converge:
+
+$$
+S_\infty = \frac&#123;a_1&#125;&#123;1-r&#125;
+$$
+
+Ejemplo: $a_1=2$, $r=3$.
+
+- $a_4 = 2\cdot3^3 = 54$
+- $S_4 = 2\frac&#123;3^4-1&#125;&#123;3-1&#125; = 80$
+
+#### Cuándo usar cada una
+
+| Patrón observado | Modelo |
+| --- | --- |
+| Se suma/resta siempre lo mismo | PA |
+| Se multiplica/divide siempre por lo mismo | PG |
+
+#### Errores frecuentes
+
+1. Aplicar fórmula de PA cuando el patrón real es multiplicativo.
+2. Usar fórmula de suma infinita de PG sin verificar $|r| \lt 1$.
+3. Confundir razón $r$ con diferencia $d$ al pasar de un ejercicio a otro.
 
 
 ## Series y Aproximación
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Criterios de convergencia y aproximación mediante desarrollos polinómicos.
 
 
 ### Convergencia de Series
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Series de Potencias
+
+Una serie de potencias centrada en $a$ tiene la forma:
+
+$$
+\sum_&#123;n=0&#125;^\infty c_n(x-a)^n
+$$
+
+Para MacLaurin ($a=0$):
+
+$$
+\sum_&#123;n=0&#125;^\infty c_n x^n
+$$
+
+#### Radio de convergencia
+
+Toda serie de potencias tiene radio $R$ tal que:
+
+- Converge si $|x-a| \lt R$.
+- Diverge si $|x-a| \gt R$.
+- En $|x-a| = R$ se estudian extremos por separado.
+
+Casos límite:
+
+- $R=0$: converge solo en $x=a$.
+- $R=\infty$: converge para todo $x$.
+
+#### Operaciones con series
+
+Suma y resta:
+
+$$
+\sum_&#123;n=0&#125;^\infty a_nx^n \pm \sum_&#123;n=0&#125;^\infty b_nx^n = \sum_&#123;n=0&#125;^\infty (a_n\pm b_n)x^n
+$$
+
+Derivación término a término:
+
+$$
+\frac&#123;d&#125;&#123;dx&#125;\left[\sum_&#123;n=0&#125;^\infty a_nx^n\right] = \sum_&#123;n=1&#125;^\infty na_nx^&#123;n-1&#125;
+$$
+
+Integración término a término:
+
+$$
+\int \sum_&#123;n=0&#125;^\infty a_nx^n \, dx = C + \sum_&#123;n=0&#125;^\infty \frac&#123;a_n&#125;&#123;n+1&#125;x^&#123;n+1&#125;
+$$
 
 
 ### Polinomios de Taylor y MacLaurin
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Fórmulas principales
+
+Polinomio de Taylor de grado $n$ centrado en $a$:
+
+$$
+P_n(x)=\sum_&#123;k=0&#125;^n \frac&#123;f^&#123;(k)&#125;(a)&#125;&#123;k!&#125;(x-a)^k
+$$
+
+Polinomio de MacLaurin (caso $a=0$):
+
+$$
+P_n(x)=\sum_&#123;k=0&#125;^n \frac&#123;f^&#123;(k)&#125;(0)&#125;&#123;k!&#125;x^k
+$$
+
+Forma expandida de Taylor:
+
+$$
+P_n(x)=f(a)+f'(a)(x-a)+\frac&#123;f''(a)&#125;&#123;2!&#125;(x-a)^2+\cdots+\frac&#123;f^&#123;(n)&#125;(a)&#125;&#123;n!&#125;(x-a)^n
+$$
+
+Forma expandida de MacLaurin:
+
+$$
+P_n(x)=f(0)+f'(0)x+\frac&#123;f''(0)&#125;&#123;2!&#125;x^2+\cdots+\frac&#123;f^&#123;(n)&#125;(0)&#125;&#123;n!&#125;x^n
+$$
+
+#### Series de MacLaurin más comunes
+
+| Función | Serie | Radio |
+| --- | --- | --- |
+| $e^x$ | $\sum_&#123;n=0&#125;^\infty x^n/n!$ | $R=\infty$ |
+| $\sin x$ | $\sum_&#123;n=0&#125;^\infty (-1)^nx^&#123;2n+1&#125;/(2n+1)!$ | $R=\infty$ |
+| $\cos x$ | $\sum_&#123;n=0&#125;^\infty (-1)^nx^&#123;2n&#125;/(2n)!$ | $R=\infty$ |
+| $1/(1-x)$ | $\sum_&#123;n=0&#125;^\infty x^n$ | $R=1$, $|x|\lt1$ |
+| $\ln(1+x)$ | $\sum_&#123;n=1&#125;^\infty (-1)^&#123;n+1&#125;x^n/n$ | $R=1$ |
+
+#### Ejemplos de polinomios de MacLaurin
+
+Para $f(x)=e^x$, grado 4:
+
+$$
+P_4(x)=1+x+\frac&#123;x^2&#125;&#123;2&#125;+\frac&#123;x^3&#125;&#123;6&#125;+\frac&#123;x^4&#125;&#123;24&#125;
+$$
+
+Para $f(x)=\sin x$, grado 5:
+
+$$
+P_5(x)=x-\frac&#123;x^3&#125;&#123;6&#125;+\frac&#123;x^5&#125;&#123;120&#125;
+$$
+
+Para $f(x)=\cos x$, grado 4:
+
+$$
+P_4(x)=1-\frac&#123;x^2&#125;&#123;2&#125;+\frac&#123;x^4&#125;&#123;24&#125;
+$$
+
+Para $f(x)=\ln(1+x)$, grado 4:
+
+$$
+P_4(x)=x-\frac&#123;x^2&#125;&#123;2&#125;+\frac&#123;x^3&#125;&#123;3&#125;-\frac&#123;x^4&#125;&#123;4&#125;
+$$
+
+#### Teorema de Taylor con resto
+
+Si $f$ tiene $n+1$ derivadas continuas:
+
+$$
+f(x)=P_n(x)+R_n(x)
+$$
+
+Resto de Lagrange:
+
+$$
+R_n(x)=\frac&#123;f^&#123;(n+1)&#125;(c)&#125;&#123;(n+1)!&#125;(x-a)^&#123;n+1&#125;
+$$
+
+con $c$ entre $a$ y $x$.
+
+Si $|f^&#123;(n+1)&#125;(x)|\le M$ en el intervalo:
+
+$$
+|R_n(x)|\le \frac&#123;M&#125;&#123;(n+1)!&#125;|x-a|^&#123;n+1&#125;
+$$
+
+#### Aplicaciones
+
+1. Aproximación numérica.
+
+Ejemplo con $e^&#123;0.5&#125;$ usando grado 4:
+
+$$
+e^&#123;0.5&#125;\approx1+0.5+\frac&#123;0.5^2&#125;&#123;2&#125;+\frac&#123;0.5^3&#125;&#123;6&#125;+\frac&#123;0.5^4&#125;&#123;24&#125;=1.6484375
+$$
+
+2. Cálculo de límites.
+
+$$
+\lim_&#123;x\to0&#125;\frac&#123;\sin x-x&#125;&#123;x^3&#125;=-\frac&#123;1&#125;&#123;6&#125;
+$$
+
+3. Integración aproximada de funciones no elementales.
+
+$$
+\int_0^&#123;0.5&#125;e^&#123;-x^2&#125;dx \approx \int_0^&#123;0.5&#125;\left(1-x^2+\frac&#123;x^4&#125;&#123;2&#125;\right)dx \approx 0.4609
+$$
+
+#### Tabla resumen de series comunes
+
+| Función | Serie | Intervalo |
+| --- | --- | --- |
+| $e^x$ | $\sum_&#123;n=0&#125;^\infty x^n/n!$ | $(-\infty,\infty)$ |
+| $\sin x$ | $\sum_&#123;n=0&#125;^\infty (-1)^nx^&#123;2n+1&#125;/(2n+1)!$ | $(-\infty,\infty)$ |
+| $\cos x$ | $\sum_&#123;n=0&#125;^\infty (-1)^nx^&#123;2n&#125;/(2n)!$ | $(-\infty,\infty)$ |
+| $1/(1-x)$ | $\sum_&#123;n=0&#125;^\infty x^n$ | $(-1,1)$ |
+| $\ln(1+x)$ | $\sum_&#123;n=1&#125;^\infty (-1)^&#123;n+1&#125;x^n/n$ | $(-1,1]$ |
+| $\arctan x$ | $\sum_&#123;n=0&#125;^\infty (-1)^nx^&#123;2n+1&#125;/(2n+1)$ | $[-1,1]$ |
+
+#### Ejercicios resueltos
+
+Ejercicio 1: MacLaurin de grado 3 para $f(x)=1/(1+x)$.
+
+$$
+P_3(x)=1-x+x^2-x^3
+$$
+
+Ejercicio 2: aproximar $\cos(0.1)$ con grado 2.
+
+$$
+\cos(0.1)\approx1-\frac&#123;0.1^2&#125;&#123;2&#125;=0.995
+$$
 
 
 

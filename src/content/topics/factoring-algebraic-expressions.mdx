@@ -1,102 +1,265 @@
 ---
 topicId: factoring-algebraic-expressions
-title: "Factoreo y Expresiones Algebraicas"
-description: "Unidad orientada a la factorización de expresiones y al análisis avanzado de polinomios."
+title: "Métodos de Factoreo"
+description: "Técnicas de factorización algebraica y fórmulas."
 icon: tabler:math-function
 colorVariant: primary
 order: 2
-sectionCount: 2
+sectionCount: 10
 shortcuts:
   - href: "/topic/factoring-algebraic-expressions#metodos-de-factorizacion"
-    title: "Métodos de Factorización"
+    title: "Métodos de Factoreo"
     variant: primary
+  - href: "/topic/factoring-algebraic-expressions#tabla-de-metodos-de-factoreo"
+    title: "Tabla de Métodos"
+    variant: accent
   - href: "/topic/factoring-algebraic-expressions#polinomios-avanzados"
     title: "Polinomios Avanzados"
     variant: secondary
 ---
 
 ## Métodos de Factorización
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Técnicas esenciales para simplificar y descomponer expresiones polinómicas.
+
+### Tabla de Métodos de Factoreo
+
+| Método | Fórmula | Ejemplo |
+| --- | --- | --- |
+| Factor Común | $ax + ay = a(x + y)$ | $3x + 6 = 3(x + 2)$ |
+| Diferencia de Cuadrados | $a^2 - b^2 = (a - b)(a + b)$ | $x^2 - 9 = (x - 3)(x + 3)$ |
+| Trinomio Cuadrado Perfecto | $a^2 + 2ab + b^2 = (a + b)^2$ | $x^2 + 6x + 9 = (x + 3)^2$ |
+| Trinomio Cuadrado Perfecto | $a^2 - 2ab + b^2 = (a - b)^2$ | $x^2 - 4x + 4 = (x - 2)^2$ |
+| Suma de Cubos | $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ | $x^3 + 8 = (x + 2)(x^2 - 2x + 4)$ |
+| Diferencia de Cubos | $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ | $x^3 - 27 = (x - 3)(x^2 + 3x + 9)$ |
 
 
 ### Factor Común
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Procedimiento
+
+1. Identificar el factor que se repite en todos los términos.
+2. Extraer el máximo común divisor (MCD).
+3. Dividir cada término por el factor común.
+
+#### Ejemplos
+
+| Expresión | Factor Común | Factorización |
+| --- | --- | --- |
+| $6x + 9$ | $3$ | $3(2x + 3)$ |
+| $x^2 + x$ | $x$ | $x(x + 1)$ |
+| $4x^3 - 8x^2$ | $4x^2$ | $4x^2(x - 2)$ |
+| $6x^2y + 9xy^2$ | $3xy$ | $3xy(2x + 3y)$ |
 
 
 ### Factor Común por Grupos
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+También llamado agrupación de términos. Se usa cuando no hay factor común global, pero sí por bloques.
+
+**Ejemplo general:**
+
+$$
+ax + bx + ay + by
+$$
+
+1. Agrupar: $(ax + bx) + (ay + by)$
+2. Factor común por grupo: $x(a + b) + y(a + b)$
+3. Factor común final: $(a + b)(x + y)$
 
 
 ### Diferencia de Cuadrados
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Fórmula
+
+$$
+a^2 - b^2 = (a - b)(a + b)
+$$
+
+**Reconocimiento:** Dos términos, ambos cuadrados perfectos, separados por un signo menos.
+
+#### Ejemplos
+
+| Expresión | Identificación | Factorización |
+| --- | --- | --- |
+| $x^2 - 25$ | $a=x$, $b=5$ | $(x - 5)(x + 5)$ |
+| $9x^2 - 16$ | $a=3x$, $b=4$ | $(3x - 4)(3x + 4)$ |
+| $x^4 - 1$ | $a=x^2$, $b=1$ | $(x^2 - 1)(x^2 + 1) = (x-1)(x+1)(x^2+1)$ |
+| $\frac&#123;1&#125;&#123;4&#125; - x^2$ | $a=\frac&#123;1&#125;&#123;2&#125;$, $b=x$ | $\left(\frac&#123;1&#125;&#123;2&#125; - x\right)\left(\frac&#123;1&#125;&#123;2&#125; + x\right)$ |
 
 
 ### Trinomio Cuadrado Perfecto
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+
+#### Reconocimiento
+
+Un trinomio $a^2 \pm 2ab + b^2$ es cuadrado perfecto si:
+
+- El primer y tercer término son cuadrados perfectos.
+- El término del medio es $\pm 2ab$ (el doble producto de las raíces).
+
+#### Fórmulas
+
+$$
+a^2 + 2ab + b^2 = (a + b)^2
+$$
+
+$$
+a^2 - 2ab + b^2 = (a - b)^2
+$$
+
+#### Ejemplos
+
+| Expresión | Verificación | Factorización |
+| --- | --- | --- |
+| $x^2 + 6x + 9$ | $2ab = 2(x)(3) = 6x$ | $(x + 3)^2$ |
+| $x^2 - 10x + 25$ | $2ab = 2(x)(5) = 10x$ | $(x - 5)^2$ |
+| $4x^2 + 12x + 9$ | $2ab = 2(2x)(3) = 12x$ | $(2x + 3)^2$ |
+| $9x^2 - 6x + 1$ | $2ab = 2(3x)(1) = 6x$ | $(3x - 1)^2$ |
+
+
+### Trinomio de la Forma $x^2 + bx + c$
+
+#### Procedimiento
+
+Buscar dos números $r_1$ y $r_2$ tales que:
+
+- $r_1 + r_2 = b$ (suma = coeficiente de $x$)
+- $r_1 \cdot r_2 = c$ (producto = término independiente)
+
+**Factorización:** $x^2 + bx + c = (x + r_1)(x + r_2)$
+
+#### Ejemplos
+
+| Expresión | Buscar números | Factorización |
+| --- | --- | --- |
+| $x^2 + 5x + 6$ | $2 + 3 = 5$ y $2 \times 3 = 6$ | $(x + 2)(x + 3)$ |
+| $x^2 - 5x + 6$ | $(-2) + (-3) = -5$ y $(-2) \times (-3) = 6$ | $(x - 2)(x - 3)$ |
+| $x^2 + x - 6$ | $3 + (-2) = 1$ y $3 \times (-2) = -6$ | $(x + 3)(x - 2)$ |
+| $x^2 - 7x + 12$ | $(-3) + (-4) = -7$ y $(-3) \times (-4) = 12$ | $(x - 3)(x - 4)$ |
+
+
+### Trinomio de la Forma $ax^2 + bx + c$ (Método AC)
+
+#### Procedimiento
+
+1. Calcular $A \times C$ (multiplicar primer y último coeficiente).
+2. Buscar dos números que sumen $b$ y multipliquen $AC$.
+3. Reescribir el término medio usando esos números.
+4. Factorizar por agrupación.
+
+#### Ejemplo
+
+$3x^2 + 10x + 8$
+
+1. $AC = 3 \times 8 = 24$
+2. Buscar dos números que sumen $10$ y multipliquen $24$: $4$ y $6$
+3. Reescribir: $3x^2 + 4x + 6x + 8$
+4. Agrupar: $(3x^2 + 4x) + (6x + 8) = x(3x + 4) + 2(3x + 4)$
+5. Factor común: $(3x + 4)(x + 2)$
+
+
+### Suma y Diferencia de Cubos
+
+#### Fórmulas
+
+$$
+a^3 + b^3 = (a + b)(a^2 - ab + b^2)
+$$
+
+$$
+a^3 - b^3 = (a - b)(a^2 + ab + b^2)
+$$
+
+**Mnemotecnia:**
+
+- Suma de cubos: $(+)$ binomio, $(-, +)$ trinomio.
+- Diferencia de cubos: $(-)$ binomio, $(+, +)$ trinomio.
+
+#### Ejemplos
+
+| Expresión | Identificación | Factorización |
+| --- | --- | --- |
+| $x^3 + 8$ | $a=x$, $b=2$ | $(x + 2)(x^2 - 2x + 4)$ |
+| $x^3 - 27$ | $a=x$, $b=3$ | $(x - 3)(x^2 + 3x + 9)$ |
+| $8x^3 + 125$ | $a=2x$, $b=5$ | $(2x + 5)(4x^2 - 10x + 25)$ |
+| $27x^3 - 64$ | $a=3x$, $b=4$ | $(3x - 4)(9x^2 + 12x + 16)$ |
+
+
+### Agrupación de Términos
+
+Se usa cuando no hay factor común global pero sí por grupos de términos.
+
+**Ejemplo:**
+
+$$
+ax + bx + ay + by
+$$
+
+1. Agrupar: $(ax + bx) + (ay + by)$
+2. Factor común por grupo: $x(a + b) + y(a + b)$
+3. Factor común final: $(a + b)(x + y)$
 
 
 ## Polinomios Avanzados
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
 Herramientas para encontrar raíces, dividir polinomios y verificar resultados.
 
 
-### Cuatrinomio Cubo Perfecto
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Fórmula Cuadrática (Resolvente)
+
+#### Fórmula
+
+Para $ax^2 + bx + c = 0$:
+
+$$
+x = \frac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125;
+$$
+
+#### Discriminante
+
+$$
+\Delta = b^2 - 4ac
+$$
+
+| Valor de $\Delta$ | Número de Raíces Reales | Tipo de Raíces |
+| --- | --- | --- |
+| $\Delta > 0$ | 2 raíces diferentes | Reales distintas |
+| $\Delta = 0$ | 1 raíz (doble) | Reales iguales |
+| $\Delta < 0$ | 0 raíces reales | Complejas conjugadas |
+
+#### Ejemplo
+
+$2x^2 - 5x + 2 = 0$
+
+- $a=2$, $b=-5$, $c=2$
+- $\Delta = (-5)^2 - 4(2)(2) = 25 - 16 = 9$
+- $x = \frac&#123;5 \pm \sqrt&#123;9&#125;&#125;&#123;4&#125; = \frac&#123;5 \pm 3&#125;&#123;4&#125;$
+- $x_1 = \frac&#123;5+3&#125;&#123;4&#125; = 2$, $x_2 = \frac&#123;5-3&#125;&#123;4&#125; = \frac&#123;1&#125;&#123;2&#125;$
+- Factorización: $2x^2 - 5x + 2 = 2(x - 2)\left(x - \frac&#123;1&#125;&#123;2&#125;\right) = (x-2)(2x-1)$
 
 
-### Teorema de Gauss
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+### Método de Ruffini
 
+**Uso:** Dividir polinomios por $(x - a)$ para factorizar.
 
-### Regla de Ruffini
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+#### Procedimiento
 
+1. Identificar posibles raíces (divisores del término independiente).
+2. Probar cada raíz con Ruffini.
+3. Si el resto es $0$, se encontró un factor $(x - a)$.
+4. El cociente es el otro factor.
 
-### Teorema del Resto
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+#### Ejemplo
+
+$x^3 - 6x^2 + 11x - 6$
+
+Probar $x=1$:
+
+```text
+1 |  1  -6  11  -6
+  |      1  -5   6
+  |________________
+     1  -5   6   0
+```
+
+Factorización: $(x - 1)(x^2 - 5x + 6) = (x-1)(x-2)(x-3)$
 
 
 

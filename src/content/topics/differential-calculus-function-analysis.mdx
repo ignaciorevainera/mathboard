@@ -1,78 +1,237 @@
 ---
 topicId: differential-calculus-function-analysis
-title: "Cálculo Diferencial y Estudio de Funciones"
-description: "Derivación y Análisis completo de funciones para modelar variación y optimización."
+title: "Derivadas"
+description: "Reglas de derivación y tabla de derivadas fundamentales."
 icon: tabler:math-function
 colorVariant: accent
 order: 1
-sectionCount: 2
+sectionCount: 10
 shortcuts:
-  - href: "/topic/differential-calculus-function-analysis#la-derivada"
-    title: "La Derivada"
+  - href: "/topic/differential-calculus-function-analysis#definicion"
+    title: "Definición"
     variant: accent
-  - href: "/topic/differential-calculus-function-analysis#estudio-completo-de-una-funcion"
-    title: "Estudio Completo de una función"
+  - href: "/topic/differential-calculus-function-analysis#tabla-de-derivadas-fundamentales"
+    title: "Tabla de Derivadas"
     variant: primary
+  - href: "/topic/differential-calculus-function-analysis#derivacion-implicita"
+    title: "Derivación Implícita"
+    variant: secondary
 ---
 
-## La Derivada
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+## Definición
 
-Fundamentos de derivación y aplicaciones en límites especiales.
+$$
+f'(x) = \lim_&#123;h \to 0&#125; \frac&#123;f(x+h) - f(x)&#125;&#123;h&#125;
+$$
+
+**Interpretación geométrica:** La derivada es la pendiente de la recta tangente a la curva en un punto.
+
+## Reglas de Derivación
+
+| Regla | Fórmula |
+| --- | --- |
+| Constante | $(c)' = 0$ |
+| Constante por función | $(k \cdot f)' = k \cdot f'$ |
+| Suma/Resta | $(f \pm g)' = f' \pm g'$ |
+| Producto | $(u \cdot v)' = u' \cdot v + u \cdot v'$ |
+| Cociente | $\left(\frac&#123;u&#125;&#123;v&#125;\right)' = \frac&#123;u' \cdot v - u \cdot v'&#125;&#123;v^2&#125;$ |
+| Cadena | $[f(g(x))]' = f'(g(x)) \cdot g'(x)$ |
+
+## Tabla de Derivadas Fundamentales
+
+### Funciones Algebraicas
+
+| Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- |
+| $c$ (constante) | $0$ | - | - |
+| $x$ | $1$ | - | - |
+| $x^n$ | $n \cdot x^&#123;n-1&#125;$ | $u^n$ | $n \cdot u^&#123;n-1&#125; \cdot u'$ |
+| $\sqrt&#123;x&#125;$ | $\frac&#123;1&#125;&#123;2\sqrt&#123;x&#125;&#125;$ | $\sqrt&#123;u&#125;$ | $\frac&#123;u'&#125;&#123;2\sqrt&#123;u&#125;&#125;$ |
+| $\sqrt[n]&#123;x&#125;$ | $\frac&#123;1&#125;&#123;n\sqrt[n]&#123;x^&#123;n-1&#125;&#125;&#125;$ | $\sqrt[n]&#123;u&#125;$ | $\frac&#123;u'&#125;&#123;n\sqrt[n]&#123;u^&#123;n-1&#125;&#125;&#125;$ |
+| $\frac&#123;1&#125;&#123;x&#125;$ | $-\frac&#123;1&#125;&#123;x^2&#125;$ | $\frac&#123;1&#125;&#123;u&#125;$ | $-\frac&#123;u'&#125;&#123;u^2&#125;$ |
+
+### Funciones Exponenciales
+
+| Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- |
+| $e^x$ | $e^x$ | $e^u$ | $e^u \cdot u'$ |
+| $a^x$ | $a^x \cdot \ln a$ | $a^u$ | $a^u \cdot \ln a \cdot u'$ |
+
+### Funciones Logarítmicas
+
+| Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- |
+| $\ln x$ | $\frac&#123;1&#125;&#123;x&#125;$ | $\ln u$ | $\frac&#123;u'&#125;&#123;u&#125;$ |
+| $\log_a x$ | $\frac&#123;1&#125;&#123;x \ln a&#125;$ | $\log_a u$ | $\frac&#123;u'&#125;&#123;u \ln a&#125;$ |
+| $\log x$ | $\frac&#123;1&#125;&#123;x \ln 10&#125;$ | $\log u$ | $\frac&#123;u'&#125;&#123;u \ln 10&#125;$ |
+
+### Funciones Trigonométricas
+
+| Función $f(x)$ | Derivada $f'(x)$ | Forma Alternativa | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- | --- |
+| $\sin x$ | $\cos x$ | - | $\sin u$ | $\cos u \cdot u'$ |
+| $\cos x$ | $-\sin x$ | - | $\cos u$ | $-\sin u \cdot u'$ |
+| $\tan x$ | $\sec^2 x$ | $\frac&#123;1&#125;&#123;\cos^2 x&#125;$ | $\tan u$ | $\sec^2 u \cdot u'$ |
+| $\cot x$ | $-\csc^2 x$ | $-\frac&#123;1&#125;&#123;\sin^2 x&#125;$ | $\cot u$ | $-\csc^2 u \cdot u'$ |
+| $\sec x$ | $\sec x \tan x$ | - | $\sec u$ | $\sec u \tan u \cdot u'$ |
+| $\csc x$ | $-\csc x \cot x$ | - | $\csc u$ | $-\csc u \cot u \cdot u'$ |
+
+### Funciones Trigonométricas Inversas
+
+| Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- |
+| $\arcsin x$ | $\frac&#123;1&#125;&#123;\sqrt&#123;1-x^2&#125;&#125;$ | $\arcsin u$ | $\frac&#123;u'&#125;&#123;\sqrt&#123;1-u^2&#125;&#125;$ |
+| $\arccos x$ | $-\frac&#123;1&#125;&#123;\sqrt&#123;1-x^2&#125;&#125;$ | $\arccos u$ | $-\frac&#123;u'&#125;&#123;\sqrt&#123;1-u^2&#125;&#125;$ |
+| $\arctan x$ | $\frac&#123;1&#125;&#123;1+x^2&#125;$ | $\arctan u$ | $\frac&#123;u'&#125;&#123;1+u^2&#125;$ |
+
+### Funciones Hiperbólicas
+
+| Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
+| --- | --- | --- | --- |
+| $\sinh x$ | $\cosh x$ | $\sinh u$ | $\cosh u \cdot u'$ |
+| $\cosh x$ | $\sinh x$ | $\cosh u$ | $\sinh u \cdot u'$ |
+| $\tanh x$ | $\text&#123;sech&#125;^2 x$ | $\tanh u$ | $\text&#123;sech&#125;^2 u \cdot u'$ |
+| $\coth x$ | $-\text&#123;csch&#125;^2 x$ | $\coth u$ | $-\text&#123;csch&#125;^2 u \cdot u'$ |
+| $\text&#123;sech &#125; x$ | $-\text&#123;sech &#125; x \tanh x$ | $\text&#123;sech &#125; u$ | $-\text&#123;sech &#125; u \tanh u \cdot u'$ |
+| $\text&#123;csch &#125; x$ | $-\text&#123;csch &#125; x \coth x$ | $\text&#123;csch &#125; u$ | $-\text&#123;csch &#125; u \coth u \cdot u'$ |
+
+**Nota sobre funciones hiperbólicas:**
+
+$$
+\sinh x = \frac&#123;e^x - e^&#123;-x&#125;&#125;&#123;2&#125;, \quad \cosh x = \frac&#123;e^x + e^&#123;-x&#125;&#125;&#123;2&#125;, \quad \tanh x = \frac&#123;\sinh x&#125;&#123;\cosh x&#125;
+$$
+
+## Derivada de Potencial Exponencial $f(x)^&#123;g(x)&#125;$
+
+**Caso especial:** Cuando una función está elevada a otra función
+
+$$
+y = f(x)^&#123;g(x)&#125;
+$$
+
+### Método 1: Logaritmo Natural
+
+1. Tomar logaritmo natural: $\ln y = g(x) \ln f(x)$
+2. Derivar implícitamente: $\frac&#123;y'&#125;&#123;y&#125; = g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;$
+3. Despejar: $y' = y \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]$
+4. Sustituir $y$: $y' = f(x)^&#123;g(x)&#125; \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]$
+
+### Método 2: Fórmula Directa
+
+$$
+\frac&#123;d&#125;&#123;dx&#125;[f(x)^&#123;g(x)&#125;] = f(x)^&#123;g(x)&#125; \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]
+$$
+
+**Ejemplo:** $y = x^x$
+
+- $f(x) = x$, $f'(x) = 1$
+- $g(x) = x$, $g'(x) = 1$
+- $y' = x^x \left[1 \cdot \ln x + x \cdot \frac&#123;1&#125;&#123;x&#125;\right] = x^x(\ln x + 1)$
+
+## Derivadas Especiales
+
+| Tipo | Función | Derivada |
+| --- | --- | --- |
+| Raíz n-ésima | $\sqrt[n]&#123;x&#125; = x^&#123;1/n&#125;$ | $\frac&#123;1&#125;&#123;n&#125; x^&#123;(1/n)-1&#125; = \frac&#123;1&#125;&#123;n\sqrt[n]&#123;x^&#123;n-1&#125;&#125;&#125;$ |
+| Logaritmo base 10 | $\log x$ | $\frac&#123;1&#125;&#123;x \ln 10&#125;$ |
+| Valor absoluto | $|x|$ | $\frac&#123;x&#125;&#123;|x|&#125;$ (para $x \neq 0$) |
+
+## Procedimientos Algorítmicos
+
+### Regla del Producto (paso a paso)
+
+Para $y = u(x) \cdot v(x)$:
+
+1. Identificar $u$ y $v$
+2. Calcular $u'$ y $v'$
+3. Aplicar: $y' = u' \cdot v + u \cdot v'$
+
+**Ejemplo:** $y = x^2 \sin x$
+
+- $u = x^2$ → $u' = 2x$
+- $v = \sin x$ → $v' = \cos x$
+- $y' = 2x \cdot \sin x + x^2 \cdot \cos x$
+
+### Regla del Cociente (paso a paso)
+
+Para $y = \frac&#123;u(x)&#125;&#123;v(x)&#125;$:
+
+1. Identificar $u$ (numerador) y $v$ (denominador)
+2. Calcular $u'$ y $v'$
+3. Aplicar: $y' = \frac&#123;u' \cdot v - u \cdot v'&#125;&#123;v^2&#125;$
+
+**Ejemplo:** $y = \frac&#123;\sin x&#125;&#123;x&#125;$
+
+- $u = \sin x$ → $u' = \cos x$
+- $v = x$ → $v' = 1$
+- $y' = \frac&#123;\cos x \cdot x - \sin x \cdot 1&#125;&#123;x^2&#125; = \frac&#123;x\cos x - \sin x&#125;&#123;x^2&#125;$
+
+### Regla de la Cadena (paso a paso)
+
+Para $y = f(g(x))$:
+
+1. Identificar función externa $f$ y función interna $g$
+2. Derivar la externa (dejando la interna): $f'(g(x))$
+3. Multiplicar por la derivada de la interna: $\cdot g'(x)$
+4. Resultado: $y' = f'(g(x)) \cdot g'(x)$
+
+**Ejemplo:** $y = \sin(x^2)$
+
+- Externa: $f(u) = \sin u$ → $f'(u) = \cos u$
+- Interna: $g(x) = x^2$ → $g'(x) = 2x$
+- $y' = \cos(x^2) \cdot 2x = 2x\cos(x^2)$
+
+**Ejemplo:** $y = e^&#123;3x&#125;$
+
+- Externa: $f(u) = e^u$ → $f'(u) = e^u$
+- Interna: $g(x) = 3x$ → $g'(x) = 3$
+- $y' = e^&#123;3x&#125; \cdot 3 = 3e^&#123;3x&#125;$
+
+## Derivadas de Orden Superior
+
+| Derivada | Notación | Significado |
+| --- | --- | --- |
+| Primera | $f'(x)$, $\frac&#123;dy&#125;&#123;dx&#125;$, $y'$ | Tasa de cambio, pendiente |
+| Segunda | $f''(x)$, $\frac&#123;d^2y&#125;&#123;dx^2&#125;$, $y''$ | Concavidad, aceleración |
+| Tercera | $f'''(x)$, $\frac&#123;d^3y&#125;&#123;dx^3&#125;$, $y'''$ | - |
+| n-ésima | $f^&#123;(n)&#125;(x)$, $\frac&#123;d^ny&#125;&#123;dx^n&#125;$, $y^&#123;(n)&#125;$ | - |
 
 
-### Concepto y Mecánica
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+## Derivación Implícita
 
+Cuando no se puede despejar $y$, derivar ambos lados respecto a $x$ recordando:
 
-### Regla de L'Hopital
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+- Derivar $y$ como $y(x)$ usando la regla de la cadena
+- Al derivar términos con $y$, aparece $y'$ o $\frac&#123;dy&#125;&#123;dx&#125;$
+- Despejar $y'$ al final
 
+**Ejemplo:** $x^2 + y^2 = 25$
 
-## Estudio Completo de una función
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+1. Derivar ambos lados: $2x + 2y \cdot y' = 0$
+2. Despejar: $y' = -\frac&#123;x&#125;&#123;y&#125;$
 
-Uso de derivadas para crecimiento, concavidad y problemas de optimización.
+**Ejemplo:** $xy + y^2 = 4$
 
+1. Derivar: $(1 \cdot y + x \cdot y') + 2y \cdot y' = 0$
+2. Simplificar: $y + xy' + 2yy' = 0$
+3. Despejar: $y' = -\frac&#123;y&#125;&#123;x + 2y&#125;$
 
-### Análisis de Primera Derivada
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+## Tabla Resumen de Formas Alternativas
 
+| Expresión | Forma Alternativa |
+| --- | --- |
+| $\sec^2 x$ | $\frac&#123;1&#125;&#123;\cos^2 x&#125;$ |
+| $\csc^2 x$ | $\frac&#123;1&#125;&#123;\sin^2 x&#125;$ |
+| $\tan x$ | $\frac&#123;\sin x&#125;&#123;\cos x&#125;$ |
+| $\cot x$ | $\frac&#123;\cos x&#125;&#123;\sin x&#125;$ |
+| $\sec x$ | $\frac&#123;1&#125;&#123;\cos x&#125;$ |
+| $\csc x$ | $\frac&#123;1&#125;&#123;\sin x&#125;$ |
 
-### Análisis de Segunda Derivada
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
+## Consejos Prácticos
 
-
-### optimización
-> Pendiente de desarrollo editorial
-> - Explicación conceptual:
-> - Ejemplo resuelto:
-> - Fórmula(s) clave en LaTeX:
-> - Errores frecuentes / observaciones:
-
-
+1. **Identificar el tipo de función** antes de derivar (algebraica, trigonométrica, exponencial, etc.)
+2. **Usar la regla de la cadena** siempre que haya composición de funciones
+3. **Simplificar antes de derivar** cuando sea posible
+4. **Verificar el resultado** derivando y comparando con la función original
+5. **Practicar las derivadas básicas** hasta memorizarlas
 

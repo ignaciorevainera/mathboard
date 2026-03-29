@@ -1,0 +1,146 @@
+---
+topicId: derivative-advanced-analysis
+title: "Análisis Avanzado con Derivadas"
+description: "L'Hôpital, optimización y teoremas del cálculo diferencial."
+icon: tabler:chart-line
+colorVariant: secondary
+order: 2
+sectionCount: 4
+shortcuts:
+  - href: "/topic/derivative-advanced-analysis#regla-de-lhopital"
+    title: "L'Hôpital"
+    variant: secondary
+  - href: "/topic/derivative-advanced-analysis#optimizacion"
+    title: "Optimización"
+    variant: primary
+  - href: "/topic/derivative-advanced-analysis#teoremas-del-calculo-diferencial"
+    title: "Teoremas"
+    variant: accent
+---
+
+## Técnicas Avanzadas de Derivación
+
+Aplicaciones avanzadas de la derivada para límites, optimización y teoremas fundamentales.
+
+### Regla de L'Hôpital
+
+**Aplicación:** Resolver indeterminaciones $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$
+
+$$
+\lim_&#123;x \to a&#125; \frac&#123;f(x)&#125;&#123;g(x)&#125; = \lim_&#123;x \to a&#125; \frac&#123;f'(x)&#125;&#123;g'(x)&#125;
+$$
+
+#### Procedimiento
+
+1. Verificar que hay indeterminación $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$
+2. Derivar numerador y denominador **por separado** (NO usar regla del cociente)
+3. Calcular el nuevo límite
+4. Si persiste la indeterminación, aplicar L'Hôpital nuevamente
+
+#### Ejemplos
+
+**Ejemplo 1:** $\lim_&#123;x \to 0&#125; \frac&#123;\sin x&#125;&#123;x&#125;$
+
+1. Indeterminación: $\frac&#123;0&#125;&#123;0&#125;$ ✓
+2. Aplicar L'Hôpital: $\lim_&#123;x \to 0&#125; \frac&#123;\cos x&#125;&#123;1&#125; = \frac&#123;1&#125;&#123;1&#125; = 1$
+
+**Ejemplo 2:** $\lim_&#123;x \to \infty&#125; \frac&#123;x^2&#125;&#123;e^x&#125;$
+
+1. Indeterminación: $\frac&#123;\infty&#125;&#123;\infty&#125;$ ✓
+2. Aplicar L'Hôpital: $\lim_&#123;x \to \infty&#125; \frac&#123;2x&#125;&#123;e^x&#125;$
+3. Aún $\frac&#123;\infty&#125;&#123;\infty&#125;$, aplicar de nuevo: $\lim_&#123;x \to \infty&#125; \frac&#123;2&#125;&#123;e^x&#125; = 0$
+
+### Resumen del Análisis Completo de una Función
+
+#### Procedimiento sistemático
+
+| Paso | Qué calcular | Para qué sirve |
+| --- | --- | --- |
+| 1 | Dominio de $f$ | Saber dónde está definida |
+| 2 | $f'(x)$ | Monotonía y extremos |
+| 3 | $f''(x)$ | Concavidad y puntos de inflexión |
+| 4 | Puntos críticos ($f'(x) = 0$) | Candidatos a extremos |
+| 5 | Tabla de signos de $f'$ | Intervalos de crecimiento/decrecimiento |
+| 6 | Clasificar extremos | Máximos y mínimos relativos |
+| 7 | Tabla de signos de $f''$ | Intervalos de concavidad |
+| 8 | Puntos de inflexión ($f''(x) = 0$) | Cambios de concavidad |
+| 9 | Asíntotas (si aplica) | Comportamiento en infinito |
+| 10 | Graficar | Visualizar toda la información |
+
+### Optimización
+
+#### Problemas de máximos y mínimos aplicados
+
+**Procedimiento general:**
+
+1. **Identificar** la cantidad a optimizar (área, volumen, costo, distancia, tiempo, etc.)
+2. **Expresar** esa cantidad como función de una variable: $Q = f(x)$
+3. **Determinar** el dominio (restricciones físicas del problema)
+4. **Derivar:** $f'(x)$
+5. **Encontrar puntos críticos:** $f'(x) = 0$
+6. **Verificar** que sea máximo o mínimo:
+  - Usar criterio de 2da derivada, o
+  - Evaluar en extremos del dominio y puntos críticos
+7. **Responder** la pregunta del problema con unidades
+
+#### Ejemplo Completo
+
+**Problema:** Un granjero tiene 200 m de cerca para construir un corral rectangular pegado a un granero (un lado no necesita cerca). ¿Qué dimensiones maximizan el área?
+
+**Solución:**
+
+1. **Identificar:** Maximizar área $A$
+2. **Variables:**
+  - $x$ = ancho del corral
+  - $y$ = largo del corral
+  - Área: $A = x \cdot y$
+3. **Restricción:**
+  - Cerca disponible: $x + 2y = 200$ (solo 3 lados)
+  - Despejar: $x = 200 - 2y$
+4. **Función a optimizar:**
+  - $A(y) = (200 - 2y) \cdot y = 200y - 2y^2$
+5. **Dominio:** $0 < y < 100$
+6. **Derivar:** $A'(y) = 200 - 4y$
+7. **Punto crítico:**
+  - $200 - 4y = 0$ → $y = 50$
+8. **Verificar:**
+  - $A''(y) = -4 < 0$ → Es máximo ✓
+9. **Dimensiones:**
+  - $y = 50$ m
+  - $x = 200 - 2(50) = 100$ m
+10. **Área máxima:** $A = 100 \times 50 = 5000$ m²
+
+### Teoremas del Cálculo Diferencial
+
+#### Teorema de Rolle
+
+**Hipótesis:**
+
+- $f$ es continua en $[a,b]$
+- $f$ es derivable en $(a,b)$
+- $f(a) = f(b)$
+
+**Conclusión:**
+
+Existe al menos un $c \in (a,b)$ tal que $f'(c) = 0$
+
+**Interpretación:** Si una función continua y derivable vuelve al mismo valor, debe tener al menos un punto con tangente horizontal.
+
+#### Teorema del Valor Medio (Lagrange)
+
+**Hipótesis:**
+
+- $f$ es continua en $[a,b]$
+- $f$ es derivable en $(a,b)$
+
+**Conclusión:**
+
+Existe al menos un $c \in (a,b)$ tal que:
+
+$$
+f'(c) = \frac&#123;f(b) - f(a)&#125;&#123;b - a&#125;
+$$
+
+**Interpretación:** Hay al menos un punto donde la tangente es paralela a la secante que une los extremos.
+
+**Significado físico:** La velocidad instantánea en algún momento es igual a la velocidad promedio.
