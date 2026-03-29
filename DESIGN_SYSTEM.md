@@ -38,15 +38,15 @@ Regla: todos los colores deben venir de tokens DaisyUI.
 
 | Rol | Fuente | Paquete Fontsource |
 | --- | --- | --- |
-| Display | Red Hat Display Variable | @fontsource-variable/red-hat-display |
-| Body | Public Sans Variable | @fontsource-variable/public-sans |
+| Display | Playfair Display Variable | @fontsource-variable/playfair-display |
+| Body | Inter Variable | @fontsource-variable/inter |
 
 Configuración en src/styles/global.css:
 
 ```css
 @theme {
-  --font-display: 'Red Hat Display Variable', sans-serif;
-  --font-sans: 'Public Sans Variable', sans-serif;
+  --font-display: 'Playfair Display Variable', serif;
+  --font-sans: 'Inter Variable', sans-serif;
 }
 ```
 
@@ -125,6 +125,7 @@ Páginas:
 - 2026-03-24: Home simplificado a catálogo con Atajos Rápidos y Temario Completo
 - 2026-03-26: TOC de tema con superficie elevada (base-200) y jerarquía visual por nivel de heading para mejorar escaneabilidad
 - 2026-03-29: TOC lateral minimalista con título "En esta pagina", navegación h2/h3 anidada, sticky lateral y navegación por anclas sin resaltado activo por scroll.
+- 2026-03-29: Pair tipográfico actualizado a Inter + Playfair Display para mejorar legibilidad en cuerpo y contraste editorial en títulos.
 
 ## Pendientes
 

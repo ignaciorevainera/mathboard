@@ -22,12 +22,14 @@ export interface TopicShortcutItem {
 export interface TopicGroup {
   id: string;
   title: string;
+  description: string;
   topics: TopicCardItem[];
 }
 
 interface TopicGroupDefinition {
   id: string;
   title: string;
+  description: string;
   topicIds: string[];
 }
 
@@ -56,6 +58,7 @@ const HOME_TOPIC_GROUP_DEFINITIONS: TopicGroupDefinition[] = [
   {
     id: "bases-algebraicas",
     title: "Bases Algebraicas",
+    description: "Fundamentos para simplificar expresiones y operar con modelos algebraicos.",
     topicIds: [
       "factoring-algebraic-expressions",
       "logarithms-exponentials",
@@ -64,6 +67,7 @@ const HOME_TOPIC_GROUP_DEFINITIONS: TopicGroupDefinition[] = [
   {
     id: "geometria-trigonometria",
     title: "Geometria y Trigonometria",
+    description: "Herramientas geometricas y trigonométricas para analizar figuras y relaciones metricas.",
     topicIds: [
       "geometry-trigonometry",
       "analytic-geometry-lines-points",
@@ -73,11 +77,13 @@ const HOME_TOPIC_GROUP_DEFINITIONS: TopicGroupDefinition[] = [
   {
     id: "analisis-funciones",
     title: "Analisis de Funciones",
+    description: "Comportamiento de funciones, limites y continuidad antes del calculo diferencial.",
     topicIds: ["inverse-functions", "limits-continuity", "continuity", "asymptotes"],
   },
   {
     id: "calculo-diferencial",
     title: "Calculo Diferencial",
+    description: "Derivadas y sus aplicaciones para estudiar variacion, optimizacion y cambio.",
     topicIds: [
       "differential-calculus-function-analysis",
       "derivative-applications",
@@ -87,13 +93,15 @@ const HOME_TOPIC_GROUP_DEFINITIONS: TopicGroupDefinition[] = [
   {
     id: "calculo-integral-series",
     title: "Calculo Integral y Series",
+    description: "Integracion y sucesiones para acumulacion, aproximaciones y analisis avanzado.",
     topicIds: ["integral-calculus", "sequences-series"],
   },
 ];
 
-const FALLBACK_TOPIC_GROUP: Pick<TopicGroup, "id" | "title"> = {
+const FALLBACK_TOPIC_GROUP: Pick<TopicGroup, "id" | "title" | "description"> = {
   id: "otros-temas",
   title: "Otros Temas",
+  description: "Temas adicionales incorporados fuera de los bloques principales.",
 };
 
 export async function getTopicEntries(): Promise<TopicEntry[]> {
@@ -163,6 +171,7 @@ export async function getTopicGroupsForHome(): Promise<TopicGroup[]> {
     return {
       id: groupDefinition.id,
       title: groupDefinition.title,
+      description: groupDefinition.description,
       topics,
     };
   }).filter((group) => group.topics.length > 0);
@@ -175,6 +184,7 @@ export async function getTopicGroupsForHome(): Promise<TopicGroup[]> {
     groups.push({
       id: FALLBACK_TOPIC_GROUP.id,
       title: FALLBACK_TOPIC_GROUP.title,
+      description: FALLBACK_TOPIC_GROUP.description,
       topics: fallbackTopics,
     });
   }

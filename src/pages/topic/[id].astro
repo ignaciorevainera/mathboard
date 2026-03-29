@@ -25,6 +25,7 @@ const { Content, headings } = await render(topic);
 <BaseLayout
   title={`Mathboard · ${topic.data.title}`}
   description={topic.data.description}
+  enableMath
 >
   <TopicMarkdownContentSection
     title={topic.data.title}

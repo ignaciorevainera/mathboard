@@ -19,41 +19,66 @@ const {
   colorVariant = "primary",
 } = Astro.props;
 
-const iconColorClassMap = {
-  primary: "bg-primary/15 text-primary",
-  secondary: "bg-secondary/15 text-secondary",
-  accent: "bg-accent/15 text-accent",
-  neutral: "bg-neutral/15 text-neutral",
+const topicIconToneMap: Record<string, string> = {
+  "factoring-algebraic-expressions": "bg-primary text-primary-content",
+  "logarithms-exponentials": "bg-secondary text-secondary-content",
+  "geometry-trigonometry": "bg-accent text-accent-content",
+  "analytic-geometry-lines-points": "bg-info text-info-content",
+  "conic-sections": "bg-success text-success-content",
+  "inverse-functions": "bg-warning text-warning-content",
+  "limits-continuity": "bg-error text-error-content",
+  continuity: "bg-neutral text-neutral-content",
+  asymptotes: "bg-primary text-primary-content",
+  "differential-calculus-function-analysis":
+    "bg-secondary text-secondary-content",
+  "derivative-applications": "bg-accent text-accent-content",
+  "derivative-advanced-analysis": "bg-info text-info-content",
+  "integral-calculus": "bg-success text-success-content",
+  "sequences-series": "bg-neutral text-neutral-content",
 };
 
-const iconColorClasses = iconColorClassMap[colorVariant];
+const iconColorClassMap = {
+  primary: "bg-primary text-primary-content",
+  secondary: "bg-secondary text-secondary-content",
+  accent: "bg-accent text-accent-content",
+  neutral: "bg-neutral text-neutral-content",
+};
+
+const iconColorClasses =
+  topicIconToneMap[id] ?? iconColorClassMap[colorVariant];
 ---
 
 <a
   href={`/topic/${id}/`}
-  class="card group h-full cursor-pointer border border-base-300 bg-base-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+  class="group card relative h-full cursor-pointer overflow-hidden border border-base-300 bg-base-200 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
   aria-label={`Ingresar a ${title}`}
 >
-  <div class="card-body gap-4">
-    <div class={`w-fit rounded-xl p-3 shadow-sm ${iconColorClasses}`}>
-      <Icon name={icon} aria-hidden="true" class="size-6" />
+  <div class="card-body relative gap-3 p-4 sm:gap-4 sm:p-5">
+    <div
+      class={`w-fit rounded-xl p-2.5 shadow-sm transition-transform duration-300 group-hover:scale-105 sm:p-3 ${iconColorClasses}`}
+    >
+      <Icon name={icon} aria-hidden="true" class="size-5 sm:size-6" />
     </div>
 
-    <h3 class="card-title text-xl">{title}</h3>
-    <p class="text-sm text-base-content/80">{description}</p>
+    <div>
+      <h3 class="card-title mb-1 text-base font-bold leading-snug text-base-content sm:text-lg md:text-xl">
+        {title}
+      </h3>
+      <p class="min-h-0 text-xs leading-relaxed text-base-content/80 sm:min-h-20 sm:text-sm">
+        {description}
+      </p>
+    </div>
 
-    <div
-      class="card-actions mt-2 items-center justify-between border-t border-base-content/20 pt-4"
-    >
-      <span class="badge badge-soft">{subtopicsCount} temas</span>
-      <span
-        class="inline-flex items-center gap-1 text-sm font-medium text-base-content/80 transition-colors group-hover:text-primary"
-      >
-        Ingresar
+    <div class="card-actions mt-2 items-center justify-between border-t border-base-content/20 pt-3 sm:pt-4">
+      <span class="badge badge-soft badge-xs font-bold sm:badge-sm">
+        {subtopicsCount} temas
+      </span>
+      <span class="inline-flex items-center gap-1 text-xs font-semibold text-base-content/80 transition-colors group-hover:text-primary sm:text-sm">
+        Ver tema
         <Icon
           name="tabler:arrow-right"
           aria-hidden="true"
-          class="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+          class="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 sm:size-4"
         />
       </span>
     </div>

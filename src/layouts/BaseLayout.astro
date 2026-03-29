@@ -7,16 +7,18 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  enableMath?: boolean;
 }
 
 const {
   title,
   description,
   ogImage = "https://placehold.co/1200x630",
+  enableMath = false,
 } = Astro.props;
 ---
 
-<html lang="en" data-theme="light">
+<html lang="es" data-theme="light">
   <head>
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
@@ -41,35 +43,41 @@ const {
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
-    />
-    <script
-      is:inline
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
-    ></script>
-    <script
-      is:inline
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
-    ></script>
-    <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
-        if (typeof renderMathInElement === "function") {
-          renderMathInElement(document.body, {
-            delimiters: [
-              { left: "$$", right: "$$", display: true },
-              { left: "$", right: "$", display: false },
-              { left: "\\(", right: "\\)", display: false },
-              { left: "\\[", right: "\\]", display: true },
-            ],
-            throwOnError: false,
-          });
-        }
-      });
-    </script>
+    {
+      enableMath && (
+        <>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+          />
+          <script
+            is:inline
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+          ></script>
+          <script
+            is:inline
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          ></script>
+          <script is:inline>
+            document.addEventListener("DOMContentLoaded", () => {
+              if (typeof renderMathInElement === "function") {
+                renderMathInElement(document.body, {
+                  delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true },
+                  ],
+                  throwOnError: false,
+                });
+              }
+            });
+          </script>
+        </>
+      )
+    }
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />

@@ -16,3 +16,8 @@ Archivos afectados: src/content/topics/analytic-geometry-lines-points.mdx; src/c
 Problema: expresiones con `\&#123;...\&#125;` dentro de formulas se mostraban literal en pantalla en lugar de renderizarse como conjuntos.
 Solucion: reemplazar secuencias escapadas por llaves LaTeX reales (`\{...\}`) en formulas afectadas.
 Archivos afectados: src/content/topics/sequences-series.mdx; src/content/topics/continuity.mdx; src/content/topics/inverse-functions.mdx
+
+### 2026-03-29 — Warning KaTeX por apostrofe tipografico en formulas
+Problema: KaTeX emite warnings `unknownSymbol` cuando encuentra el caracter Unicode `’` dentro de contenido matematico.
+Solucion: normalizar apostrofes tipograficos a `'` ASCII en fragmentos de formula para evitar ruido de consola.
+Archivos afectados: src/content/topics/*.mdx

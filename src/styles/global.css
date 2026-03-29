@@ -1,5 +1,5 @@
-@import '@fontsource-variable/red-hat-display';
-@import '@fontsource-variable/public-sans';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/playfair-display';
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
@@ -11,8 +11,8 @@
 @custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
 
 @theme {
-  --font-display: 'Red Hat Display Variable', sans-serif;
-  --font-sans: 'Public Sans Variable', sans-serif;
+  --font-display: 'Playfair Display Variable', serif;
+  --font-sans: 'Inter Variable', sans-serif;
 }
 
 html {
@@ -37,6 +37,22 @@ body {
 
 .stagger-item:nth-child(3) {
   animation-delay: 240ms;
+}
+
+.syllabus-group-animate {
+  animation: fade-in-up 500ms ease both;
+}
+
+.syllabus-group-animate:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.syllabus-group-animate:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.syllabus-group-animate:nth-child(4) {
+  animation-delay: 270ms;
 }
 
 @keyframes fade-in-up {

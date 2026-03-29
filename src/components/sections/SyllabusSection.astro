@@ -11,32 +11,155 @@ const { groups } = Astro.props;
 ---
 
 <SectionWrapper id="syllabus">
-  <h2 class="text-3xl font-semibold md:text-4xl">Temario Completo</h2>
+  <div class="space-y-3">
+    <h2 class="text-3xl font-semibold md:text-4xl">Temario Completo</h2>
+    <p class="max-w-3xl text-base text-base-content/80">
+      Explorá el contenido por bloques para ubicar mas rapido cada tema y
+      avanzar con una secuencia clara de estudio.
+    </p>
+  </div>
 
-  <div class="space-y-8">
+  <div
+    class="flex flex-wrap items-center gap-2 pt-2"
+    role="toolbar"
+    aria-label="Filtrar bloques del temario"
+    data-syllabus-toolbar
+  >
+    <button
+      type="button"
+      class="btn btn-sm btn-soft btn-primary"
+      data-group-filter="all"
+      aria-pressed="true"
+    >
+      Todos los bloques
+    </button>
     {
       groups.map((group) => (
-        <section class="space-y-4" aria-labelledby={`syllabus-group-${group.id}`}>
-          <h3 id={`syllabus-group-${group.id}`} class="text-xl font-semibold md:text-2xl">
-            {group.title}
-          </h3>
+        <button
+          type="button"
+          class="btn btn-sm btn-ghost"
+          data-group-filter={group.id}
+          aria-pressed="false"
+        >
+          {group.title}
+        </button>
+      ))
+    }
+  </div>
 
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {
-              group.topics.map((topic) => (
-                <TopicCard
-                  id={topic.id}
-                  title={topic.title}
-                  description={topic.description}
-                  subtopicsCount={topic.subtopicsCount}
-                  icon={topic.icon}
-                  colorVariant={topic.colorVariant ?? "primary"}
-                />
-              ))
-            }
+  <div class="space-y-8 pt-2" data-syllabus-groups>
+    {
+      groups.map((group) => (
+        <section
+          class="syllabus-group-animate space-y-5 rounded-2xl border border-base-300 bg-base-200/40 p-4 md:p-5"
+          data-group-id={group.id}
+          aria-labelledby={`syllabus-group-${group.id}`}
+        >
+          <div class="space-y-1">
+            <h3
+              id={`syllabus-group-${group.id}`}
+              class="text-xl font-semibold md:text-2xl"
+            >
+              {group.title}
+            </h3>
+            <p class="max-w-3xl text-sm text-base-content/75 md:text-base">
+              {group.description}
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {group.topics.map((topic) => (
+              <TopicCard
+                id={topic.id}
+                title={topic.title}
+                description={topic.description}
+                subtopicsCount={topic.subtopicsCount}
+                icon={topic.icon}
+                colorVariant={topic.colorVariant ?? "primary"}
+              />
+            ))}
           </div>
         </section>
       ))
     }
   </div>
 </SectionWrapper>
+
+<script is:inline>
+  const FILTER_QUERY_KEY = "bloque";
+  const toolbar = document.querySelector("[data-syllabus-toolbar]");
+  const filterButtons = Array.from(
+    toolbar?.querySelectorAll("[data-group-filter]") ?? [],
+  );
+  const groupSections = Array.from(
+    document.querySelectorAll("[data-group-id]"),
+  );
+
+  if (filterButtons.length > 0 && groupSections.length > 0) {
+    const allowedGroupIds = new Set([
+      "all",
+      ...groupSections
+        .map((section) => section.getAttribute("data-group-id"))
+        .filter((groupId) => groupId !== null),
+    ]);
+
+    const normalizeGroupId = (groupId) =>
+      allowedGroupIds.has(groupId) ? groupId : "all";
+
+    const syncUrlFilter = (groupId) => {
+      const url = new URL(window.location.href);
+
+      if (groupId === "all") {
+        url.searchParams.delete(FILTER_QUERY_KEY);
+      } else {
+        url.searchParams.set(FILTER_QUERY_KEY, groupId);
+      }
+
+      window.history.replaceState({}, "", url);
+    };
+
+    const applyFilter = (groupId, syncUrl = false) => {
+      const resolvedGroupId = normalizeGroupId(groupId);
+
+      for (const section of groupSections) {
+        const sectionId = section.getAttribute("data-group-id");
+        const shouldShow =
+          resolvedGroupId === "all" || sectionId === resolvedGroupId;
+        section.classList.toggle("hidden", !shouldShow);
+      }
+
+      for (const button of filterButtons) {
+        const isActive =
+          button.getAttribute("data-group-filter") === resolvedGroupId;
+        button.setAttribute("aria-pressed", String(isActive));
+        button.classList.toggle("btn-primary", isActive);
+        button.classList.toggle("btn-soft", isActive);
+        button.classList.toggle("btn-ghost", !isActive);
+      }
+
+      if (syncUrl) {
+        syncUrlFilter(resolvedGroupId);
+      }
+    };
+
+    toolbar?.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const button = target.closest("[data-group-filter]");
+      if (!(button instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const targetGroup = button.getAttribute("data-group-filter") ?? "all";
+      applyFilter(targetGroup, true);
+    });
+
+    const initialGroup = normalizeGroupId(
+      new URL(window.location.href).searchParams.get(FILTER_QUERY_KEY) ?? "all",
+    );
+    applyFilter(initialGroup);
+  }
+</script>
