@@ -11,7 +11,7 @@ Generado el 2026-03-24. Actualizar ante cualquier cambio de diseño.
 
 ## Tema activo
 
-Nombre: winter
+Nombre: light
 Modo por defecto: claro
 Modo alternativo: night
 
@@ -19,7 +19,7 @@ Configuración en src/styles/global.css:
 
 ```css
 @plugin "daisyui" {
-  themes: winter --default, night --prefersdark;
+  themes: light --default, night --prefersdark;
 }
 ```
 
@@ -89,6 +89,7 @@ Secciones:
 
 - src/components/sections/HomeHero.astro
 - src/components/sections/ShortcutsSection.astro
+- src/components/sections/ImportantResourcesSection.astro
 - src/components/sections/SyllabusSection.astro
 - src/components/sections/StudyFlowSection.astro
 - src/components/sections/TopicContentSection.astro
@@ -118,7 +119,7 @@ Páginas:
 
 ## Decisiones documentadas
 
-- 2026-03-24: Tema winter + night para combinar lectura prolongada con contraste opcional
+- 2026-03-24: Tema light + night para combinar lectura prolongada con contraste opcional
 - 2026-03-24: Pair tipográfico Red Hat Display + Public Sans para tono académico moderno
 - 2026-03-24: Arquitectura de componentes separada en global/ui/sections desde la maqueta inicial
 - 2026-03-24: Home simplificado a catálogo con Atajos Rápidos y Temario Completo
