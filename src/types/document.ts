@@ -3,4 +3,5 @@ export interface DocumentResource {
   title: string
   description: string
   filePath: string
+  colorVariant: 'primary' | 'secondary' | 'accent' | 'neutral'
 }

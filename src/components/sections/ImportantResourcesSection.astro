@@ -1,0 +1,53 @@
+---
+import SectionWrapper from "../ui/SectionWrapper.astro";
+import { Icon } from "astro-icon/components";
+import { getDocuments } from "../../lib/documents";
+
+const documents = getDocuments();
+
+const colorClasses = {
+  primary: "bg-primary/15 text-primary",
+  secondary: "bg-secondary/15 text-secondary",
+  accent: "bg-accent/15 text-accent",
+  neutral: "bg-neutral/15 text-neutral-content",
+} as const;
+---
+
+<SectionWrapper id="important-resources">
+  <div class="rounded-2xl border border-base-300 bg-base-200/70 p-6 md:p-8">
+    <div class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-3xl font-semibold md:text-4xl">Recursos importantes</h2>
+        <p class="text-base-content/80">
+          Descargá en un clic PDFs de consulta rápida para derivadas, integrales
+          e identidades trigonométricas.
+        </p>
+      </div>
+
+      <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {
+          documents.map((doc) => (
+            <a
+              href={doc.filePath}
+              download
+              class="group flex items-center justify-between rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm transition-all hover:border-primary/40 hover:shadow-md"
+              aria-label={`Descargar ${doc.title} en PDF`}
+            >
+              <span class="flex items-center gap-3">
+                <span class={`rounded-xl p-2 shadow-sm ${colorClasses[doc.colorVariant]}`}>
+                  <Icon name="tabler:file-download" aria-hidden="true" class="size-5" />
+                </span>
+                <span class="font-semibold text-base-content transition-colors group-hover:text-primary">
+                  {doc.title}
+                </span>
+              </span>
+              <span class="rounded-md bg-base-200 px-2 py-1 text-xs font-bold text-base-content/70 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                PDF
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</SectionWrapper>

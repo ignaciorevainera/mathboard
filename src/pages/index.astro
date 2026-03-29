@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
-import ImportantDocumentsSection from "../components/sections/ImportantDocumentsSection.astro";
+import ImportantResourcesSection from "../components/sections/ImportantResourcesSection.astro";
 import SyllabusSection from "../components/sections/SyllabusSection.astro";
 import {
   getTopicCardsForHome,
@@ -19,7 +19,7 @@ const [shortcuts, topicCards] = await Promise.all([
   description="Math topics catalog with quick shortcuts and per-block subtopic access."
 >
   <h1 class="sr-only">Catálogo de temas y subtemas de matemáticas</h1>
-  <ImportantDocumentsSection />
+  <ImportantResourcesSection />
   <ShortcutsSection shortcuts={shortcuts} />
   <SyllabusSection topics={topicCards} />
 </BaseLayout>
