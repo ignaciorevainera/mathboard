@@ -1,37 +1,47 @@
-# Tarea: Rediseñar Recursos Importantes con descargas directas
-Fecha: 2026-03-28
+# Tarea: Simplificar TOC a indice basico con minimo JavaScript
+Fecha: 2026-03-29
 
 ## Descripcion
-Renombrar la seccion "Documentos importantes" a "Recursos importantes" y reemplazar el CTA a pagina por una grilla de pills descargables en un clic (PDF), manteniendo las convenciones de diseño del proyecto y la experiencia responsive.
+Reducir la complejidad de la TOC de topics eliminando el seguimiento activo por scroll y la mayor parte del JavaScript. El indice debe quedar simple: mostrar contenidos (h2 y h3), mantener layout flotante sticky y navegar por anclas al hacer click.
 
 ## Riesgos identificados
-- Romper la descarga directa si las rutas de `filePath` no coinciden con archivos en `public/documents/`.
-- Generar pills con contraste o estados hover fuera de tokens DaisyUI/Tailwind del sistema visual.
-- Desbalance visual en mobile si las pills no respetan estructura flexible y espaciado del layout.
-- Dejar referencias huérfanas hacia `/documents` si no se actualizan todos los enlaces de navegación.
-- Inconsistencia de naming entre "recursos" y "documentos" en distintos puntos del sitio.
+- Desalinear IDs/enlaces si la fuente de headings no coincide con los anchors renderizados en el contenido MDX.
+- Perder jerarquia visual entre h2 y h3 al pasar de construccion dinamica a render declarativo.
+- Romper el comportamiento sticky/overflow al simplificar estructura y clases.
+- Introducir regresiones en rutas de topic si no se pasan correctamente los headings desde la pagina al componente.
 
 ## Plan de ejecucion
 
-[x] Paso 1 — fullstack: definir contrato de recursos para pills descargables
-    Criterio de exito: `src/lib/documents.ts` expone datos suficientes para renderizar pills (titulo, archivo, estado PDF y variante visual si aplica) sin hardcodear en el componente.
+[x] Paso 1 — ui-designer: usar headings de Astro como fuente del TOC en la pagina de topic
+    Criterio de exito: [src/pages/topic/[id].astro](src/pages/topic/[id].astro#L1) pasa al componente una lista de headings ya parseada por Astro, evitando lectura del DOM para construir el indice.
 
-[x] Paso 2 — ui-designer: refactorizar `ImportantDocumentsSection` a `Recursos importantes`
-    Criterio de exito: la seccion muestra pills de descarga en un clic con icono, titulo y badge "PDF", siguiendo convenciones de Tailwind + DaisyUI y accesibilidad.
+[x] Paso 2 — ui-designer: refactorizar `TopicMarkdownContentSection` para render declarativo del indice
+    Criterio de exito: [src/components/sections/TopicMarkdownContentSection.astro](src/components/sections/TopicMarkdownContentSection.astro#L1) renderiza h2/h3 en template Astro, sin IntersectionObserver ni logica de item activo por scroll.
 
-[x] Paso 3 — fullstack: eliminar dependencia del CTA a pagina y actualizar referencias de ruta
-    Criterio de exito: desde home ya no se navega a `/documents` para descargar; todas las descargas ocurren directamente desde la seccion de recursos.
+[x] Paso 3 — ui-designer: conservar estilo flotante, sticky y navegacion por anclas
+    Criterio de exito: el TOC queda sin fondo anidado, mantiene `lg:top-24` + scroll interno, y cada enlace lleva correctamente a su seccion.
 
-[x] Paso 4 — ui-designer: ajustar responsive y densidad visual de pills
-    Criterio de exito: layout consistente en mobile, tablet y desktop sin overflow ni espacios vacios notables.
-
-[ ] Paso 5 — qa-reviewer: verificar resultado completo y hacer commit
-    Criterio de exito: links descargan PDF con un clic, `npx astro check` y `npm run build` pasan, y la nomenclatura visible del sitio queda unificada como "Recursos importantes".
+[x] Paso 4 — qa-reviewer: verificar resultado completo
+    Criterio de exito: `npx astro check` y `npm run build` pasan, el indice es simple/legible y funciona solo como navegacion por anclas sin resaltado dinamico.
 
 ## Agentes involucrados
-- fullstack
 - ui-designer
 - qa-reviewer
 
 ## Criterio de exito global
-La home muestra "Recursos importantes" con pills descargables en un clic, sin navegación intermedia obligatoria, con estilo consistente al sistema de diseño y sin regressiones de build o responsive.
+Cada topic muestra una TOC minimalista y estable, con logica simplificada al minimo, navegacion por anclas confiable y sticky flotante mantenido.
+
+## Resultado de revision — 2026-03-29
+
+### Aprobado
+- TOC simplificada a indice declarativo usando headings de Astro (h2/h3) sin logica de resaltado activo por scroll.
+- Navegacion por anclas validada en navegador: click en TOC actualiza hash y posiciona la seccion objetivo.
+- Sticky lateral y overflow interno presentes en desktop (`top-24` + `overflow-y-auto`).
+- Jerarquia visual h2/h3 clara por tipografia/indentacion, sin caja anidada ni fondo doble en el bloque TOC.
+- Validacion tecnica completada: `npx astro check` sin errores y `npm run build` exitoso.
+
+### Requiere correccion
+- Ninguna.
+
+### Bloqueantes para completar la tarea
+- Ninguno.

@@ -124,6 +124,7 @@ Páginas:
 - 2026-03-24: Arquitectura de componentes separada en global/ui/sections desde la maqueta inicial
 - 2026-03-24: Home simplificado a catálogo con Atajos Rápidos y Temario Completo
 - 2026-03-26: TOC de tema con superficie elevada (base-200) y jerarquía visual por nivel de heading para mejorar escaneabilidad
+- 2026-03-29: TOC lateral minimalista con título "En esta pagina", navegación h2/h3 anidada, sticky lateral y navegación por anclas sin resaltado activo por scroll.
 
 ## Pendientes
 
