@@ -6,9 +6,21 @@ interface Props {
   title: string;
   description: string;
   icon: string;
+  headings: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
 }
 
-const { title, description, icon } = Astro.props;
+const { title, description, icon, headings } = Astro.props;
+
+const tocHeadings = headings.filter(
+  (heading) =>
+    (heading.depth === 2 || heading.depth === 3) &&
+    heading.slug &&
+    heading.text.trim().length > 0,
+);
 ---
 
 <SectionWrapper>
@@ -48,56 +60,32 @@ const { title, description, icon } = Astro.props;
     </div>
 
     <aside class="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
-      <nav
-        class="card border border-base-300/80 bg-base-200/70 shadow-sm backdrop-blur"
-        aria-label="Topic table of contents"
-      >
-        <div class="card-body gap-4">
-          <h2 class="card-title text-xl">Contenido del tema</h2>
-          <ul id="topic-toc-list" class="menu rounded-box bg-base-100/70 p-2">
-          </ul>
+      <nav class="rounded-2xl" aria-label="En esta pagina">
+        <div class="flex flex-col gap-4 lg:max-h-screen">
+          <h2 class="card-title text-xl">En esta pagina</h2>
+          {
+            tocHeadings.length > 0 && (
+              <ul class="menu p-0 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
+                {tocHeadings.map((heading) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      class:list={[
+                        "rounded-lg transition-colors hover:bg-neutral/10 hover:text-base-content",
+                        heading.depth === 2
+                          ? "px-3 py-2 text-sm font-semibold leading-snug text-base-content/80"
+                          : "ml-3 px-3 py-1.5 text-sm leading-snug text-base-content/65",
+                      ]}
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )
+          }
         </div>
       </nav>
     </aside>
   </div>
 </SectionWrapper>
-
-<script is:inline>
-  const tocContainer = document.getElementById("topic-toc-list");
-  const topicContent = document.getElementById("topic-content");
-
-  if (tocContainer && topicContent) {
-    const levelClasses = [
-      "",
-      "font-bold pl-1 text-base",
-      "font-semibold pl-3 text-sm",
-      "pl-5 text-sm",
-      "pl-7 text-sm opacity-90",
-      "pl-9 text-sm opacity-85",
-      "pl-11 text-sm opacity-80",
-    ];
-
-    const headings = Array.from(
-      topicContent.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-    );
-
-    headings.forEach((heading) => {
-      const text = heading.textContent?.trim();
-      if (!text) return;
-
-      const level = Number(heading.tagName.substring(1));
-      const li = document.createElement("li");
-      const anchor = document.createElement("a");
-      const normalizedLevel = Math.min(Math.max(level, 1), 6);
-
-      if (!heading.id) return;
-
-      anchor.href = `#${heading.id}`;
-      anchor.textContent = text;
-      anchor.className = `block rounded-md py-2 leading-snug transition-colors hover:bg-base-content/10 ${levelClasses[normalizedLevel]}`;
-
-      li.appendChild(anchor);
-      tocContainer.appendChild(li);
-    });
-  }
-</script>

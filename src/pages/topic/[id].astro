@@ -19,7 +19,7 @@ if (!topic) {
   throw new Error(`Topic not found: ${id ?? "unknown"}`);
 }
 
-const renderedContent = await render(topic);
+const { Content, headings } = await render(topic);
 ---
 
 <BaseLayout
@@ -30,7 +30,8 @@ const renderedContent = await render(topic);
     title={topic.data.title}
     description={topic.data.description}
     icon={topic.data.icon}
+    headings={headings}
   >
-    <renderedContent.Content />
+    <Content />
   </TopicMarkdownContentSection>
 </BaseLayout>
