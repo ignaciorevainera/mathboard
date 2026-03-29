@@ -1,37 +1,41 @@
 ---
 import SectionWrapper from "../ui/SectionWrapper.astro";
 import TopicCard from "../ui/TopicCard.astro";
-
-interface TopicItem {
-  id: string;
-  title: string;
-  description: string;
-  subtopicsCount: number;
-  icon: string;
-  colorVariant?: "primary" | "secondary" | "accent" | "neutral";
-}
+import type { TopicGroup } from "../../lib/topic-content";
 
 interface Props {
-  topics: TopicItem[];
+  groups: TopicGroup[];
 }
 
-const { topics } = Astro.props;
+const { groups } = Astro.props;
 ---
 
 <SectionWrapper id="syllabus">
   <h2 class="text-3xl font-semibold md:text-4xl">Temario Completo</h2>
 
-  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+  <div class="space-y-8">
     {
-      topics.map((topic) => (
-        <TopicCard
-          id={topic.id}
-          title={topic.title}
-          description={topic.description}
-          subtopicsCount={topic.subtopicsCount}
-          icon={topic.icon}
-          colorVariant={topic.colorVariant ?? "primary"}
-        />
+      groups.map((group) => (
+        <section class="space-y-4" aria-labelledby={`syllabus-group-${group.id}`}>
+          <h3 id={`syllabus-group-${group.id}`} class="text-xl font-semibold md:text-2xl">
+            {group.title}
+          </h3>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {
+              group.topics.map((topic) => (
+                <TopicCard
+                  id={topic.id}
+                  title={topic.title}
+                  description={topic.description}
+                  subtopicsCount={topic.subtopicsCount}
+                  icon={topic.icon}
+                  colorVariant={topic.colorVariant ?? "primary"}
+                />
+              ))
+            }
+          </div>
+        </section>
       ))
     }
   </div>

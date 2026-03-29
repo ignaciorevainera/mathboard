@@ -4,13 +4,13 @@ import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
 import ImportantResourcesSection from "../components/sections/ImportantResourcesSection.astro";
 import SyllabusSection from "../components/sections/SyllabusSection.astro";
 import {
-  getTopicCardsForHome,
+  getTopicGroupsForHome,
   getTopicShortcutsForHome,
 } from "../lib/topic-content";
 
-const [shortcuts, topicCards] = await Promise.all([
+const [shortcuts, topicGroups] = await Promise.all([
   getTopicShortcutsForHome(9),
-  getTopicCardsForHome(),
+  getTopicGroupsForHome(),
 ]);
 ---
 
@@ -21,5 +21,5 @@ const [shortcuts, topicCards] = await Promise.all([
   <h1 class="sr-only">Catálogo de temas y subtemas de matemáticas</h1>
   <ImportantResourcesSection />
   <ShortcutsSection shortcuts={shortcuts} />
-  <SyllabusSection topics={topicCards} />
+  <SyllabusSection groups={topicGroups} />
 </BaseLayout>
