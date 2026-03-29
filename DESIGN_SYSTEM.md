@@ -126,6 +126,11 @@ Páginas:
 - 2026-03-26: TOC de tema con superficie elevada (base-200) y jerarquía visual por nivel de heading para mejorar escaneabilidad
 - 2026-03-29: TOC lateral minimalista con título "En esta pagina", navegación h2/h3 anidada, sticky lateral y navegación por anclas sin resaltado activo por scroll.
 - 2026-03-29: Pair tipográfico actualizado a Inter + Playfair Display para mejorar legibilidad en cuerpo y contraste editorial en títulos.
+- 2026-03-29: TOC de tema oculto en mobile (visible desde lg) y navegación por hash reforzada para atajos del index y enlaces internos.
+- 2026-03-29: Pills de Atajos Rápidos con mayor legibilidad (texto base-content, peso semibold, foco visible y punto de color por variante) y selección curada de 9 atajos troncales del recorrido pedagógico.
+- 2026-03-29: Migración de iconografía a Hugeicons con `astro-icon`, reemplazando Tabler para ampliar disponibilidad de símbolos matemáticos.
+- 2026-03-29: Curaduría de iconos de temas priorizando variantes Hugeicons sin marcos geométricos (sin circle/square/triangle) para mantener un lenguaje visual más limpio.
+- 2026-03-29: Coherencia de iconos por bloque del temario: algebra (math/function), geometria-trigonometria (ruler/compass/sine), analisis (inequality/chart/arrow-left-right), calculo diferencial (function-of-x + chart-line-data), calculo integral y series (summation).
 
 ## Pendientes
 

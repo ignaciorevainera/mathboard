@@ -33,7 +33,7 @@ No se requieren variables de entorno para el alcance actual del proyecto estáti
 - daisyui
 - @astrojs/mdx
 - astro-icon
-- @iconify-json/tabler
+- @iconify-json/hugeicons
 - @tailwindcss/typography
 
 ## Notas de configuracion

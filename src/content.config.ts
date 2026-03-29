@@ -10,7 +10,7 @@ const topics = defineCollection({
     topicId: z.string(),
     title: z.string(),
     description: z.string(),
-    icon: z.string().default("tabler:book"),
+    icon: z.string().default("hugeicons:book-01"),
     colorVariant: topicColorVariant,
     order: z.number().int().positive(),
     sectionCount: z.number().int().nonnegative(),

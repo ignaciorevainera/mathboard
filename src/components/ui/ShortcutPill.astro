@@ -8,18 +8,27 @@ interface Props {
 const { href, title, variant = "primary" } = Astro.props;
 
 const variantClassMap = {
-  primary: "border-primary/30 bg-primary/10 text-primary",
-  secondary: "border-secondary/30 bg-secondary/10 text-secondary",
-  accent: "border-accent/30 bg-accent/10 text-accent",
-  neutral: "border-neutral/20 bg-base-200 text-base-content",
+  primary: "border-primary/35 hover:border-primary/55",
+  secondary: "border-secondary/35 hover:border-secondary/55",
+  accent: "border-accent/35 hover:border-accent/55",
+  neutral: "border-neutral/30 hover:border-neutral/50",
+};
+
+const variantDotClassMap = {
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  accent: "bg-accent",
+  neutral: "bg-neutral",
 };
 
 const variantClasses = variantClassMap[variant];
+const variantDotClasses = variantDotClassMap[variant];
 ---
 
 <a
   href={href}
-  class={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium shadow-sm transition hover:shadow ${variantClasses}`}
+  class={`inline-flex items-center gap-2 rounded-full border bg-base-100 px-5 py-2 text-sm font-semibold leading-snug text-base-content shadow-sm transition hover:bg-base-200 hover:shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:text-base ${variantClasses}`}
 >
-  {title}
+  <span aria-hidden="true" class={`h-2 w-2 rounded-full ${variantDotClasses}`}></span>
+  <span>{title}</span>
 </a>

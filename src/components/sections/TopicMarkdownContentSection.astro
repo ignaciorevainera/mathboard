@@ -71,7 +71,7 @@ const tocHeadings = headings.filter(
       <article class="card border border-base-300 bg-base-100 shadow-sm">
         <div class="card-body">
           <div
-            class="prose prose-base max-w-none prose-headings:font-display prose-headings:text-base-content prose-p:text-base-content/85 prose-li:text-base-content/85 prose-strong:text-base-content prose-a:text-primary prose-table:text-sm prose-th:text-base-content prose-td:text-base-content/85"
+            class="prose prose-base max-w-none prose-headings:scroll-mt-24 prose-headings:font-display prose-headings:text-base-content prose-p:text-base-content/85 prose-li:text-base-content/85 prose-strong:text-base-content prose-a:text-primary prose-table:text-sm prose-th:text-base-content prose-td:text-base-content/85"
           >
             <slot />
           </div>
@@ -79,7 +79,9 @@ const tocHeadings = headings.filter(
       </article>
     </div>
 
-    <aside class="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+    <aside
+      class="hidden lg:col-span-4 lg:block lg:sticky lg:top-24 lg:self-start"
+    >
       <nav class="rounded-2xl" aria-label="En esta pagina">
         <div class="flex flex-col gap-4 lg:max-h-screen">
           <h2 class="card-title text-xl">En esta pagina</h2>
@@ -109,3 +111,39 @@ const tocHeadings = headings.filter(
     </aside>
   </div>
 </SectionWrapper>
+
+<script is:inline>
+  const scrollToCurrentHash = (behavior = "auto") => {
+    const rawHash = window.location.hash;
+    if (!rawHash) {
+      return;
+    }
+
+    const targetId = decodeURIComponent(rawHash.slice(1));
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return;
+    }
+
+    targetElement.scrollIntoView({ behavior, block: "start" });
+  };
+
+  const bootHashScroll = () => {
+    requestAnimationFrame(() => {
+      scrollToCurrentHash("auto");
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootHashScroll, {
+      once: true,
+    });
+  } else {
+    bootHashScroll();
+  }
+
+  window.addEventListener("hashchange", () => {
+    scrollToCurrentHash("smooth");
+  });
+</script>

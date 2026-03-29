@@ -104,6 +104,18 @@ const FALLBACK_TOPIC_GROUP: Pick<TopicGroup, "id" | "title" | "description"> = {
   description: "Temas adicionales incorporados fuera de los bloques principales.",
 };
 
+const HOME_SHORTCUT_PRIORITY_HREFS: string[] = [
+  "/topic/factoring-algebraic-expressions#metodos-de-factorizacion",
+  "/topic/logarithms-exponentials#teoria-de-logaritmos",
+  "/topic/geometry-trigonometry#identidades-trigonometricas",
+  "/topic/limits-continuity#propiedades-de-limites",
+  "/topic/continuity#condiciones-de-continuidad",
+  "/topic/differential-calculus-function-analysis#tabla-de-derivadas-fundamentales",
+  "/topic/derivative-applications#aplicaciones-de-la-derivada",
+  "/topic/integral-calculus#metodos-de-integracion",
+  "/topic/sequences-series#series-y-aproximacion",
+];
+
 export async function getTopicEntries(): Promise<TopicEntry[]> {
   return getCollection("topics");
 }
@@ -194,5 +206,17 @@ export async function getTopicGroupsForHome(): Promise<TopicGroup[]> {
 
 export async function getTopicShortcutsForHome(limit = 9): Promise<TopicShortcutItem[]> {
   const entries = sortByOrder(await getTopicEntries());
-  return entries.flatMap((entry) => entry.data.shortcuts).slice(0, limit);
+  const allShortcuts = entries.flatMap((entry) => entry.data.shortcuts);
+  const shortcutsByHref = new Map(allShortcuts.map((shortcut) => [shortcut.href, shortcut]));
+
+  const prioritizedShortcuts = HOME_SHORTCUT_PRIORITY_HREFS
+    .map((href) => shortcutsByHref.get(href))
+    .filter((shortcut): shortcut is TopicShortcutItem => shortcut !== undefined);
+
+  const prioritizedHrefs = new Set(prioritizedShortcuts.map((shortcut) => shortcut.href));
+  const fallbackShortcuts = allShortcuts.filter(
+    (shortcut) => !prioritizedHrefs.has(shortcut.href),
+  );
+
+  return [...prioritizedShortcuts, ...fallbackShortcuts].slice(0, limit);
 }
