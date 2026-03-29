@@ -16,11 +16,11 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en" data-theme="silk">
+<html lang="en" data-theme="winter">
   <head>
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "silk");
+        document.documentElement.setAttribute("data-theme", "winter");
       } else
         document.documentElement.setAttribute(
           "data-theme",

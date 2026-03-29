@@ -5,7 +5,7 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: silk --default, night --prefersdark;
+  themes: winter --default, night --prefersdark;
 }
 
 @custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
