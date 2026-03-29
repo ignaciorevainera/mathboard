@@ -28,9 +28,11 @@ const { Content, headings } = await render(topic);
   enableMath
 >
   <TopicMarkdownContentSection
+    topicId={topic.data.topicId}
     title={topic.data.title}
     description={topic.data.description}
     icon={topic.data.icon}
+    colorVariant={topic.data.colorVariant}
     headings={headings}
   >
     <Content />

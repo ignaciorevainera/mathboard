@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getTopicIconToneClasses } from "../../lib/topic-icon-tone";
 
 interface Props {
   id: string;
@@ -19,33 +20,7 @@ const {
   colorVariant = "primary",
 } = Astro.props;
 
-const topicIconToneMap: Record<string, string> = {
-  "factoring-algebraic-expressions": "bg-primary text-primary-content",
-  "logarithms-exponentials": "bg-secondary text-secondary-content",
-  "geometry-trigonometry": "bg-accent text-accent-content",
-  "analytic-geometry-lines-points": "bg-info text-info-content",
-  "conic-sections": "bg-success text-success-content",
-  "inverse-functions": "bg-warning text-warning-content",
-  "limits-continuity": "bg-error text-error-content",
-  continuity: "bg-neutral text-neutral-content",
-  asymptotes: "bg-primary text-primary-content",
-  "differential-calculus-function-analysis":
-    "bg-secondary text-secondary-content",
-  "derivative-applications": "bg-accent text-accent-content",
-  "derivative-advanced-analysis": "bg-info text-info-content",
-  "integral-calculus": "bg-success text-success-content",
-  "sequences-series": "bg-neutral text-neutral-content",
-};
-
-const iconColorClassMap = {
-  primary: "bg-primary text-primary-content",
-  secondary: "bg-secondary text-secondary-content",
-  accent: "bg-accent text-accent-content",
-  neutral: "bg-neutral text-neutral-content",
-};
-
-const iconColorClasses =
-  topicIconToneMap[id] ?? iconColorClassMap[colorVariant];
+const iconColorClasses = getTopicIconToneClasses(id, colorVariant);
 ---
 
 <a
@@ -61,19 +36,27 @@ const iconColorClasses =
     </div>
 
     <div>
-      <h3 class="card-title mb-1 text-base font-bold leading-snug text-base-content sm:text-lg md:text-xl">
+      <h3
+        class="card-title mb-1 text-base font-bold leading-snug text-base-content sm:text-lg md:text-xl"
+      >
         {title}
       </h3>
-      <p class="min-h-0 text-xs leading-relaxed text-base-content/80 sm:min-h-20 sm:text-sm">
+      <p
+        class="min-h-0 text-xs leading-relaxed text-base-content/80 sm:min-h-20 sm:text-sm"
+      >
         {description}
       </p>
     </div>
 
-    <div class="card-actions mt-2 items-center justify-between border-t border-base-content/20 pt-3 sm:pt-4">
+    <div
+      class="card-actions mt-2 items-center justify-between border-t border-base-content/20 pt-3 sm:pt-4"
+    >
       <span class="badge badge-soft badge-xs font-bold sm:badge-sm">
         {subtopicsCount} temas
       </span>
-      <span class="inline-flex items-center gap-1 text-xs font-semibold text-base-content/80 transition-colors group-hover:text-primary sm:text-sm">
+      <span
+        class="inline-flex items-center gap-1 text-xs font-semibold text-base-content/80 transition-colors group-hover:text-primary sm:text-sm"
+      >
         Ver tema
         <Icon
           name="tabler:arrow-right"

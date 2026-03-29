@@ -1,11 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
 import SectionWrapper from "../ui/SectionWrapper.astro";
+import {
+  getTopicHaloToneClasses,
+  getTopicIconToneClasses,
+  type TopicVariant,
+} from "../../lib/topic-icon-tone";
 
 interface Props {
+  topicId: string;
   title: string;
   description: string;
   icon: string;
+  colorVariant?: TopicVariant;
   headings: Array<{
     depth: number;
     slug: string;
@@ -13,7 +20,17 @@ interface Props {
   }>;
 }
 
-const { title, description, icon, headings } = Astro.props;
+const {
+  topicId,
+  title,
+  description,
+  icon,
+  colorVariant = "primary",
+  headings,
+} = Astro.props;
+
+const iconToneClasses = getTopicIconToneClasses(topicId, colorVariant);
+const haloToneClasses = getTopicHaloToneClasses(topicId, colorVariant);
 
 const tocHeadings = headings.filter(
   (heading) =>
@@ -32,15 +49,18 @@ const tocHeadings = headings.filter(
       >
         <div
           aria-hidden="true"
-          class="absolute right-4 top-4 size-28 rounded-full bg-primary/20 blur-2xl"
+          class={`absolute right-4 top-4 size-28 rounded-full blur-2xl ${haloToneClasses}`}
         >
         </div>
-        <div class="relative z-10 flex items-center gap-4">
-          <div class="rounded-2xl bg-primary/15 p-4 text-primary shadow-sm">
+        <div class="relative z-10 flex items-center gap-8">
+          <div class={`rounded-2xl p-4 shadow-sm ${iconToneClasses}`}>
             <Icon name={icon} aria-hidden="true" class="size-8" />
           </div>
           <div>
-            <h1 id="topic-title" class="font-display text-3xl md:text-5xl">
+            <h1
+              id="topic-title"
+              class="font-display font-bold text-3xl md:text-5xl"
+            >
               {title}
             </h1>
             <p class="mt-2 max-w-prose text-base-content/80">{description}</p>
