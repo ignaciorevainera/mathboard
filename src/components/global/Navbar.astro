@@ -5,17 +5,25 @@ import { Icon } from "astro-icon/components";
 <div
   class="navbar sticky top-0 z-50 border-b border-base-300/70 bg-base-100/90 px-3 backdrop-blur md:px-4"
 >
-  <div class="navbar-start">
-    <a href="/" class="btn btn-ghost btn-sm gap-2" aria-label="Go to home">
-      Home
+  <div class="navbar-start flex-0">
+    <a
+      href="/"
+      class="btn btn-ghost btn-sm btn-circle"
+      aria-label="Ir al inicio"
+      title="Inicio"
+    >
+      <Icon name="tabler:home-2" aria-hidden="true" class="size-5" />
     </a>
   </div>
 
-  <div class="navbar-center flex-1 px-2">
-    <form role="search" action="/" method="get" class="w-full">
-      <label
-        class="input input-bordered input-sm flex w-full items-center gap-2"
-      >
+  <div class="navbar-center grow">
+    <form
+      role="search"
+      action="/"
+      method="get"
+      class="flex justify-center w-full"
+    >
+      <label class="input">
         <Icon name="tabler:search" aria-hidden="true" class="size-4" />
         <input
           type="search"
@@ -28,14 +36,14 @@ import { Icon } from "astro-icon/components";
     </form>
   </div>
 
-  <div class="navbar-end">
+  <div class="navbar-end flex-0">
     <button
       type="button"
       class="btn btn-ghost btn-sm btn-circle"
-      data-toggle-theme="winter,night"
+      data-toggle-theme="light,night"
       data-act-class="ACTIVECLASS"
-      aria-label="Toggle light and dark theme"
-      title="Toggle theme"
+      aria-label="Cambiar entre tema claro y oscuro"
+      title="Cambiar tema"
     >
       <Icon name="tabler:contrast-filled" aria-hidden="true" class="size-5" />
     </button>
