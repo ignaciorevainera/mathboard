@@ -92,12 +92,12 @@ const pageDescription = buildMetaDescription(description);
       enableMath && (
         <>
           <link
+            data-katex-preload
             rel="preload"
             as="style"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
             integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
             crossorigin="anonymous"
-            onload="this.onload=null;this.rel='stylesheet'"
           />
           <noscript>
             <link
@@ -107,6 +107,15 @@ const pageDescription = buildMetaDescription(description);
               crossorigin="anonymous"
             />
           </noscript>
+          <script is:inline>
+            const preloadKatexStylesheet = document.querySelector("link[data-katex-preload]");
+
+            if (preloadKatexStylesheet instanceof HTMLLinkElement) {
+              requestAnimationFrame(() => {
+                preloadKatexStylesheet.rel = "stylesheet";
+              });
+            }
+          </script>
           <script
             is:inline
             defer
