@@ -9,6 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
     "test:smoke": "playwright test",
     "test:smoke:theme-toggle": "playwright test tests/smoke/theme-toggle.spec.ts",
     "astro": "astro"
@@ -30,7 +35,9 @@
     "@astrojs/check": "^0.9.8",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/typography": "^0.5.19",
+    "@vitest/ui": "^4.1.2",
     "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2"
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "vitest": "^4.1.2"
   }
 }
