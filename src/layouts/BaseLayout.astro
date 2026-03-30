@@ -16,10 +16,54 @@ const {
   ogImage = "https://placehold.co/1200x630",
   enableMath = false,
 } = Astro.props;
+
+const normalizeText = (value: string): string => value.trim().replace(/\s+/g, " ");
+
+const buildPageTitle = (value: string): string => {
+  const baseTitle = normalizeText(value);
+
+  if (baseTitle.length < 30) {
+    return `${baseTitle} · guia de estudio`;
+  }
+
+  if (baseTitle.length > 60) {
+    return `${baseTitle.slice(0, 57).trimEnd()}...`;
+  }
+
+  return baseTitle;
+};
+
+const buildMetaDescription = (value: string): string => {
+  const baseDescription = normalizeText(value);
+  const supportText =
+    " Estudia teoria, formulas clave, ejemplos resueltos y recursos descargables en Mathboard para preparar examenes.";
+
+  if (baseDescription.length >= 120 && baseDescription.length <= 160) {
+    return baseDescription;
+  }
+
+  let nextDescription = baseDescription;
+
+  if (nextDescription.length < 120) {
+    const needsPeriod = !nextDescription.endsWith(".");
+    nextDescription = `${nextDescription}${needsPeriod ? "." : ""}${supportText}`;
+  }
+
+  if (nextDescription.length > 160) {
+    nextDescription = `${nextDescription.slice(0, 157).trimEnd()}...`;
+  }
+
+  return nextDescription;
+};
+
+const pageTitle = buildPageTitle(title);
+const pageDescription = buildMetaDescription(description);
 ---
 
 <html lang="es" data-theme="light">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <script is:inline>
       const THEME_KEY = "mathboard-theme";
       const LEGACY_THEME_KEY = "theme";
@@ -38,14 +82,6 @@ const {
 
       document.documentElement.setAttribute("data-theme", resolvedTheme);
     </script>
-    <script>
-      import { themeChange } from "theme-change";
-      themeChange(false);
-      // 👆 you could import the CDN directly instead of these two lines
-    </script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -56,11 +92,21 @@ const {
       enableMath && (
         <>
           <link
-            rel="stylesheet"
+            rel="preload"
+            as="style"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
             integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
             crossorigin="anonymous"
+            onload="this.onload=null;this.rel='stylesheet'"
           />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+              integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+              crossorigin="anonymous"
+            />
+          </noscript>
           <script
             is:inline
             defer
@@ -76,27 +122,56 @@ const {
             crossorigin="anonymous"
           ></script>
           <script is:inline>
-            document.addEventListener("DOMContentLoaded", () => {
-              if (typeof renderMathInElement === "function") {
-                renderMathInElement(document.body, {
-                  delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false },
-                    { left: "\\(", right: "\\)", display: false },
-                    { left: "\\[", right: "\\]", display: true },
-                  ],
-                  throwOnError: false,
-                });
+            const scheduleMathRender = (work) => {
+              if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(work, { timeout: 1200 });
+                return;
               }
+
+              window.setTimeout(() => work(), 0);
+            };
+
+            document.addEventListener("DOMContentLoaded", () => {
+              if (typeof renderMathInElement !== "function") {
+                return;
+              }
+
+              const roots = Array.from(document.querySelectorAll("[data-math-content]"));
+              const renderRoots = roots.length > 0 ? roots : [document.body];
+              let currentIndex = 0;
+
+              const renderChunk = (deadline) => {
+                while (
+                  currentIndex < renderRoots.length &&
+                  (!deadline || deadline.timeRemaining() > 6)
+                ) {
+                  renderMathInElement(renderRoots[currentIndex], {
+                    delimiters: [
+                      { left: "$$", right: "$$", display: true },
+                      { left: "$", right: "$", display: false },
+                      { left: "\\(", right: "\\)", display: false },
+                      { left: "\\[", right: "\\]", display: true },
+                    ],
+                    throwOnError: false,
+                  });
+                  currentIndex += 1;
+                }
+
+                if (currentIndex < renderRoots.length) {
+                  scheduleMathRender(renderChunk);
+                }
+              };
+
+              scheduleMathRender(renderChunk);
             });
           </script>
         </>
       )
     }
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImage} />
   </head>
   <body class="min-h-screen flex flex-col bg-base-100 text-base-content">
@@ -104,6 +179,52 @@ const {
     <main class="flex-1">
       <slot />
     </main>
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggles = Array.from(document.querySelectorAll("[data-toggle-theme]"));
+        if (toggles.length === 0) {
+          return;
+        }
+
+        const getThemeValues = (toggle) => {
+          const [first = "light", second = "night"] =
+            (toggle.getAttribute("data-toggle-theme") ?? "light,night")
+              .split(",")
+              .map((value) => value.trim())
+              .filter(Boolean);
+
+          return { first, second };
+        };
+
+        const syncActiveClass = () => {
+          toggles.forEach((toggle) => {
+            const activeClass = toggle.getAttribute("data-act-class");
+            if (!activeClass) {
+              return;
+            }
+
+            const { second } = getThemeValues(toggle);
+            const isActive = document.documentElement.getAttribute("data-theme") === second;
+            toggle.classList.toggle(activeClass, isActive);
+          });
+        };
+
+        syncActiveClass();
+
+        toggles.forEach((toggle) => {
+          toggle.addEventListener("click", () => {
+            const key = toggle.getAttribute("data-key") ?? "theme";
+            const { first, second } = getThemeValues(toggle);
+            const currentTheme = document.documentElement.getAttribute("data-theme") ?? first;
+            const nextTheme = currentTheme === first ? second : first;
+
+            document.documentElement.setAttribute("data-theme", nextTheme);
+            localStorage.setItem(key, nextTheme);
+            syncActiveClass();
+          });
+        });
+      });
+    </script>
     <Footer />
   </body>
 </html>

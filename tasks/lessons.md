@@ -26,3 +26,8 @@ Archivos afectados: src/content/topics/*.mdx
 Problema: varias rutas `topic/*` presentaban scroll horizontal en mobile por combinacion de grid item sin `min-w-0`, formulas largas y tablas densas.
 Solucion: agregar `min-w-0` al contenedor de contenido del topic y reglas responsive en CSS para contener formulas largas y fijar layout de tablas en pantallas chicas.
 Archivos afectados: src/components/sections/TopicMarkdownContentSection.astro; src/styles/global.css
+
+### 2026-03-30 — PageSpeed: evitar aria-label redundante y reducir JS global
+Problema: Lighthouse marcaba `label-content-name-mismatch` por enlaces con texto visible y `aria-label` diferente, y el script global de theme-change agregaba JS inline innecesario.
+Solucion: quitar `aria-label` en enlaces con texto suficiente y reemplazar theme-change por un toggle inline minimo; ademas mover `meta charset` al inicio del `head` y acotar el render matematico a nodos de contenido.
+Archivos afectados: src/components/ui/TopicCard.astro; src/components/sections/ImportantResourcesSection.astro; src/layouts/BaseLayout.astro; src/components/sections/TopicMarkdownContentSection.astro
