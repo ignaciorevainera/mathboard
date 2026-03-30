@@ -42,6 +42,36 @@ const tocHeadings = headings.filter(
 
 <SectionWrapper>
   <a href="/#syllabus" class="btn btn-ghost btn-sm w-fit">Volver al temario</a>
+  {
+    tocHeadings.length > 0 && (
+      <details class="collapse collapse-arrow border border-base-300 bg-base-100 lg:hidden">
+        <summary class="collapse-title py-3 text-base font-semibold">
+          En esta pagina
+        </summary>
+        <div class="collapse-content pt-0">
+          <nav aria-label="En esta pagina">
+            <ul class="menu menu-sm p-0">
+              {tocHeadings.map((heading) => (
+                <li>
+                  <a
+                    href={`#${heading.slug}`}
+                    class:list={[
+                      "rounded-lg transition-colors hover:bg-neutral/10 hover:text-base-content",
+                      heading.depth === 2
+                        ? "px-3 py-2 text-sm font-semibold leading-snug text-base-content/80"
+                        : "ml-3 px-3 py-1.5 text-sm leading-snug text-base-content/65",
+                    ]}
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </details>
+    )
+  }
   <div class="grid gap-8 lg:grid-cols-12">
     <div id="topic-content" class="min-w-0 space-y-8 lg:col-span-8">
       <header
