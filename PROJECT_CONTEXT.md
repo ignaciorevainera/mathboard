@@ -14,61 +14,15 @@ Estudiantes de secundaria, universitarios y autodidactas de matemáticas. Nivel 
 ## BRIEFING DE ESTRUCTURA
 
 ### Paginas del sitio
-- / (Home - Main dashboard con temario y atajos)
-- /tema/[id] (Visor de contenido del tema con soporte para navegación por anclas)
-- Pendiente: /resources (Herramientas extra)
+- / (Home - Dashboard principal con Temario Completo y Recursos Importantes al final)
+- /topic/[id] (Visor de contenido del tema con soporte para navegación por anclas)
 
 ### Secciones obligatorias por pagina
 Home:
-  - Sección de "Atajos Rápidos" (Shortcuts) con botones tipo píldora para acceso directo a subtemas específicos.
-    ```
-    <a
-      href={link}
-      class={cn(
-        "px-4 py-2 rounded-full text-sm font-medium transition-all border shadow-sm hover:shadow",
-        color
-      )}
-    >
-      {title}
-    </a>
-    ```
   - Sección de "Temario Completo" con un grid de tarjetas (cards) por cada tema principal. Cada tarjeta incluye icono, título, descripción, cantidad de subtemas y efecto hover.
-    ```
-    <div 
-      class="animate-fade-in-up" 
-      style={{ animationDelay }}
-    >
-      <a 
-        href={`/tema/${topic.id}`}
-        class="group block h-full rounded-2xl border p-6 shadow-sm hover:shadow-md  transition-all relative overflow-hidden"
-      >
-        <div class="flex items-start justify-between mb-4">
-          <div class={cn("p-3 rounded-xl shadow-sm", topic.color)}>
-            <Icon class="w-6 h-6" />
-          </div>
-        </div>
-        
-        <h3 class="text-xl font-bold mb-2 transition-colors">
-          {topic.title}
-        </h3>
-        
-        <p class="text-sm mb-6 line-clamp-2">
-          {topic.description}
-        </p>
+  - Sección de "Recursos Importantes" ubicada al final del home para cerrar el recorrido de navegación y descarga.
 
-        <div class="flex items-center justify-between mt-auto pt-4 border-t">
-          <span class="text-xs font-medium">
-            {topic.subtopics.reduce((acc, curr) => acc + curr.items.length, 0)} temas
-          </span>
-          <div class="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform">
-            Ingresar <ChevronRight class="w-4 h-4 ml-1" />
-          </div>
-        </div>
-      </a>
-    </div>
-    ```
-
-Topic (/tema/[id]):
+Topic (/topic/[id]):
   - Botón de "Volver al temario".
   - Header del tema con icono grande, título, descripción y un efecto visual de resplandor (blur) de fondo.
   - Contenedor principal de contenido dividido en Subtemas (H2) y Secciones (H3).
@@ -119,8 +73,8 @@ No.
 ---
 
 ## ESTADO ACTUAL
-Proyecto recien iniciado. Pendiente sesion de diseno con agente kickstart.
+Proyecto funcional con catálogo de temas en home, visor de temas por anclas e iconografía Hugeicons.
 
 ## Proximos pasos
-- Completar STACK.md
-- Sesion de diseno con agente kickstart
+- Refinar copy editorial final en páginas y secciones.
+- Auditar componentes no usados para limpieza técnica.

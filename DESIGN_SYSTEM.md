@@ -82,24 +82,29 @@ Globales:
 UI atómicos:
 
 - src/components/ui/SectionWrapper.astro
-- src/components/ui/ShortcutPill.astro
 - src/components/ui/TopicCard.astro
+
+UI atómicos legacy (no usados en Home actual):
+
+- src/components/ui/ShortcutPill.astro
 
 Secciones:
 
 - src/components/sections/HomeHero.astro
-- src/components/sections/ShortcutsSection.astro
 - src/components/sections/ImportantResourcesSection.astro
 - src/components/sections/SyllabusSection.astro
 - src/components/sections/StudyFlowSection.astro
 - src/components/sections/TopicContentSection.astro
 - src/components/sections/TopicMarkdownContentSection.astro
 
+Secciones legacy (no usadas en Home actual):
+
+- src/components/sections/ShortcutsSection.astro
+
 Páginas:
 
 - src/pages/index.astro
 - src/pages/tema/[id].astro
-- src/pages/resources.astro
 
 ## Convenciones de nomenclatura
 
@@ -122,15 +127,19 @@ Páginas:
 - 2026-03-24: Tema light + night para combinar lectura prolongada con contraste opcional
 - 2026-03-24: Pair tipográfico Red Hat Display + Public Sans para tono académico moderno
 - 2026-03-24: Arquitectura de componentes separada en global/ui/sections desde la maqueta inicial
-- 2026-03-24: Home simplificado a catálogo con Atajos Rápidos y Temario Completo
+- 2026-03-24: Home simplificado inicialmente a catálogo con Atajos Rápidos y Temario Completo (patrón luego retirado)
 - 2026-03-26: TOC de tema con superficie elevada (base-200) y jerarquía visual por nivel de heading para mejorar escaneabilidad
 - 2026-03-29: TOC lateral minimalista con título "En esta pagina", navegación h2/h3 anidada, sticky lateral y navegación por anclas sin resaltado activo por scroll.
 - 2026-03-29: Pair tipográfico actualizado a Inter + Playfair Display para mejorar legibilidad en cuerpo y contraste editorial en títulos.
-- 2026-03-29: TOC de tema oculto en mobile (visible desde lg) y navegación por hash reforzada para atajos del index y enlaces internos.
-- 2026-03-29: Pills de Atajos Rápidos con mayor legibilidad (texto base-content, peso semibold, foco visible y punto de color por variante) y selección curada de 9 atajos troncales del recorrido pedagógico.
+- 2026-03-29: TOC de tema oculto en mobile (visible desde lg) y navegación por hash reforzada para enlaces internos.
+- 2026-03-29: Pills de Atajos Rápidos con mayor legibilidad (texto base-content, peso semibold, foco visible y punto de color por variante) como patrón histórico posteriormente retirado del home.
 - 2026-03-29: Migración de iconografía a Hugeicons con `astro-icon`, reemplazando Tabler para ampliar disponibilidad de símbolos matemáticos.
 - 2026-03-29: Curaduría de iconos de temas priorizando variantes Hugeicons sin marcos geométricos (sin circle/square/triangle) para mantener un lenguaje visual más limpio.
 - 2026-03-29: Coherencia de iconos por bloque del temario: algebra (math/function), geometria-trigonometria (ruler/compass/sine), analisis (inequality/chart/arrow-left-right), calculo diferencial (function-of-x + chart-line-data), calculo integral y series (summation).
+- 2026-03-29: Home reorganizada sin sección de Atajos Rápidos; Temario Completo primero y Recursos Importantes al final para cerrar el recorrido de navegación.
+- 2026-03-29: Footer global ampliado con bloque editorial y CTA principal "Ir al inicio" apuntando a /.
+- 2026-03-29: Theme changer reforzado con clave dedicada `mathboard-theme`, inicializacion inmediata con `themeChange(false)` y estado visual activo del toggle con `btn-active`.
+- 2026-03-29: Toggle de tema con iconografia contextual (luna en light, sol en night) usando clases `dark:*` para reforzar el estado activo sin JS adicional.
 
 ## Pendientes
 
