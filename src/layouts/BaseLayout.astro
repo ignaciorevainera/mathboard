@@ -21,17 +21,26 @@ const {
 <html lang="es" data-theme="light">
   <head>
     <script is:inline>
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "light");
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme"),
-        );
+      const THEME_KEY = "mathboard-theme";
+      const LEGACY_THEME_KEY = "theme";
+      const DEFAULT_THEME = "light";
+      const ENABLED_THEMES = new Set(["light", "night"]);
+
+      const savedTheme =
+        localStorage.getItem(THEME_KEY) ?? localStorage.getItem(LEGACY_THEME_KEY);
+      const resolvedTheme = ENABLED_THEMES.has(savedTheme)
+        ? savedTheme
+        : DEFAULT_THEME;
+
+      if (localStorage.getItem(THEME_KEY) !== resolvedTheme) {
+        localStorage.setItem(THEME_KEY, resolvedTheme);
+      }
+
+      document.documentElement.setAttribute("data-theme", resolvedTheme);
     </script>
     <script>
       import { themeChange } from "theme-change";
-      themeChange();
+      themeChange(false);
       // 👆 you could import the CDN directly instead of these two lines
     </script>
 
@@ -49,16 +58,22 @@ const {
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+            integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+            crossorigin="anonymous"
           />
           <script
             is:inline
             defer
             src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+            integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+            crossorigin="anonymous"
           ></script>
           <script
             is:inline
             defer
             src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+            integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+            crossorigin="anonymous"
           ></script>
           <script is:inline>
             document.addEventListener("DOMContentLoaded", () => {
