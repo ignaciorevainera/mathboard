@@ -61,3 +61,21 @@ se ejecuta con un comando claro en el proyecto y pasa junto con el build actual.
 ### Recomendaciones adicionales
 - Agregar chequeo de seguridad en CI con `npm audit --omit=dev` y `npm run build` por pull request.
 - Mantener actualizacion periodica de dependencias (especialmente cadena Astro language tools) para evitar reintroduccion de CVEs moderadas.
+
+## Reporte de testing — 2026-03-29
+
+### Tests de unidad (Vitest)
+[9 tests pasando / 0 tests fallando]
+Cobertura: [getDocuments, getTopicIconToneClasses, getTopicHaloToneClasses, getTopicEntries, getTopicIds, getTopicDetailById, getTopicCardsForHome, getTopicGroupsForHome, getTopicShortcutsForHome]
+Sin cobertura: [ninguna funcion publica de src/lib detectada]
+
+### Tests e2e (Playwright)
+[3 tests pasando / 0 tests fallando]
+Flujos cubiertos: [contrato del theme toggle, navegacion home -> topic -> home, controles globales en viewport mobile]
+Flujos sin cobertura: [no aplica auth ni rutas protegidas en este proyecto estatico; formularios POST no presentes]
+
+### Problemas encontrados
+[Vitest intentaba ejecutar tests de Playwright por falta de config dedicada; se corrigio agregando vitest.config.ts con include en tests/unit y scripts separados en package.json.]
+
+### Deuda tecnica de testing
+[Agregar test e2e para navegacion por hash en pagina de topic y validar sincronizacion con secciones h2/h3 en casos de contenido largo.]
