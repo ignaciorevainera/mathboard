@@ -70,12 +70,12 @@ Cobertura: [getDocuments, getTopicIconToneClasses, getTopicHaloToneClasses, getT
 Sin cobertura: [ninguna funcion publica de src/lib detectada]
 
 ### Tests e2e (Playwright)
-[3 tests pasando / 0 tests fallando]
-Flujos cubiertos: [contrato del theme toggle, navegacion home -> topic -> home, controles globales en viewport mobile]
+[5 tests pasando / 0 tests fallando]
+Flujos cubiertos: [contrato del theme toggle, navegacion home -> topic -> home, controles globales en viewport mobile, click en TOC con hash y scroll al heading objetivo, carga directa con hash y restauracion de scroll]
 Flujos sin cobertura: [no aplica auth ni rutas protegidas en este proyecto estatico; formularios POST no presentes]
 
 ### Problemas encontrados
 [Vitest intentaba ejecutar tests de Playwright por falta de config dedicada; se corrigio agregando vitest.config.ts con include en tests/unit y scripts separados en package.json.]
 
 ### Deuda tecnica de testing
-[Agregar test e2e para navegacion por hash en pagina de topic y validar sincronizacion con secciones h2/h3 en casos de contenido largo.]
+[Agregar coverage e2e de busqueda del navbar cuando exista fuente de datos real para resultados.] 
