@@ -9,6 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test:smoke": "playwright test",
+    "test:smoke:theme-toggle": "playwright test tests/smoke/theme-toggle.spec.ts",
     "astro": "astro"
   },
   "dependencies": {
@@ -26,6 +28,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/typography": "^0.5.19",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2"

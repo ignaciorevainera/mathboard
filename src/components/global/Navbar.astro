@@ -41,11 +41,17 @@ import { Icon } from "astro-icon/components";
       type="button"
       class="btn btn-ghost btn-sm btn-circle"
       data-toggle-theme="light,night"
-      data-act-class="ACTIVECLASS"
+      data-key="mathboard-theme"
+      data-act-class="btn-active"
       aria-label="Cambiar entre tema claro y oscuro"
       title="Cambiar tema"
     >
-      <Icon name="hugeicons:moon-02" aria-hidden="true" class="size-5" />
+      <span class="dark:hidden" data-theme-icon-name="hugeicons:moon-02">
+        <Icon name="hugeicons:moon-02" aria-hidden="true" class="size-5" />
+      </span>
+      <span class="hidden dark:inline" data-theme-icon-name="hugeicons:sun-03">
+        <Icon name="hugeicons:sun-03" aria-hidden="true" class="size-5" />
+      </span>
     </button>
   </div>
 </div>
