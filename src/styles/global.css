@@ -27,6 +27,33 @@ body {
   font-family: var(--font-display);
 }
 
+/* Keep long math formulas from forcing page-wide horizontal overflow on mobile. */
+.prose :where(.katex-display, .katex-display > .katex, math, mrow, semantics) {
+  max-width: 100%;
+}
+
+.prose :where(.katex-display, math) {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+
+  /* Keep dense markdown tables from forcing horizontal overflow on phones. */
+  .prose :where(table) {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .prose :where(th, td) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+  }
+}
+
 .stagger-item {
   animation: fade-in-up 600ms ease both;
 }

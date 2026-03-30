@@ -43,7 +43,7 @@ const tocHeadings = headings.filter(
 <SectionWrapper>
   <a href="/#syllabus" class="btn btn-ghost btn-sm w-fit">Volver al temario</a>
   <div class="grid gap-8 lg:grid-cols-12">
-    <div id="topic-content" class="space-y-8 lg:col-span-8">
+    <div id="topic-content" class="min-w-0 space-y-8 lg:col-span-8">
       <header
         class="relative overflow-hidden rounded-3xl border border-base-300 bg-base-200/70 p-8 md:p-10"
       >
@@ -52,14 +52,16 @@ const tocHeadings = headings.filter(
           class={`absolute right-4 top-4 size-28 rounded-full blur-2xl ${haloToneClasses}`}
         >
         </div>
-        <div class="relative z-10 flex items-center gap-8">
-          <div class={`rounded-2xl p-4 shadow-sm ${iconToneClasses}`}>
+        <div
+          class="relative z-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8"
+        >
+          <div class={`shrink-0 rounded-2xl p-4 shadow-sm ${iconToneClasses}`}>
             <Icon name={icon} aria-hidden="true" class="size-8" />
           </div>
-          <div>
+          <div class="min-w-0">
             <h1
               id="topic-title"
-              class="font-display font-bold text-3xl md:text-5xl"
+              class="break-words font-display font-bold text-3xl md:text-5xl"
             >
               {title}
             </h1>

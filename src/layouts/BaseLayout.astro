@@ -99,9 +99,9 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
   </head>
-  <body class="min-h-screen bg-base-100 text-base-content">
+  <body class="min-h-screen flex flex-col bg-base-100 text-base-content">
     <Navbar />
-    <main class="flex-1 min-h-svh grow">
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />

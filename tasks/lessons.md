@@ -21,3 +21,8 @@ Archivos afectados: src/content/topics/sequences-series.mdx; src/content/topics/
 Problema: KaTeX emite warnings `unknownSymbol` cuando encuentra el caracter Unicode `’` dentro de contenido matematico.
 Solucion: normalizar apostrofes tipograficos a `'` ASCII en fragmentos de formula para evitar ruido de consola.
 Archivos afectados: src/content/topics/*.mdx
+
+### 2026-03-30 — Overflow mobile en contenido de topics con formulas y tablas
+Problema: varias rutas `topic/*` presentaban scroll horizontal en mobile por combinacion de grid item sin `min-w-0`, formulas largas y tablas densas.
+Solucion: agregar `min-w-0` al contenedor de contenido del topic y reglas responsive en CSS para contener formulas largas y fijar layout de tablas en pantallas chicas.
+Archivos afectados: src/components/sections/TopicMarkdownContentSection.astro; src/styles/global.css
