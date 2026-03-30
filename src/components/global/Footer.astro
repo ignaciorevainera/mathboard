@@ -1,9 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+const currentYear = new Date().getFullYear();
+---
+
 <footer class="border-t border-base-300 bg-base-200/70">
-  <div
-    class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-8 text-sm md:flex-row md:items-center md:justify-between"
-  >
-    <p class="text-base-content/80">
-      Mathboard · Plataforma de estudio de matemáticas con navegación por temas.
-    </p>
+  <div class="mx-auto w-full max-w-7xl px-4 py-10">
+    <div class="footer gap-8 sm:footer-horizontal sm:justify-between">
+      <aside class="max-w-xl space-y-2">
+        <p class="font-display text-2xl text-base-content">Mathboard</p>
+        <p class="text-sm text-base-content/80">
+          Plataforma de estudio de matemáticas con navegación por temas,
+          contenido estructurado y recursos de apoyo descargables.
+        </p>
+      </aside>
+
+      <nav aria-label="Accesos del pie de página" class="space-y-3">
+        <a
+          href="/"
+          class="btn btn-primary btn-sm w-full sm:w-auto"
+          aria-label="Ir al inicio del index"
+        >
+          <Icon
+            name="hugeicons:arrow-up-01"
+            aria-hidden="true"
+            class="size-4"
+          />
+          Ir al inicio
+        </a>
+      </nav>
+    </div>
+
+    <div
+      class="mt-8 flex flex-col gap-3 border-t border-base-300 pt-4 text-xs text-base-content/70 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>
+        © {currentYear} Mathboard. Diseñado para estudiar con foco y claridad.
+      </p>
+    </div>
   </div>
 </footer>

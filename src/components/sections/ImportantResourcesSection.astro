@@ -5,6 +5,9 @@ import { getDocuments } from "../../lib/documents";
 
 const documents = getDocuments();
 
+const getDownloadName = (filePath: string): string =>
+  filePath.split("/").at(-1) ?? "documento.pdf";
+
 const colorClasses = {
   primary: "bg-primary/15 text-primary",
   secondary: "bg-secondary/15 text-secondary",
@@ -19,8 +22,8 @@ const colorClasses = {
       <div class="space-y-2">
         <h2 class="text-3xl font-semibold md:text-4xl">Recursos importantes</h2>
         <p class="text-base-content/80">
-          Descargá en un clic PDFs de consulta rápida para derivadas, integrales
-          e identidades trigonométricas.
+          Descarga en un clic formularios y tablas de apoyo para factoreo,
+          derivadas, integrales, trigonometria, limites y logaritmos.
         </p>
       </div>
 
@@ -29,7 +32,7 @@ const colorClasses = {
           documents.map((doc) => (
             <a
               href={doc.filePath}
-              download
+              download={getDownloadName(doc.filePath)}
               class="group flex items-center justify-between rounded-2xl border border-base-300 bg-base-100 p-4 shadow-sm transition-all hover:border-primary/40 hover:shadow-md"
               aria-label={`Descargar ${doc.title} en PDF`}
             >

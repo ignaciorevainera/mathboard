@@ -1,25 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ShortcutsSection from "../components/sections/ShortcutsSection.astro";
 import ImportantResourcesSection from "../components/sections/ImportantResourcesSection.astro";
 import SyllabusSection from "../components/sections/SyllabusSection.astro";
-import {
-  getTopicGroupsForHome,
-  getTopicShortcutsForHome,
-} from "../lib/topic-content";
+import { getTopicGroupsForHome } from "../lib/topic-content";
 
-const [shortcuts, topicGroups] = await Promise.all([
-  getTopicShortcutsForHome(9),
-  getTopicGroupsForHome(),
-]);
+const topicGroups = await getTopicGroupsForHome();
 ---
 
 <BaseLayout
   title="Mathboard · Dashboard"
-  description="Math topics catalog with quick shortcuts and per-block subtopic access."
+  description="Math topics catalog with grouped blocks and downloadable support resources."
 >
   <h1 class="sr-only">Catálogo de temas y subtemas de matemáticas</h1>
-  <ImportantResourcesSection />
-  <ShortcutsSection shortcuts={shortcuts} />
   <SyllabusSection groups={topicGroups} />
+  <ImportantResourcesSection />
 </BaseLayout>
