@@ -12,7 +12,11 @@ const { groups } = Astro.props;
 
 <SectionWrapper id="syllabus">
   <div class="space-y-3">
-    <h2 class="text-3xl font-semibold md:text-4xl">Temario Completo</h2>
+    <h2
+      class="font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl"
+    >
+      Temario Completo
+    </h2>
     <p class="max-w-3xl text-base text-base-content/80">
       Explorá el contenido por bloques para ubicar mas rapido cada tema y
       avanzar con una secuencia clara de estudio.
@@ -50,14 +54,14 @@ const { groups } = Astro.props;
     {
       groups.map((group) => (
         <section
-          class="syllabus-group-animate space-y-5 rounded-2xl border border-base-300 bg-base-200/40 p-4 md:p-5"
+          class="syllabus-group-animate space-y-5 border-t border-base-300/70 pt-6 first:border-t-0 first:pt-0"
           data-group-id={group.id}
           aria-labelledby={`syllabus-group-${group.id}`}
         >
           <div class="space-y-1">
             <h3
               id={`syllabus-group-${group.id}`}
-              class="text-xl font-semibold md:text-2xl"
+              class="font-display text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl"
             >
               {group.title}
             </h3>

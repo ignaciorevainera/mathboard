@@ -135,6 +135,7 @@ Páginas:
 - 2026-04-08: TOC de tema simplificado para mostrar solo headings h2 (sin h3) y evitar saturación/overflow cuando un tema tiene muchas subsecciones.
 - 2026-04-08: Estilo editorial unificado para todos los contenidos MDX de topics: jerarquía normalizada a h2/h3 en build, separación vertical amplia, h2 con separador inferior y subsecciones en tarjetas con indentación responsive.
 - 2026-04-08: Contenido informativo de cada sección (bajo h2 y h3) envuelto en contenedores tipo card con tinte suave `info` y borde delicado para reforzar contraste entre títulos y bloques de estudio.
+- 2026-04-09: Home (Temario Completo) sin contenedores tipo caja por bloque; los títulos de sección, bloque y cards usan `font-display` (Playfair) con escala tipográfica mayor para mejorar visibilidad.
 - 2026-03-29: Pills de Atajos Rápidos con mayor legibilidad (texto base-content, peso semibold, foco visible y punto de color por variante) como patrón histórico posteriormente retirado del home.
 - 2026-03-29: Migración de iconografía a Hugeicons con `astro-icon`, reemplazando Tabler para ampliar disponibilidad de símbolos matemáticos.
 - 2026-03-29: Curaduría de iconos de temas priorizando variantes Hugeicons sin marcos geométricos (sin circle/square/triangle) para mantener un lenguaje visual más limpio.
