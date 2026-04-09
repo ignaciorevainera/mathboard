@@ -132,6 +132,9 @@ Páginas:
 - 2026-03-29: TOC lateral minimalista con título "En esta pagina", navegación h2/h3 anidada, sticky lateral y navegación por anclas sin resaltado activo por scroll.
 - 2026-03-29: Pair tipográfico actualizado a Inter + Playfair Display para mejorar legibilidad en cuerpo y contraste editorial en títulos.
 - 2026-03-29: TOC de tema oculto en mobile (visible desde lg) y navegación por hash reforzada para enlaces internos.
+- 2026-04-08: TOC de tema simplificado para mostrar solo headings h2 (sin h3) y evitar saturación/overflow cuando un tema tiene muchas subsecciones.
+- 2026-04-08: Estilo editorial unificado para todos los contenidos MDX de topics: jerarquía normalizada a h2/h3 en build, separación vertical amplia, h2 con separador inferior y subsecciones en tarjetas con indentación responsive.
+- 2026-04-08: Contenido informativo de cada sección (bajo h2 y h3) envuelto en contenedores tipo card con tinte suave `info` y borde delicado para reforzar contraste entre títulos y bloques de estudio.
 - 2026-03-29: Pills de Atajos Rápidos con mayor legibilidad (texto base-content, peso semibold, foco visible y punto de color por variante) como patrón histórico posteriormente retirado del home.
 - 2026-03-29: Migración de iconografía a Hugeicons con `astro-icon`, reemplazando Tabler para ampliar disponibilidad de símbolos matemáticos.
 - 2026-03-29: Curaduría de iconos de temas priorizando variantes Hugeicons sin marcos geométricos (sin circle/square/triangle) para mantener un lenguaje visual más limpio.
