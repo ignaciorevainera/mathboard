@@ -18,10 +18,29 @@ shortcuts:
     variant: secondary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Métodos de Factorización
+
+<TopicSection>
+
+<TopicSectionContent>
+
 Técnicas esenciales para simplificar y descomponer expresiones polinómicas.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Tabla de Métodos de Factoreo
+
+<TopicSubsectionContent>
 
 | Método | Fórmula | Ejemplo |
 | --- | --- | --- |
@@ -32,16 +51,35 @@ Técnicas esenciales para simplificar y descomponer expresiones polinómicas.
 | Suma de Cubos | $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ | $x^3 + 8 = (x + 2)(x^2 - 2x + 4)$ |
 | Diferencia de Cubos | $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ | $x^3 - 27 = (x - 3)(x^2 + 3x + 9)$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Factor Común
 
-#### Procedimiento
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento
+
+<TopicSubsectionContent>
 
 1. Identificar el factor que se repite en todos los términos.
 2. Extraer el máximo común divisor (MCD).
 3. Dividir cada término por el factor común.
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Expresión | Factor Común | Factorización |
 | --- | --- | --- |
@@ -50,8 +88,15 @@ Técnicas esenciales para simplificar y descomponer expresiones polinómicas.
 | $4x^3 - 8x^2$ | $4x^2$ | $4x^2(x - 2)$ |
 | $6x^2y + 9xy^2$ | $3xy$ | $3xy(2x + 3y)$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Factor Común por Grupos
+
+<TopicSubsectionContent>
 
 También llamado agrupación de términos. Se usa cuando no hay factor común global, pero sí por bloques.
 
@@ -65,10 +110,21 @@ $$
 2. Factor común por grupo: $x(a + b) + y(a + b)$
 3. Factor común final: $(a + b)(x + y)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Diferencia de Cuadrados
 
-#### Fórmula
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmula
+
+<TopicSubsectionContent>
 
 $$
 a^2 - b^2 = (a - b)(a + b)
@@ -76,7 +132,15 @@ $$
 
 **Reconocimiento:** Dos términos, ambos cuadrados perfectos, separados por un signo menos.
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Expresión | Identificación | Factorización |
 | --- | --- | --- |
@@ -85,17 +149,36 @@ $$
 | $x^4 - 1$ | $a=x^2$, $b=1$ | $(x^2 - 1)(x^2 + 1) = (x-1)(x+1)(x^2+1)$ |
 | $\frac&#123;1&#125;&#123;4&#125; - x^2$ | $a=\frac&#123;1&#125;&#123;2&#125;$, $b=x$ | $\left(\frac&#123;1&#125;&#123;2&#125; - x\right)\left(\frac&#123;1&#125;&#123;2&#125; + x\right)$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Trinomio Cuadrado Perfecto
 
-#### Reconocimiento
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Reconocimiento
+
+<TopicSubsectionContent>
 
 Un trinomio $a^2 \pm 2ab + b^2$ es cuadrado perfecto si:
 
 - El primer y tercer término son cuadrados perfectos.
 - El término del medio es $\pm 2ab$ (el doble producto de las raíces).
 
-#### Fórmulas
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmulas
+
+<TopicSubsectionContent>
 
 $$
 a^2 + 2ab + b^2 = (a + b)^2
@@ -105,7 +188,15 @@ $$
 a^2 - 2ab + b^2 = (a - b)^2
 $$
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Expresión | Verificación | Factorización |
 | --- | --- | --- |
@@ -114,10 +205,21 @@ $$
 | $4x^2 + 12x + 9$ | $2ab = 2(2x)(3) = 12x$ | $(2x + 3)^2$ |
 | $9x^2 - 6x + 1$ | $2ab = 2(3x)(1) = 6x$ | $(3x - 1)^2$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Trinomio de la Forma $x^2 + bx + c$
 
-#### Procedimiento
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento
+
+<TopicSubsectionContent>
 
 Buscar dos números $r_1$ y $r_2$ tales que:
 
@@ -126,7 +228,15 @@ Buscar dos números $r_1$ y $r_2$ tales que:
 
 **Factorización:** $x^2 + bx + c = (x + r_1)(x + r_2)$
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Expresión | Buscar números | Factorización |
 | --- | --- | --- |
@@ -135,17 +245,36 @@ Buscar dos números $r_1$ y $r_2$ tales que:
 | $x^2 + x - 6$ | $3 + (-2) = 1$ y $3 \times (-2) = -6$ | $(x + 3)(x - 2)$ |
 | $x^2 - 7x + 12$ | $(-3) + (-4) = -7$ y $(-3) \times (-4) = 12$ | $(x - 3)(x - 4)$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Trinomio de la Forma $ax^2 + bx + c$ (Método AC)
 
-#### Procedimiento
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento
+
+<TopicSubsectionContent>
 
 1. Calcular $A \times C$ (multiplicar primer y último coeficiente).
 2. Buscar dos números que sumen $b$ y multipliquen $AC$.
 3. Reescribir el término medio usando esos números.
 4. Factorizar por agrupación.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $3x^2 + 10x + 8$
 
@@ -155,10 +284,21 @@ $3x^2 + 10x + 8$
 4. Agrupar: $(3x^2 + 4x) + (6x + 8) = x(3x + 4) + 2(3x + 4)$
 5. Factor común: $(3x + 4)(x + 2)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Suma y Diferencia de Cubos
 
-#### Fórmulas
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmulas
+
+<TopicSubsectionContent>
 
 $$
 a^3 + b^3 = (a + b)(a^2 - ab + b^2)
@@ -173,7 +313,15 @@ $$
 - Suma de cubos: $(+)$ binomio, $(-, +)$ trinomio.
 - Diferencia de cubos: $(-)$ binomio, $(+, +)$ trinomio.
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Expresión | Identificación | Factorización |
 | --- | --- | --- |
@@ -182,8 +330,15 @@ $$
 | $8x^3 + 125$ | $a=2x$, $b=5$ | $(2x + 5)(4x^2 - 10x + 25)$ |
 | $27x^3 - 64$ | $a=3x$, $b=4$ | $(3x - 4)(9x^2 + 12x + 16)$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Agrupación de Términos
+
+<TopicSubsectionContent>
 
 Se usa cuando no hay factor común global pero sí por grupos de términos.
 
@@ -197,14 +352,37 @@ $$
 2. Factor común por grupo: $x(a + b) + y(a + b)$
 3. Factor común final: $(a + b)(x + y)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Polinomios Avanzados
+
+<TopicSection>
+
+<TopicSectionContent>
+
 Herramientas para encontrar raíces, dividir polinomios y verificar resultados.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Fórmula Cuadrática (Resolvente)
 
-#### Fórmula
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmula
+
+<TopicSubsectionContent>
 
 Para $ax^2 + bx + c = 0$:
 
@@ -212,7 +390,15 @@ $$
 x = \frac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125;
 $$
 
-#### Discriminante
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Discriminante
+
+<TopicSubsectionContent>
 
 $$
 \Delta = b^2 - 4ac
@@ -224,7 +410,15 @@ $$
 | $\Delta = 0$ | 1 raíz (doble) | Reales iguales |
 | $\Delta < 0$ | 0 raíces reales | Complejas conjugadas |
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $2x^2 - 5x + 2 = 0$
 
@@ -234,19 +428,42 @@ $2x^2 - 5x + 2 = 0$
 - $x_1 = \frac&#123;5+3&#125;&#123;4&#125; = 2$, $x_2 = \frac&#123;5-3&#125;&#123;4&#125; = \frac&#123;1&#125;&#123;2&#125;$
 - Factorización: $2x^2 - 5x + 2 = 2(x - 2)\left(x - \frac&#123;1&#125;&#123;2&#125;\right) = (x-2)(2x-1)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Método de Ruffini
 
+<TopicSubsectionContent>
+
 **Uso:** Dividir polinomios por $(x - a)$ para factorizar.
 
-#### Procedimiento
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento
+
+<TopicSubsectionContent>
 
 1. Identificar posibles raíces (divisores del término independiente).
 2. Probar cada raíz con Ruffini.
 3. Si el resto es $0$, se encontró un factor $(x - a)$.
 4. El cociente es el otro factor.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $x^3 - 6x^2 + 11x - 6$
 
@@ -261,5 +478,10 @@ Probar $x=1$:
 
 Factorización: $(x - 1)(x^2 - 5x + 6) = (x-1)(x-2)(x-3)$
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
+
+</TopicSection>

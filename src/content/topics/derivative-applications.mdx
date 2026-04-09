@@ -18,7 +18,17 @@ shortcuts:
     variant: secondary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Aplicaciones de la Derivada
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Aplicación | Fórmula/Criterio |
 | --- | --- |
@@ -27,11 +37,27 @@ shortcuts:
 | Velocidad instantánea | $v(t) = s'(t)$ donde $s(t)$ es posición |
 | Aceleración instantánea | $a(t) = v'(t) = s''(t)$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Aplicaciones de la Derivada Avanzadas
+
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Resumen Rápido - Guía de Consulta
 
-#### Cómo Encontrar Extremos Relativos (Locales)
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cómo Encontrar Extremos Relativos (Locales)
+
+<TopicSubsectionContent>
 
 | Paso | Acción | Fórmula/Criterio |
 | --- | --- | --- |
@@ -40,7 +66,15 @@ shortcuts:
 | 3a | Criterio 1ra derivada | Si $f'$ cambia de $+$ a $-$ → Máximo; de $-$ a $+$ → Mínimo |
 | 3b | Criterio 2da derivada | Si $f''(c) \lt 0$ → Máximo; si $f''(c) \gt 0$ → Mínimo |
 
-#### Cómo Encontrar Extremos Absolutos en $[a,b]$
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cómo Encontrar Extremos Absolutos en $[a,b]$
+
+<TopicSubsectionContent>
 
 | Paso | Acción | Nota |
 | --- | --- | --- |
@@ -49,7 +83,15 @@ shortcuts:
 | 3 | Evaluar $f$ en los extremos | Calcular $f(a)$ y $f(b)$ |
 | 4 | Comparar todos los valores | El mayor es el máximo absoluto; el menor es el mínimo absoluto |
 
-#### Cómo Analizar Monotonía (Crecimiento/Decrecimiento)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cómo Analizar Monotonía (Crecimiento/Decrecimiento)
+
+<TopicSubsectionContent>
 
 | Paso | Acción | Interpretación |
 | --- | --- | --- |
@@ -58,7 +100,15 @@ shortcuts:
 | 3 | Hacer tabla de signos de $f'(x)$ | Probar valores en cada intervalo |
 | 4 | Clasificar intervalos | $f' \gt 0$ → Creciente; $f' \lt 0$ → Decreciente |
 
-#### Cómo Analizar Concavidad
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cómo Analizar Concavidad
+
+<TopicSubsectionContent>
 
 | Paso | Acción | Interpretación |
 | --- | --- | --- |
@@ -67,20 +117,44 @@ shortcuts:
 | 3 | Hacer tabla de signos de $f''(x)$ | Probar valores en cada intervalo |
 | 4 | Clasificar intervalos | $f'' \gt 0$ → Cóncava arriba ∪; $f'' \lt 0$ → Cóncava abajo ∩ |
 
-#### Cómo Encontrar Puntos de Inflexión
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cómo Encontrar Puntos de Inflexión
+
+<TopicSubsectionContent>
 
 | Paso | Acción | Criterio |
 | --- | --- | --- |
 | 1 | Resolver $f''(x) = 0$ | Candidatos |
 | 2 | Verificar cambio de signo de $f''$ | Si cambia → Es punto de inflexión; si no cambia → No es |
 
-#### L'Hôpital (Indeterminaciones)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### L'Hôpital (Indeterminaciones)
+
+<TopicSubsectionContent>
 
 | Indeterminación | Procedimiento |
 | --- | --- |
 | $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$ | $\lim_&#123;x \to a&#125; \frac&#123;f(x)&#125;&#123;g(x)&#125; = \lim_&#123;x \to a&#125; \frac&#123;f'(x)&#125;&#123;g'(x)&#125;$ |
 
-#### Tabla de Criterios Rápidos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Tabla de Criterios Rápidos
+
+<TopicSubsectionContent>
 
 | Quiero saber… | Uso… | Criterio |
 | --- | --- | --- |
@@ -92,9 +166,21 @@ shortcuts:
 | ¿Cóncava abajo? | $f''(x)$ | $f''(x) \lt 0$ |
 | ¿Punto de inflexión? | $f''(x)$ | $f''(c) = 0$ y cambia de signo |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Extremos de una Función
 
-#### Definiciones
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Definiciones
+
+<TopicSubsectionContent>
 
 | Tipo | Definición | Alcance |
 | --- | --- | --- |
@@ -105,7 +191,15 @@ shortcuts:
 
 **Nota importante:** Un extremo absoluto siempre es también un extremo relativo, pero un extremo relativo NO necesariamente es absoluto.
 
-#### Teorema de los Valores Extremos (Weierstrass)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Teorema de los Valores Extremos (Weierstrass)
+
+<TopicSubsectionContent>
 
 **Enunciado:** Si $f$ es **continua** en un intervalo **cerrado** $[a,b]$, entonces $f$ tiene un máximo absoluto y un mínimo absoluto en $[a,b]$.
 
@@ -114,9 +208,21 @@ shortcuts:
 1. La función debe ser continua
 2. El intervalo debe ser cerrado y acotado
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Extremos Relativos (Locales)
 
-#### Puntos Críticos
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Puntos Críticos
+
+<TopicSubsectionContent>
 
 Un punto $x = c$ es **crítico** si:
 
@@ -125,7 +231,15 @@ Un punto $x = c$ es **crítico** si:
 
 > Advertencia: No todos los puntos críticos son extremos.
 
-#### Criterio de la Primera Derivada
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Criterio de la Primera Derivada
+
+<TopicSubsectionContent>
 
 **Procedimiento:**
 
@@ -154,7 +268,15 @@ Un punto $x = c$ es **crítico** si:
   - Máximo relativo en $x = -1$ con $f(-1) = 2$
   - Mínimo relativo en $x = 1$ con $f(1) = -2$
 
-#### Criterio de la Segunda Derivada
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Criterio de la Segunda Derivada
+
+<TopicSubsectionContent>
 
 **Procedimiento:**
 
@@ -181,9 +303,21 @@ Un punto $x = c$ es **crítico** si:
   - $f''(-1) = -6 \lt 0$ → Máximo relativo en $x = -1$
   - $f''(1) = 6 \gt 0$ → Mínimo relativo en $x = 1$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Extremos Absolutos
 
-#### Procedimiento para encontrar extremos absolutos en $[a,b]$
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento para encontrar extremos absolutos en $[a,b]$
+
+<TopicSubsectionContent>
 
 **Paso 1:** Encontrar todos los puntos críticos en el intervalo abierto $(a,b)$
 
@@ -200,7 +334,15 @@ Un punto $x = c$ es **crítico** si:
 - El **valor más grande** es el máximo absoluto
 - El **valor más pequeño** es el mínimo absoluto
 
-#### Ejemplo Completo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo Completo
+
+<TopicSubsectionContent>
 
 **Problema:** Encontrar los extremos absolutos de $f(x) = x^3 - 3x$ en $[-2, 2]$
 
@@ -228,7 +370,15 @@ Un punto $x = c$ es **crítico** si:
 - **Máximo absoluto:** $2$ (ocurre en $x = -1$ y $x = 2$)
 - **Mínimo absoluto:** $-2$ (ocurre en $x = -2$ y $x = 1$)
 
-#### Casos especiales
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Casos especiales
+
+<TopicSubsectionContent>
 
 | Situación | Qué hacer |
 | --- | --- |
@@ -236,9 +386,21 @@ Un punto $x = c$ es **crítico** si:
 | Intervalo infinito $(-\infty, b]$ | Evaluar límite cuando $x \to -\infty$ |
 | Función discontinua | Los extremos pueden ocurrir en puntos de discontinuidad |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Monotonía (Crecimiento y Decrecimiento)
 
-#### Criterios
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Criterios
+
+<TopicSubsectionContent>
 
 | Criterio | Signo de $f'(x)$ | Comportamiento |
 | --- | --- | --- |
@@ -246,23 +408,51 @@ Un punto $x = c$ es **crítico** si:
 | Decreciente | $f'(x) \lt 0$ | La función baja |
 | Constante | $f'(x) = 0$ | La función es horizontal |
 
-#### Procedimiento completo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento completo
+
+<TopicSubsectionContent>
 
 1. Calcular $f'(x)$
 2. Encontrar puntos críticos: $f'(x) = 0$ o $f'(x)$ no existe
 3. Hacer tabla de signos de $f'(x)$ (elegir valores de prueba en cada intervalo)
 4. Determinar intervalos de crecimiento y decrecimiento
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Concavidad
 
-#### Criterios
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Criterios
+
+<TopicSubsectionContent>
 
 | Criterio | Signo de $f''(x)$ | Forma de la gráfica | Símbolo |
 | --- | --- | --- | --- |
 | Cóncava hacia arriba | $f''(x) \gt 0$ | Como una "U" | ∪ |
 | Cóncava hacia abajo | $f''(x) \lt 0$ | Como una "∩" | ∩ |
 
-#### Puntos de Inflexión
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Puntos de Inflexión
+
+<TopicSubsectionContent>
 
 **Definición:** Un punto $x = c$ es de **inflexión** si:
 
@@ -273,7 +463,15 @@ Un punto $x = c$ es **crítico** si:
 
 **Advertencia:** Si $f''(c) = 0$ pero NO hay cambio de signo, entonces NO es punto de inflexión.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 **Función:** $f(x) = x^3$
 
@@ -288,10 +486,24 @@ Un punto $x = c$ es **crítico** si:
 
 4. Hay cambio de signo → $x = 0$ es punto de inflexión
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Continuación Avanzada
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Para Regla de L'Hôpital, optimización y teoremas (Rolle y Valor Medio), continuar en:
 
 - [Análisis Avanzado con Derivadas](/topic/derivative-advanced-analysis)
 
+</TopicSectionContent>
+
+</TopicSection>

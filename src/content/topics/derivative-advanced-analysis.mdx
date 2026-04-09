@@ -18,11 +18,29 @@ shortcuts:
     variant: accent
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Técnicas Avanzadas de Derivación
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Aplicaciones avanzadas de la derivada para límites, optimización y teoremas fundamentales.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Regla de L'Hôpital
+
+<TopicSubsectionContent>
 
 **Aplicación:** Resolver indeterminaciones $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$
 
@@ -30,14 +48,30 @@ $$
 \lim_&#123;x \to a&#125; \frac&#123;f(x)&#125;&#123;g(x)&#125; = \lim_&#123;x \to a&#125; \frac&#123;f'(x)&#125;&#123;g'(x)&#125;
 $$
 
-#### Procedimiento
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento
+
+<TopicSubsectionContent>
 
 1. Verificar que hay indeterminación $\frac&#123;0&#125;&#123;0&#125;$ o $\frac&#123;\infty&#125;&#123;\infty&#125;$
 2. Derivar numerador y denominador **por separado** (NO usar regla del cociente)
 3. Calcular el nuevo límite
 4. Si persiste la indeterminación, aplicar L'Hôpital nuevamente
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 **Ejemplo 1:** $\lim_&#123;x \to 0&#125; \frac&#123;\sin x&#125;&#123;x&#125;$
 
@@ -50,9 +84,21 @@ $$
 2. Aplicar L'Hôpital: $\lim_&#123;x \to \infty&#125; \frac&#123;2x&#125;&#123;e^x&#125;$
 3. Aún $\frac&#123;\infty&#125;&#123;\infty&#125;$, aplicar de nuevo: $\lim_&#123;x \to \infty&#125; \frac&#123;2&#125;&#123;e^x&#125; = 0$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Resumen del Análisis Completo de una Función
 
-#### Procedimiento sistemático
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento sistemático
+
+<TopicSubsectionContent>
 
 | Paso | Qué calcular | Para qué sirve |
 | --- | --- | --- |
@@ -67,9 +113,21 @@ $$
 | 9 | Asíntotas (si aplica) | Comportamiento en infinito |
 | 10 | Graficar | Visualizar toda la información |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Optimización
 
-#### Problemas de máximos y mínimos aplicados
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Problemas de máximos y mínimos aplicados
+
+<TopicSubsectionContent>
 
 **Procedimiento general:**
 
@@ -83,7 +141,15 @@ $$
   - Evaluar en extremos del dominio y puntos críticos
 7. **Responder** la pregunta del problema con unidades
 
-#### Ejemplo Completo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo Completo
+
+<TopicSubsectionContent>
 
 **Problema:** Un granjero tiene 200 m de cerca para construir un corral rectangular pegado a un granero (un lado no necesita cerca). ¿Qué dimensiones maximizan el área?
 
@@ -110,9 +176,21 @@ $$
   - $x = 200 - 2(50) = 100$ m
 10. **Área máxima:** $A = 100 \times 50 = 5000$ m²
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Teoremas del Cálculo Diferencial
 
-#### Teorema de Rolle
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Teorema de Rolle
+
+<TopicSubsectionContent>
 
 **Hipótesis:**
 
@@ -126,7 +204,15 @@ Existe al menos un $c \in (a,b)$ tal que $f'(c) = 0$
 
 **Interpretación:** Si una función continua y derivable vuelve al mismo valor, debe tener al menos un punto con tangente horizontal.
 
-#### Teorema del Valor Medio (Lagrange)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Teorema del Valor Medio (Lagrange)
+
+<TopicSubsectionContent>
 
 **Hipótesis:**
 
@@ -144,3 +230,11 @@ $$
 **Interpretación:** Hay al menos un punto donde la tangente es paralela a la secante que une los extremos.
 
 **Significado físico:** La velocidad instantánea en algún momento es igual a la velocidad promedio.
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>

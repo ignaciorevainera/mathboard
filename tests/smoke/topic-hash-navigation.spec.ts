@@ -1,7 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 
+const desktopTocNavSelector = 'aside nav[aria-label="En esta pagina"]';
+
 async function getFirstTocHash(page: Page): Promise<string> {
-  const tocNav = page.locator('nav[aria-label="En esta pagina"]');
+  const tocNav = page.locator(desktopTocNavSelector);
   await expect(tocNav).toBeVisible();
 
   const firstTocLink = tocNav.locator('a[href^="#"]').first();
@@ -47,7 +49,7 @@ test.describe("Topic hash navigation", () => {
 
     const hash = await getFirstTocHash(page);
 
-    await page.locator(`nav[aria-label="En esta pagina"] a[href="${hash}"]`).first().click();
+    await page.locator(`${desktopTocNavSelector} a[href="${hash}"]`).first().click();
 
     await expectDecodedHash(page, hash);
     await expectTargetInViewport(page, hash);

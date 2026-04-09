@@ -15,7 +15,17 @@ shortcuts:
     variant: primary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Propiedades de Límites
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Propiedad | Fórmula |
 | --- | --- |
@@ -27,7 +37,15 @@ shortcuts:
 | Potencia | $\lim_&#123;x \to a&#125; [f(x)]^n = [\lim_&#123;x \to a&#125; f(x)]^n$ |
 | Raíz | $\lim_&#123;x \to a&#125; \sqrt[n]&#123;f(x)&#125; = \sqrt[n]&#123;\lim_&#123;x \to a&#125; f(x)&#125;$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Aritmética del Infinito
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Operación | Resultado | Tipo |
 | --- | --- | --- |
@@ -44,7 +62,15 @@ shortcuts:
 | $0^0$ | Indeterminado | Requiere técnica |
 | $\infty^0$ | Indeterminado | Requiere técnica |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Resolución de Indeterminaciones
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Indeterminación | Contexto | Método |
 | --- | --- | --- |
@@ -59,9 +85,21 @@ shortcuts:
 | $1^\infty$ | Exponenciales | Llevar a forma del número $e$ : $e^&#123;\lim [f(x)-1] \cdot g(x)&#125;$ |
 | $0^0$ , $\infty^0$ | Potencias | Logaritmos: $y = f(x)^&#123;g(x)&#125;$ → $\ln y = g(x) \ln f(x)$ → L'Hôpital → $e^L$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Límites Notables
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Límites Trigonométricos $(x \to 0)$
+
+<TopicSubsectionContent>
 
 | Límite | Resultado |
 | --- | --- |
@@ -76,16 +114,40 @@ shortcuts:
 | $\lim_&#123;x \to 0&#125; \sin x$ | $0$ |
 | $\lim_&#123;x \to 0&#125; \cos x$ | $1$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Número $e$
+
+<TopicSubsectionContent>
 
 | Límite | Resultado |
 | --- | --- |
 | $\lim_&#123;u \to \pm\infty&#125; \left(1 + \frac&#123;1&#125;&#123;u&#125;\right)^u$ | $e$ |
 | $\lim_&#123;u \to 0&#125; (1 + u)^&#123;\frac&#123;1&#125;&#123;u&#125;&#125;$ | $e$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Límites Infinitos en un Punto
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Regla General: $\frac&#123;k&#125;&#123;0&#125;$
+
+<TopicSubsectionContent>
 
 | Forma | Resultado |
 | --- | --- |
@@ -94,7 +156,15 @@ shortcuts:
 | $\frac&#123;k&#125;&#123;0^-&#125;$ ($k > 0$) | $-\infty$ |
 | $\frac&#123;k&#125;&#123;0^-&#125;$ ($k \lt  0$) | $+\infty$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Ejemplos
+
+<TopicSubsectionContent>
 
 | Límite | Resultado |
 | --- | --- |
@@ -103,16 +173,40 @@ shortcuts:
 | $\lim_&#123;x \to 2^+&#125; \frac&#123;1&#125;&#123;x-2&#125;$ | $+\infty$ |
 | $\lim_&#123;x \to 2^-&#125; \frac&#123;1&#125;&#123;x-2&#125;$ | $-\infty$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Regla Mnemotécnica
+
+<TopicSubsectionContent>
 
 - **Positivo / Positivo = Positivo** → $\frac&#123;k>0&#125;&#123;0^+&#125; = +\infty$
 - **Positivo / Negativo = Negativo** → $\frac&#123;k>0&#125;&#123;0^-&#125; = -\infty$
 - **Negativo / Positivo = Negativo** → $\frac&#123;k\lt 0&#125;&#123;0^+&#125; = -\infty$
 - **Negativo / Negativo = Positivo** → $\frac&#123;k\lt 0&#125;&#123;0^-&#125; = +\infty$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Límites Laterales
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Definición
+
+<TopicSubsectionContent>
 
 **Límite por la izquierda** (cuando $x$ se acerca a $a$ por valores menores):
 
@@ -126,7 +220,15 @@ $$
 \lim_&#123;x \to a^+&#125; f(x) = L
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Existencia del Límite
+
+<TopicSubsectionContent>
 
 | Condición | Resultado |
 | --- | --- |
@@ -135,7 +237,15 @@ $$
 
 **Regla:** Para que el límite en $a$ exista, los límites laterales deben ser iguales.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Ejemplos
+
+<TopicSubsectionContent>
 
 **Ejemplo 1:** $f(x) = \frac&#123;|x|&#125;&#123;x&#125;$
 
@@ -153,7 +263,15 @@ $$
 - $\lim_&#123;x \to 2^+&#125; f(x) = \lim_&#123;x \to 2^+&#125; 2x = 4$
 - Como $4 = 4$ → $\lim_&#123;x \to 2&#125; f(x) = 4$ (el límite existe)
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Notación Alternativa
+
+<TopicSubsectionContent>
 
 | Notación | Significado |
 | --- | --- |
@@ -162,13 +280,37 @@ $$
 | $\lim_&#123;x \nearrow a&#125;$ | Límite por la izquierda (menos común) |
 | $\lim_&#123;x \searrow a&#125;$ | Límite por la derecha (menos común) |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Límites al Infinito
+
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Límites cuando $x \to \pm\infty$
 
+<TopicSubsectionContent>
+
 **Definición:** Estudia el comportamiento de $f(x)$ cuando $x$ crece indefinidamente (hacia $+\infty$ o $-\infty$).
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Racionales: $\lim_&#123;x \to \infty&#125; \frac&#123;P(x)&#125;&#123;Q(x)&#125;$
+
+<TopicSubsectionContent>
 
 **Regla de comparación de grados:**
 
@@ -186,7 +328,15 @@ $$
 \lim_&#123;x \to \infty&#125; \frac&#123;3x^2 + 2x - 1&#125;&#123;5x^2 - 4&#125; = \lim_&#123;x \to \infty&#125; \frac&#123;\frac&#123;3x^2&#125;&#123;x^2&#125; + \frac&#123;2x&#125;&#123;x^2&#125; - \frac&#123;1&#125;&#123;x^2&#125;&#125;&#123;\frac&#123;5x^2&#125;&#123;x^2&#125; - \frac&#123;4&#125;&#123;x^2&#125;&#125; = \lim_&#123;x \to \infty&#125; \frac&#123;3 + \frac&#123;2&#125;&#123;x&#125; - \frac&#123;1&#125;&#123;x^2&#125;&#125;&#123;5 - \frac&#123;4&#125;&#123;x^2&#125;&#125; = \frac&#123;3&#125;&#123;5&#125;
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Límites de Funciones Comunes al Infinito
+
+<TopicSubsectionContent>
 
 | Función | $\lim_&#123;x \to +\infty&#125;$ | $\lim_&#123;x \to -\infty&#125;$ |
 | --- | --- | --- |
@@ -200,7 +350,15 @@ $$
 | $\cos x$ | No existe (oscila) | No existe (oscila) |
 | $\arctan x$ | $\frac&#123;\pi&#125;&#123;2&#125;$ | $-\frac&#123;\pi&#125;&#123;2&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Jerarquía de Infinitos (de más rápido a más lento)
+
+<TopicSubsectionContent>
 
 Cuando $x \to \infty$, el orden de crecimiento es:
 
@@ -214,7 +372,15 @@ $$
 - $\lim_&#123;x \to \infty&#125; \frac&#123;x^n&#125;&#123;\ln x&#125; = +\infty$ (potencia crece más rápido que logaritmo)
 - $\lim_&#123;x \to \infty&#125; \frac&#123;\ln x&#125;&#123;1&#125; = +\infty$ (logaritmo crece, pero muy lentamente)
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Límites al Infinito con Raíces
+
+<TopicSubsectionContent>
 
 **Forma $\infty - \infty$:** Multiplicar por el conjugado
 
@@ -240,7 +406,15 @@ $$
 = \lim_&#123;x \to \infty&#125; \frac&#123;1&#125;&#123;\sqrt&#123;1+\frac&#123;1&#125;&#123;x&#125;&#125; + 1&#125; = \frac&#123;1&#125;&#123;1+1&#125; = \frac&#123;1&#125;&#123;2&#125;
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Tabla de Límites al Infinito (Casos Comunes)
+
+<TopicSubsectionContent>
 
 | Límite | Resultado | Técnica |
 | --- | --- | --- |
@@ -251,11 +425,10 @@ $$
 | $\lim_&#123;x \to \infty&#125; \frac&#123;x^n&#125;&#123;\ln x&#125;$ | $+\infty$ | Jerarquía (potencia > logaritmo) |
 | $\lim_&#123;x \to \infty&#125; x \cdot e^&#123;-x&#125;$ | $0$ | Convertir: $\frac&#123;x&#125;&#123;e^x&#125;$ → L'Hôpital |
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
 
-
-
-
-
-
+</TopicSection>

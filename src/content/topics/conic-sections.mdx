@@ -18,13 +18,35 @@ shortcuts:
     variant: accent
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Secciones Cónicas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Circunferencia, parábola, elipse e hipérbola con sus ecuaciones canónicas, elementos y criterios de identificación.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Circunferencia
 
-#### Ecuaciones
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ecuaciones
+
+<TopicSubsectionContent>
 
 | Forma | Ecuación | Descripción |
 | --- | --- | --- |
@@ -32,21 +54,45 @@ Circunferencia, parábola, elipse e hipérbola con sus ecuaciones canónicas, el
 | Centro en origen | $x^2 + y^2 = r^2$ | Centro $(0,0)$ |
 | General | $x^2 + y^2 + Dx + Ey + F = 0$ | Forma expandida |
 
-#### Elementos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Elementos
+
+<TopicSubsectionContent>
 
 | Elemento | Definición |
 | --- | --- |
 | Centro | Punto $(h,k)$ equidistante de la curva |
 | Radio | Distancia $r$ del centro a la circunferencia |
 
-#### Conversión general a ordinaria
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Conversión general a ordinaria
+
+<TopicSubsectionContent>
 
 Dada $x^2 + y^2 + Dx + Ey + F = 0$:
 
 1. Centro: $h = -D/2$, $k = -E/2$.
 2. Radio: $r = \sqrt&#123;h^2 + k^2 - F&#125; = \sqrt&#123;D^2/4 + E^2/4 - F&#125;$.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $x^2 + y^2 - 6x + 4y + 4 = 0$
 
@@ -55,10 +101,21 @@ $x^2 + y^2 - 6x + 4y + 4 = 0$
 - Radio: $r = \sqrt&#123;9 + 4 - 4&#125; = 3$
 - Forma ordinaria: $(x-3)^2 + (y+2)^2 = 9$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Parábola
 
-#### Ecuaciones según orientación
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ecuaciones según orientación
+
+<TopicSubsectionContent>
 
 | Orientación | Ecuación | Vértice | Foco | Directriz | Eje de simetría |
 | --- | --- | --- | --- | --- | --- |
@@ -67,7 +124,15 @@ $x^2 + y^2 - 6x + 4y + 4 = 0$
 
 Si $p \gt 0$, abre arriba (vertical) o derecha (horizontal). Si $p \lt 0$, abre abajo o izquierda.
 
-#### Forma cuadrática vertical
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Forma cuadrática vertical
+
+<TopicSubsectionContent>
 
 $$
 y = ax^2 + bx + c
@@ -81,7 +146,15 @@ $$
 
 Eje: $x = -\frac&#123;b&#125;&#123;2a&#125;$.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $y = x^2 - 4x + 3$
 
@@ -92,10 +165,21 @@ $y = x^2 - 4x + 3$
 - Eje: $x=2$
 - Abre hacia arriba ($a \gt 0$)
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Elipse
 
-#### Ecuaciones
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ecuaciones
+
+<TopicSubsectionContent>
 
 | Orientación | Ecuación | Centro | Eje mayor |
 | --- | --- | --- | --- |
@@ -105,7 +189,15 @@ $y = x^2 - 4x + 3$
 
 Convención: $a \gt b$.
 
-#### Elementos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Elementos
+
+<TopicSubsectionContent>
 
 | Elemento | Fórmula / Ubicación | Descripción |
 | --- | --- | --- |
@@ -115,14 +207,30 @@ Convención: $a \gt b$.
 | Relación fundamental | $c^2 = a^2 - b^2$ | Semidistancia focal |
 | Excentricidad | $e = \frac&#123;c&#125;&#123;a&#125;$ | $0 \lt e \lt 1$ |
 
-#### Focos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Focos
+
+<TopicSubsectionContent>
 
 | Orientación | Focos |
 | --- | --- |
 | Horizontal | $(h-c,k)$ y $(h+c,k)$ |
 | Vertical | $(h,k-c)$ y $(h,k+c)$ |
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $((x-1)^2/25) + ((y+2)^2/9) = 1$
 
@@ -133,10 +241,21 @@ $((x-1)^2/25) + ((y+2)^2/9) = 1$
 - Focos: $(5,-2)$ y $(-3,-2)$
 - Excentricidad: $e = 4/5 = 0.8$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Hipérbola
 
-#### Ecuaciones
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ecuaciones
+
+<TopicSubsectionContent>
 
 | Orientación | Ecuación | Centro | Eje transversal |
 | --- | --- | --- | --- |
@@ -145,7 +264,15 @@ $((x-1)^2/25) + ((y+2)^2/9) = 1$
 
 El término positivo marca la dirección del eje transversal.
 
-#### Elementos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Elementos
+
+<TopicSubsectionContent>
 
 | Elemento | Fórmula / Ubicación | Descripción |
 | --- | --- | --- |
@@ -154,21 +281,45 @@ El término positivo marca la dirección del eje transversal.
 | Relación fundamental | $c^2 = a^2 + b^2$ | Semidistancia focal |
 | Excentricidad | $e = \frac&#123;c&#125;&#123;a&#125;$ | $e \gt 1$ |
 
-#### Focos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Focos
+
+<TopicSubsectionContent>
 
 | Orientación | Focos |
 | --- | --- |
 | Horizontal | $(h-c,k)$ y $(h+c,k)$ |
 | Vertical | $(h,k-c)$ y $(h,k+c)$ |
 
-#### Asíntotas
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Asíntotas
+
+<TopicSubsectionContent>
 
 | Orientación | Ecuaciones |
 | --- | --- |
 | Horizontal | $y-k = \frac&#123;b&#125;&#123;a&#125;(x-h)$ y $y-k = -\frac&#123;b&#125;&#123;a&#125;(x-h)$ |
 | Vertical | $y-k = \frac&#123;a&#125;&#123;b&#125;(x-h)$ y $y-k = -\frac&#123;a&#125;&#123;b&#125;(x-h)$ |
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $((x-2)^2/16) - ((y+1)^2/9) = 1$
 
@@ -180,8 +331,15 @@ $((x-2)^2/16) - ((y+1)^2/9) = 1$
 - Focos: $(7,-1)$ y $(-3,-1)$
 - Asíntotas: $y+1 = \frac&#123;3&#125;&#123;4&#125;(x-2)$ y $y+1 = -\frac&#123;3&#125;&#123;4&#125;(x-2)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Resumen Comparativo
+
+<TopicSubsectionContent>
 
 | Cónica | Ecuación canónica | Excentricidad | Característica |
 | --- | --- | --- | --- |
@@ -190,8 +348,15 @@ $((x-2)^2/16) - ((y+1)^2/9) = 1$
 | Parábola | $(x-h)^2 = 4p(y-k)$ | $e=1$ | Curva abierta con un foco |
 | Hipérbola | $((x-h)^2/a^2) - ((y-k)^2/b^2) = 1$ | $e \gt 1$ | Dos ramas |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Identificación de Cónicas
+
+<TopicSubsectionContent>
 
 Dada $Ax^2 + Cy^2 + Dx + Ey + F = 0$ (sin término $Bxy$):
 
@@ -202,10 +367,21 @@ Dada $Ax^2 + Cy^2 + Dx + Ey + F = 0$ (sin término $Bxy$):
 | $A = 0$ o $C = 0$ (pero no ambos) | Parábola |
 | $A*C \lt 0$ | Hipérbola |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Problemas Tipo
 
-#### Hallar ecuación de una circunferencia
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Hallar ecuación de una circunferencia
+
+<TopicSubsectionContent>
 
 Con centro $(h,k)$ y radio $r$:
 
@@ -218,7 +394,15 @@ Si pasa por $(x_0,y_0)$:
 1. Calcular $r = \sqrt&#123;(x_0-h)^2 + (y_0-k)^2&#125;$.
 2. Reemplazar en la ecuación canónica.
 
-#### Hallar vértice de una parábola
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Hallar vértice de una parábola
+
+<TopicSubsectionContent>
 
 Para $y=ax^2+bx+c$:
 
@@ -226,7 +410,15 @@ Para $y=ax^2+bx+c$:
 2. $y_v = a x_v^2 + b x_v + c$.
 3. Vértice: $(x_v,y_v)$.
 
-#### Graficar una elipse
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Graficar una elipse
+
+<TopicSubsectionContent>
 
 Para $((x-h)^2/a^2) + ((y-k)^2/b^2) = 1$:
 
@@ -234,6 +426,10 @@ Para $((x-h)^2/a^2) + ((y-k)^2/b^2) = 1$:
 2. Marcar $\pm a$ en eje mayor y $\pm b$ en eje menor.
 3. Trazar curva suave por esos cuatro vértices auxiliares.
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
 
+</TopicSection>

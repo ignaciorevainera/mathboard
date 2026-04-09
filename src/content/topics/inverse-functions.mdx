@@ -18,28 +18,53 @@ shortcuts:
     variant: primary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Definición de Función Inversa
 
-Sea $f: A \to B$ una función. La función inversa de $f$, denotada por $f^(-1)$, es la función $f^(-1): B \to A$ que cumple:
+<TopicSection>
+
+<TopicSectionContent>
+
+Sea $f: A \to B$ una función. La función inversa de $f$, denotada por $f^&#123;-1&#125;$, es la función $f^&#123;-1&#125;: B \to A$ que cumple:
 
 $$
-f(f^(-1)(x)) = x \text&#123; para todo &#125; x \in B
+f(f^&#123;-1&#125;(x)) = x \text&#123; para todo &#125; x \in B
 $$
 
 $$
-f^(-1)(f(x)) = x \text&#123; para todo &#125; x \in A
+f^&#123;-1&#125;(f(x)) = x \text&#123; para todo &#125; x \in A
 $$
 
 Interpretación: la inversa deshace la transformación de la función original.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Notación
 
-- Se usa $f^(-1)(x)$ para la inversa.
-- Importante: $f^(-1)(x) \neq 1/f(x)$.
-- $f^(-1)$ no es la recíproca, es la función inversa.
+<TopicSubsectionContent>
 
+- Se usa $f^&#123;-1&#125;(x)$ para la inversa.
+- Importante: $f^&#123;-1&#125;(x) \neq 1/f(x)$.
+- $f^&#123;-1&#125;$ no es la recíproca, es la función inversa.
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Condiciones de Existencia
+
+<TopicSubsectionContent>
 
 Una función tiene inversa si y solo si es biyectiva.
 
@@ -54,29 +79,59 @@ Para funciones continuas en un intervalo: ser estrictamente monótona implica in
 - Creciente: $x_1 \lt x_2 \Rightarrow f(x_1) \lt f(x_2)$.
 - Decreciente: $x_1 \lt x_2 \Rightarrow f(x_1) \gt f(x_2)$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Propiedades de la Función Inversa
 
+<TopicSubsectionContent>
+
 | Propiedad | Descripción |
 | --- | --- |
-| Dominio de $f^(-1)$ | Es el rango de $f$ |
-| Rango de $f^(-1)$ | Es el dominio de $f$ |
-| Simetría gráfica | $f$ y $f^(-1)$ son simétricas respecto de $y=x$ |
-| Composición | $f \circ f^(-1) = f^(-1) \circ f = I$ |
-| Inversa de la inversa | $(f^(-1))^(-1)=f$ |
+| Dominio de $f^&#123;-1&#125;$ | Es el rango de $f$ |
+| Rango de $f^&#123;-1&#125;$ | Es el dominio de $f$ |
+| Simetría gráfica | $f$ y $f^&#123;-1&#125;$ son simétricas respecto de $y=x$ |
+| Composición | $f \circ f^&#123;-1&#125; = f^&#123;-1&#125; \circ f = I$ |
+| Inversa de la inversa | $(f^&#123;-1&#125;)^&#123;-1&#125;=f$ |
 | Monotonía | Si $f$ es creciente/decreciente, su inversa también |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Cálculo de la Función Inversa
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Procedimiento algebraico
+
+<TopicSubsectionContent>
 
 1. Escribir $y=f(x)$.
 2. Intercambiar variables: $x=f(y)$.
 3. Despejar $y$ en función de $x$.
-4. Nombrar el resultado como $f^(-1)(x)$.
+4. Nombrar el resultado como $f^&#123;-1&#125;(x)$.
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejemplo 1: Función lineal
+
+<TopicSubsectionContent>
 
 Encontrar la inversa de $f(x)=2x+3$.
 
@@ -84,14 +139,22 @@ Encontrar la inversa de $f(x)=2x+3$.
 2. $x=2y+3$
 3. $y=(x-3)/2$
 
-Respuesta: $f^(-1)(x)=(x-3)/2$.
+Respuesta: $f^&#123;-1&#125;(x)=(x-3)/2$.
 
 Verificación:
 
-- $f(f^(-1)(x)) = 2((x-3)/2)+3 = x$.
-- $f^(-1)(f(x)) = ((2x+3)-3)/2 = x$.
+- $f(f^&#123;-1&#125;(x)) = 2((x-3)/2)+3 = x$.
+- $f^&#123;-1&#125;(f(x)) = ((2x+3)-3)/2 = x$.
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejemplo 2: Función exponencial
+
+<TopicSubsectionContent>
 
 Encontrar la inversa de $f(x)=e^x$.
 
@@ -99,21 +162,32 @@ Encontrar la inversa de $f(x)=e^x$.
 2. $x=e^y$
 3. $y=\ln x$
 
-Respuesta: $f^(-1)(x)=\ln x$.
+Respuesta: $f^&#123;-1&#125;(x)=\ln x$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Teorema de la Derivada de la Función Inversa
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Sea $f$ continua y derivable en un intervalo $I$, con $f'(x) \neq 0$ para todo $x \in I$. Si $f$ tiene inversa, entonces:
 
 $$
-(f^(-1))'(x) = 1 / f'(f^(-1)(x))
+(f^&#123;-1&#125;)'(x) = 1 / f'(f^&#123;-1&#125;(x))
 $$
 
-Equivalente: si $y=f^(-1)(x)$,
+Equivalente: si $y=f^&#123;-1&#125;(x)$,
 
 $$
-(f^(-1))'(x) = 1/f'(y)
+(f^&#123;-1&#125;)'(x) = 1/f'(y)
 $$
 
 Notación de Leibniz:
@@ -122,49 +196,83 @@ $$
 dx/dy = 1 / (dy/dx)
 $$
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Demostración (derivación implícita)
+
+<TopicSubsectionContent>
 
 Partir de:
 
 $$
-f(f^(-1)(x)) = x
+f(f^&#123;-1&#125;(x)) = x
 $$
 
 Derivar ambos lados:
 
 $$
-f'(f^(-1)(x)) (f^(-1))'(x)=1
+f'(f^&#123;-1&#125;(x)) (f^&#123;-1&#125;)'(x)=1
 $$
 
 Despejar:
 
 $$
-(f^(-1))'(x)=1/f'(f^(-1)(x))
+(f^&#123;-1&#125;)'(x)=1/f'(f^&#123;-1&#125;(x))
 $$
 
 Interpretación geométrica: en puntos correspondientes, las pendientes son recíprocas.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejemplos de Aplicación
 
-#### Derivada de $\ln x$ desde $e^x$
+</TopicSubsection>
 
-Si $f(x)=e^x$, entonces $f^(-1)(x)=\ln x$ y:
+<TopicSubsection>
+
+### Derivada de $\ln x$ desde $e^x$
+
+<TopicSubsectionContent>
+
+Si $f(x)=e^x$, entonces $f^&#123;-1&#125;(x)=\ln x$ y:
 
 $$
-(\ln x)' = 1 / e^(\ln x) = 1/x
+(\ln x)' = 1 / e^&#123;\ln x&#125; = 1/x
 $$
 
-#### Derivada de $\arcsin x$ desde $\sin x$
+</TopicSubsectionContent>
 
-En $[-\pi/2, \pi/2]$, si $f(x)=\sin x$, entonces $f^(-1)(x)=\arcsin x$:
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Derivada de $\arcsin x$ desde $\sin x$
+
+<TopicSubsectionContent>
+
+En $[-\pi/2, \pi/2]$, si $f(x)=\sin x$, entonces $f^&#123;-1&#125;(x)=\arcsin x$:
 
 $$
 (\arcsin x)' = 1/\cos(\arcsin x) = 1/\sqrt&#123;1-x^2&#125;
 $$
 
-#### Derivada de $\arctan x$ desde $\tan x$
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Derivada de $\arctan x$ desde $\tan x$
+
+<TopicSubsectionContent>
 
 En $(-\pi/2, \pi/2)$, si $f(x)=\tan x$:
 
@@ -172,28 +280,54 @@ $$
 (\arctan x)' = 1/\sec^2(\arctan x) = 1/(1+x^2)
 $$
 
-#### Cálculo puntual de derivada inversa
+</TopicSubsectionContent>
 
-Calcular $(f^(-1))'(2)$ si $f(x)=x^3+x$.
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Cálculo puntual de derivada inversa
+
+<TopicSubsectionContent>
+
+Calcular $(f^&#123;-1&#125;)'(2)$ si $f(x)=x^3+x$.
 
 1. Buscar $a$ tal que $f(a)=2$: $a=1$.
 2. $f'(x)=3x^2+1 \Rightarrow f'(1)=4$.
-3. $(f^(-1))'(2)=1/f'(1)=1/4$.
+3. $(f^&#123;-1&#125;)'(2)=1/f'(1)=1/4$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Tabla de Derivadas de Inversas Comunes
 
-| Función $f(x)$ | Inversa $f^(-1)(x)$ | Derivada $(f^(-1))'(x)$ | Dominio de la inversa |
+<TopicSubsectionContent>
+
+| Función $f(x)$ | Inversa $f^&#123;-1&#125;(x)$ | Derivada $(f^&#123;-1&#125;)'(x)$ | Dominio de la inversa |
 | --- | --- | --- | --- |
 | $e^x$ | $\ln x$ | $1/x$ | $(0,+\infty)$ |
 | $a^x$ | $\log_a x$ | $1/(x\ln a)$ | $(0,+\infty)$ |
 | $\sin x$ | $\arcsin x$ | $1/\sqrt&#123;1-x^2&#125;$ | $[-1,1]$ |
 | $\cos x$ | $\arccos x$ | $-1/\sqrt&#123;1-x^2&#125;$ | $[-1,1]$ |
 | $\tan x$ | $\arctan x$ | $1/(1+x^2)$ | $\mathbb&#123;R&#125;$ |
-| $x^n$ | $\sqrt[n]&#123;x&#125;$ | $1/(n\sqrt[n]&#123;x^(n-1)&#125;)$ | $[0,+\infty)$ para $n$ par |
+| $x^n$ | $\sqrt[n]&#123;x&#125;$ | $1/(n\sqrt[n]&#123;x^&#123;n-1&#125;&#125;)$ | $[0,+\infty)$ para $n$ par |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Restricción de Dominio para Obtener Inversas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Algunas funciones no son inyectivas en todo su dominio, pero sí lo son al restringir el dominio.
 
@@ -204,27 +338,41 @@ Algunas funciones no son inyectivas en todo su dominio, pero sí lo son al restr
 | $\tan x$ | $\mathbb&#123;R&#125; - \{\pi/2 + k\pi\}$ | Periodicidad | $(-\pi/2,\pi/2)$ | $\arctan x$ |
 | $x^2$ | $\mathbb&#123;R&#125;$ | Simetría par | $[0,+\infty)$ | $\sqrt&#123;x&#125;$ |
 
+</TopicSectionContent>
 
-## Relación Gráfica entre $f$ y $f^(-1)$
+</TopicSection>
+
+## Relación Gráfica entre $f$ y $f^&#123;-1&#125;$
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Las gráficas de una función y su inversa son simétricas respecto de la recta $y=x$.
 
-Si $(a,b)$ pertenece a la gráfica de $f$, entonces $(b,a)$ pertenece a la gráfica de $f^(-1)$.
+Si $(a,b)$ pertenece a la gráfica de $f$, entonces $(b,a)$ pertenece a la gráfica de $f^&#123;-1&#125;$.
 
 Relación de pendientes:
 
 $$
-\mathrm&#123;Pendiente\ de\ &#125;f^(-1)\mathrm&#123;\ en\ &#125;(b,a)=\frac&#123;1&#125;&#123;\mathrm&#123;Pendiente\ de\ &#125;f\mathrm&#123;\ en\ &#125;(a,b)&#125;
+\mathrm&#123;Pendiente\ de\ &#125;f^&#123;-1&#125;\mathrm&#123;\ en\ &#125;(b,a)=\frac&#123;1&#125;&#123;\mathrm&#123;Pendiente\ de\ &#125;f\mathrm&#123;\ en\ &#125;(a,b)&#125;
 $$
 
+</TopicSectionContent>
+
+</TopicSection>
 
 ## Condiciones para Existencia de la Derivada de la Inversa
 
-Para que $(f^(-1))'(b)$ exista:
+<TopicSection>
+
+<TopicSectionContent>
+
+Para que $(f^&#123;-1&#125;)'(b)$ exista:
 
 | Condición | Explicación |
 | --- | --- |
-| $f$ derivable en $a=f^(-1)(b)$ | Debe existir pendiente en la original |
+| $f$ derivable en $a=f^&#123;-1&#125;(b)$ | Debe existir pendiente en la original |
 | $f'(a) \neq 0$ | No puede haber pendiente horizontal en ese punto |
 | $f$ estrictamente monótona | Garantiza inyectividad |
 
@@ -232,36 +380,66 @@ Consecuencia: si $f'(a)=0$, la inversa no es derivable en $f(a)$.
 
 Ejemplo: $f(x)=x^3$, $f'(x)=3x^2$. En $x=0$, $f'(0)=0$ y la inversa $\sqrt[3]&#123;x&#125;$ tiene tangente vertical en el origen.
 
+</TopicSectionContent>
+
+</TopicSection>
 
 ## Ejercicios Resueltos
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Ejercicio 1
 
-Si $f(x)=x^5+3x^3+2x$, calcular $(f^(-1))'(6)$.
+<TopicSubsectionContent>
+
+Si $f(x)=x^5+3x^3+2x$, calcular $(f^&#123;-1&#125;)'(6)$.
 
 1. Buscar $a$ con $f(a)=6$: $a=1$.
 2. $f'(x)=5x^4+9x^2+2$.
 3. $f'(1)=16$.
-4. $(f^(-1))'(6)=1/16$.
+4. $(f^&#123;-1&#125;)'(6)=1/16$.
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejercicio 2
+
+<TopicSubsectionContent>
 
 Verificar el teorema para $f(x)=2x+1$.
 
 Por inversión algebraica:
 
-- $f^(-1)(x)=(x-1)/2$
-- $(f^(-1))'(x)=1/2$
+- $f^&#123;-1&#125;(x)=(x-1)/2$
+- $(f^&#123;-1&#125;)'(x)=1/2$
 
 Por teorema:
 
 - $f'(x)=2$
-- $(f^(-1))'(x)=1/f'(f^(-1)(x))=1/2$
+- $(f^&#123;-1&#125;)'(x)=1/f'(f^&#123;-1&#125;(x))=1/2$
 
 Coinciden ambos métodos.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Aplicaciones Prácticas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Área | Aplicación |
 | --- | --- |
@@ -271,16 +449,24 @@ Coinciden ambos métodos.
 | Física | Relaciones inversas entre magnitudes (presión-volumen, etc.) |
 | Economía | Demanda inversa y funciones de producción |
 
+</TopicSectionContent>
+
+</TopicSection>
 
 ## Resumen de Fórmulas Clave
 
+<TopicSection>
+
+<TopicSectionContent>
+
 | Concepto | Fórmula |
 | --- | --- |
-| Composición | $f(f^(-1)(x))=x$ y $f^(-1)(f(x))=x$ |
-| Derivada de la inversa | $(f^(-1))'(x)=1/f'(f^(-1)(x))$ |
-| Forma alternativa | $(f^(-1))'(x)=1/f'(y)$ donde $y=f^(-1)(x)$ |
+| Composición | $f(f^&#123;-1&#125;(x))=x$ y $f^&#123;-1&#125;(f(x))=x$ |
+| Derivada de la inversa | $(f^&#123;-1&#125;)'(x)=1/f'(f^&#123;-1&#125;(x))$ |
+| Forma alternativa | $(f^&#123;-1&#125;)'(x)=1/f'(y)$ donde $y=f^&#123;-1&#125;(x)$ |
 | Leibniz | $dx/dy = 1/(dy/dx)$ |
 | Condición necesaria | $f'(a) \neq 0$ para existencia de derivada inversa en $f(a)$ |
 
+</TopicSectionContent>
 
-
+</TopicSection>

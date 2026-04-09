@@ -15,26 +15,56 @@ shortcuts:
     variant: secondary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Tipos de Asíntotas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Tipo | Condición | Cómo obtenerla | Ecuación |
 | --- | --- | --- | --- |
 | Vertical (A.V.) | $\lim_&#123;x \to a&#125; f(x) = \pm\infty$ | Igualar denominador a cero: $Q(x) = 0$. Verificar que el límite sea $\pm\infty$ | $x = a$ |
-| Horizontal (A.H.) | $\lim_&#123;x \to \pm\infty&#125; f(x) = L$ (finito) | Si $GN \lt GD$ → $L = 0$ ; Si $GN = GD$ → $L = \frac&#123;CPN&#125;&#123;CPD&#125;$ ; Si $GN > GD$ → No hay A.H. | $y = L$ |
+| Horizontal (A.H.) | $\lim_&#123;x \to \pm\infty&#125; f(x) = L$ (finito) | Si $GN \lt GD$ → $L = 0$ ; Si $GN = GD$ → $L = \frac&#123;CPN&#125;&#123;CPD&#125;$ ; Si $GN \gt GD$ → No hay A.H. | $y = L$ |
 | Oblicua (A.O.) | No hay A.H. y $GN - GD = 1$ | División polinómica $P(x) \div Q(x)$. El cociente (sin resto) es la ecuación. | $y = mx + b$ |
 
 **Nota:** $GN$ = Grado del Numerador, $GD$ = Grado del Denominador, $CPN$ = Coeficiente Principal del Numerador, $CPD$ = Coeficiente Principal del Denominador
 
-## Asíntota Vertical (A.V.)
+</TopicSectionContent>
 
-### Procedimiento
+</TopicSection>
+
+### Asíntota Vertical (A.V.)
+
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
+#### Procedimiento
+
+<TopicSubsectionContent>
 
 1. Igualar el denominador a cero: $Q(x) = 0$
 2. Resolver para encontrar candidatos a A.V.
 3. **IMPORTANTE:** Verificar que el límite realmente dé $\pm\infty$
    - Si al simplificar se cancela el factor, NO es A.V. (es discontinuidad evitable)
 
-### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+#### Ejemplo
+
+<TopicSubsectionContent>
 
 Para $f(x) = \frac&#123;1&#125;&#123;x-2&#125;$:
 
@@ -42,17 +72,41 @@ Para $f(x) = \frac&#123;1&#125;&#123;x-2&#125;$:
 - Verificar: $\lim_&#123;x \to 2&#125; \frac&#123;1&#125;&#123;x-2&#125; = \pm\infty$ ✓
 - **Asíntota Vertical:** $x = 2$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Asíntota Horizontal (A.H.)
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Regla según grados
+
+<TopicSubsectionContent>
 
 | Caso | Condición | Límite | Asíntota |
 | --- | --- | --- | --- |
 | Grado Numerador < Grado Denominador | $GN \lt GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = 0$ | $y = 0$ |
 | Grado Numerador = Grado Denominador | $GN = GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = \frac&#123;CPN&#125;&#123;CPD&#125;$ | $y = \frac&#123;CPN&#125;&#123;CPD&#125;$ |
-| Grado Numerador > Grado Denominador | $GN > GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = \pm\infty$ | No hay A.H. |
+| Grado Numerador > Grado Denominador | $GN \gt GD$ | $\lim_&#123;x \to \pm\infty&#125; f(x) = \pm\infty$ | No hay A.H. |
+
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejemplos
+
+<TopicSubsectionContent>
 
 | Función | Grados | Asíntota Horizontal |
 | --- | --- | --- |
@@ -60,14 +114,38 @@ Para $f(x) = \frac&#123;1&#125;&#123;x-2&#125;$:
 | $f(x) = \frac&#123;3x^2+1&#125;&#123;x^2-4&#125;$ | $GN=2, GD=2$ | $y = \frac&#123;3&#125;&#123;1&#125; = 3$ |
 | $f(x) = \frac&#123;x^3&#125;&#123;x^2+1&#125;$ | $GN=3, GD=2$ | No hay A.H. |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Asíntota Oblicua (A.O.)
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Condiciones
+
+<TopicSubsectionContent>
 
 - No hay asíntota horizontal
 - El grado del numerador es exactamente 1 mayor que el del denominador ($GN - GD = 1$)
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Método 1: División Polinómica
+
+<TopicSubsectionContent>
 
 Dividir $P(x) \div Q(x)$ y tomar el cociente (ignorar el resto)
 
@@ -77,7 +155,15 @@ División: $x^2 + 3x + 2 = (x+1)(x+2) + 0$
 
 **Asíntota Oblicua:** $y = x + 2$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Método 2: Fórmulas de límites
+
+<TopicSubsectionContent>
 
 $$
 m = \lim_&#123;x \to \infty&#125; \frac&#123;f(x)&#125;&#123;x&#125;
@@ -89,7 +175,19 @@ $$
 
 **Asíntota Oblicua:** $y = mx + b$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Resumen de Procedimiento
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Para funciones racionales $f(x) = \frac&#123;P(x)&#125;&#123;Q(x)&#125;$:
 
@@ -104,3 +202,7 @@ Para funciones racionales $f(x) = \frac&#123;P(x)&#125;&#123;Q(x)&#125;$:
    - Usar división polinómica o fórmulas de límites
 
 **Nota:** Una función NO puede tener simultáneamente A.H. y A.O.
+
+</TopicSectionContent>
+
+</TopicSection>

@@ -18,7 +18,17 @@ shortcuts:
     variant: secondary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Definición
+
+<TopicSection>
+
+<TopicSectionContent>
 
 $$
 f'(x) = \lim_&#123;h \to 0&#125; \frac&#123;f(x+h) - f(x)&#125;&#123;h&#125;
@@ -26,7 +36,15 @@ $$
 
 **Interpretación geométrica:** La derivada es la pendiente de la recta tangente a la curva en un punto.
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Reglas de Derivación
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Regla | Fórmula |
 | --- | --- |
@@ -37,9 +55,21 @@ $$
 | Cociente | $\left(\frac&#123;u&#125;&#123;v&#125;\right)' = \frac&#123;u' \cdot v - u \cdot v'&#125;&#123;v^2&#125;$ |
 | Cadena | $[f(g(x))]' = f'(g(x)) \cdot g'(x)$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Tabla de Derivadas Fundamentales
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Funciones Algebraicas
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- |
@@ -50,14 +80,30 @@ $$
 | $\sqrt[n]&#123;x&#125;$ | $\frac&#123;1&#125;&#123;n\sqrt[n]&#123;x^&#123;n-1&#125;&#125;&#125;$ | $\sqrt[n]&#123;u&#125;$ | $\frac&#123;u'&#125;&#123;n\sqrt[n]&#123;u^&#123;n-1&#125;&#125;&#125;$ |
 | $\frac&#123;1&#125;&#123;x&#125;$ | $-\frac&#123;1&#125;&#123;x^2&#125;$ | $\frac&#123;1&#125;&#123;u&#125;$ | $-\frac&#123;u'&#125;&#123;u^2&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Exponenciales
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- |
 | $e^x$ | $e^x$ | $e^u$ | $e^u \cdot u'$ |
 | $a^x$ | $a^x \cdot \ln a$ | $a^u$ | $a^u \cdot \ln a \cdot u'$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Logarítmicas
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- |
@@ -65,7 +111,15 @@ $$
 | $\log_a x$ | $\frac&#123;1&#125;&#123;x \ln a&#125;$ | $\log_a u$ | $\frac&#123;u'&#125;&#123;u \ln a&#125;$ |
 | $\log x$ | $\frac&#123;1&#125;&#123;x \ln 10&#125;$ | $\log u$ | $\frac&#123;u'&#125;&#123;u \ln 10&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Trigonométricas
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Forma Alternativa | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- | --- |
@@ -76,7 +130,15 @@ $$
 | $\sec x$ | $\sec x \tan x$ | - | $\sec u$ | $\sec u \tan u \cdot u'$ |
 | $\csc x$ | $-\csc x \cot x$ | - | $\csc u$ | $-\csc u \cot u \cdot u'$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Trigonométricas Inversas
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- |
@@ -84,7 +146,15 @@ $$
 | $\arccos x$ | $-\frac&#123;1&#125;&#123;\sqrt&#123;1-x^2&#125;&#125;$ | $\arccos u$ | $-\frac&#123;u'&#125;&#123;\sqrt&#123;1-u^2&#125;&#125;$ |
 | $\arctan x$ | $\frac&#123;1&#125;&#123;1+x^2&#125;$ | $\arctan u$ | $\frac&#123;u'&#125;&#123;1+u^2&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Funciones Hiperbólicas
+
+<TopicSubsectionContent>
 
 | Función $f(x)$ | Derivada $f'(x)$ | Función Compuesta $f(u)$ | Derivada $f'(u)$ |
 | --- | --- | --- | --- |
@@ -101,7 +171,19 @@ $$
 \sinh x = \frac&#123;e^x - e^&#123;-x&#125;&#125;&#123;2&#125;, \quad \cosh x = \frac&#123;e^x + e^&#123;-x&#125;&#125;&#123;2&#125;, \quad \tanh x = \frac&#123;\sinh x&#125;&#123;\cosh x&#125;
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Derivada de Potencial Exponencial $f(x)^&#123;g(x)&#125;$
+
+<TopicSection>
+
+<TopicSectionContent>
 
 **Caso especial:** Cuando una función está elevada a otra función
 
@@ -109,14 +191,30 @@ $$
 y = f(x)^&#123;g(x)&#125;
 $$
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Método 1: Logaritmo Natural
+
+<TopicSubsectionContent>
 
 1. Tomar logaritmo natural: $\ln y = g(x) \ln f(x)$
 2. Derivar implícitamente: $\frac&#123;y'&#125;&#123;y&#125; = g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;$
 3. Despejar: $y' = y \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]$
 4. Sustituir $y$: $y' = f(x)^&#123;g(x)&#125; \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Método 2: Fórmula Directa
+
+<TopicSubsectionContent>
 
 $$
 \frac&#123;d&#125;&#123;dx&#125;[f(x)^&#123;g(x)&#125;] = f(x)^&#123;g(x)&#125; \left[g'(x) \ln f(x) + g(x) \cdot \frac&#123;f'(x)&#125;&#123;f(x)&#125;\right]
@@ -128,7 +226,19 @@ $$
 - $g(x) = x$, $g'(x) = 1$
 - $y' = x^x \left[1 \cdot \ln x + x \cdot \frac&#123;1&#125;&#123;x&#125;\right] = x^x(\ln x + 1)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Derivadas Especiales
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Tipo | Función | Derivada |
 | --- | --- | --- |
@@ -136,9 +246,21 @@ $$
 | Logaritmo base 10 | $\log x$ | $\frac&#123;1&#125;&#123;x \ln 10&#125;$ |
 | Valor absoluto | $|x|$ | $\frac&#123;x&#125;&#123;|x|&#125;$ (para $x \neq 0$) |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Procedimientos Algorítmicos
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Regla del Producto (paso a paso)
+
+<TopicSubsectionContent>
 
 Para $y = u(x) \cdot v(x)$:
 
@@ -152,7 +274,15 @@ Para $y = u(x) \cdot v(x)$:
 - $v = \sin x$ → $v' = \cos x$
 - $y' = 2x \cdot \sin x + x^2 \cdot \cos x$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Regla del Cociente (paso a paso)
+
+<TopicSubsectionContent>
 
 Para $y = \frac&#123;u(x)&#125;&#123;v(x)&#125;$:
 
@@ -166,7 +296,15 @@ Para $y = \frac&#123;u(x)&#125;&#123;v(x)&#125;$:
 - $v = x$ → $v' = 1$
 - $y' = \frac&#123;\cos x \cdot x - \sin x \cdot 1&#125;&#123;x^2&#125; = \frac&#123;x\cos x - \sin x&#125;&#123;x^2&#125;$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Regla de la Cadena (paso a paso)
+
+<TopicSubsectionContent>
 
 Para $y = f(g(x))$:
 
@@ -187,7 +325,19 @@ Para $y = f(g(x))$:
 - Interna: $g(x) = 3x$ → $g'(x) = 3$
 - $y' = e^&#123;3x&#125; \cdot 3 = 3e^&#123;3x&#125;$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Derivadas de Orden Superior
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Derivada | Notación | Significado |
 | --- | --- | --- |
@@ -196,8 +346,15 @@ Para $y = f(g(x))$:
 | Tercera | $f'''(x)$, $\frac&#123;d^3y&#125;&#123;dx^3&#125;$, $y'''$ | - |
 | n-ésima | $f^&#123;(n)&#125;(x)$, $\frac&#123;d^ny&#125;&#123;dx^n&#125;$, $y^&#123;(n)&#125;$ | - |
 
+</TopicSectionContent>
+
+</TopicSection>
 
 ## Derivación Implícita
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Cuando no se puede despejar $y$, derivar ambos lados respecto a $x$ recordando:
 
@@ -216,7 +373,15 @@ Cuando no se puede despejar $y$, derivar ambos lados respecto a $x$ recordando:
 2. Simplificar: $y + xy' + 2yy' = 0$
 3. Despejar: $y' = -\frac&#123;y&#125;&#123;x + 2y&#125;$
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Tabla Resumen de Formas Alternativas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Expresión | Forma Alternativa |
 | --- | --- |
@@ -227,7 +392,15 @@ Cuando no se puede despejar $y$, derivar ambos lados respecto a $x$ recordando:
 | $\sec x$ | $\frac&#123;1&#125;&#123;\cos x&#125;$ |
 | $\csc x$ | $\frac&#123;1&#125;&#123;\sin x&#125;$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Consejos Prácticos
+
+<TopicSection>
+
+<TopicSectionContent>
 
 1. **Identificar el tipo de función** antes de derivar (algebraica, trigonométrica, exponencial, etc.)
 2. **Usar la regla de la cadena** siempre que haya composición de funciones
@@ -235,3 +408,6 @@ Cuando no se puede despejar $y$, derivar ambos lados respecto a $x$ recordando:
 4. **Verificar el resultado** derivando y comparando con la función original
 5. **Practicar las derivadas básicas** hasta memorizarlas
 
+</TopicSectionContent>
+
+</TopicSection>

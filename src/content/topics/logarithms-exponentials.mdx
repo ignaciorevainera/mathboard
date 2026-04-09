@@ -18,36 +18,74 @@ shortcuts:
     variant: accent
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Funciones Exponenciales
+
+<TopicSection>
+
+<TopicSectionContent>
+
 Comportamiento analítico y gráfico de funciones de la forma $f(x)=a^x$.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Propiedades de Exponenciales
+
+<TopicSubsectionContent>
 
 | Propiedad | Fórmula | Ejemplo |
 | --- | --- | --- |
 | Identidad | $a^0 = 1$ | $5^0 = 1$ |
 | Identidad | $a^1 = a$ | $7^1 = 7$ |
-| Producto | $a^m a^n = a^(m+n)$ | $2^3 2^5 = 2^8$ |
-| Cociente | $(a^m)/(a^n) = a^(m-n)$ | $(5^7)/(5^3) = 5^4$ |
-| Potencia de potencia | $(a^m)^n = a^(mn)$ | $(3^2)^4 = 3^8$ |
+| Producto | $a^m a^n = a^&#123;m+n&#125;$ | $2^3 2^5 = 2^8$ |
+| Cociente | $(a^m)/(a^n) = a^&#123;m-n&#125;$ | $(5^7)/(5^3) = 5^4$ |
+| Potencia de potencia | $(a^m)^n = a^&#123;mn&#125;$ | $(3^2)^4 = 3^8$ |
 | Producto elevado | $(ab)^n = a^n b^n$ | $(2 5)^3 = 2^3 5^3$ |
 | Cociente elevado | $((a)/(b))^n = (a^n)/(b^n)$ | $((3)/(4))^2 = 9/16$ |
-| Exponente negativo | $a^(-n) = 1/(a^n)$ | $2^(-3) = 1/8$ |
-| Raíz como potencia | $\sqrt[n]&#123;a&#125; = a^(1/n)$ | $\sqrt[3]&#123;8&#125; = 2$ |
-| Raíz con exponente | $\sqrt[n]&#123;a^m&#125; = a^(m/n)$ | $\sqrt&#123;x^3&#125; = x^(3/2)$ |
+| Exponente negativo | $a^&#123;-n&#125; = 1/(a^n)$ | $2^&#123;-3&#125; = 1/8$ |
+| Raíz como potencia | $\sqrt[n]&#123;a&#125; = a^&#123;1/n&#125;$ | $\sqrt[3]&#123;8&#125; = 2$ |
+| Raíz con exponente | $\sqrt[n]&#123;a^m&#125; = a^&#123;m/n&#125;$ | $\sqrt&#123;x^3&#125; = x^&#123;3/2&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ecuaciones Exponenciales
 
-#### Tipo 1: Bases iguales
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Tipo 1: Bases iguales
+
+<TopicSubsectionContent>
 
 $$
 a^&#123;f(x)&#125; = a^&#123;g(x)&#125; \Rightarrow f(x) = g(x)
 $$
 
-Ejemplo: $2^(x+1) = 2^5 \Rightarrow x+1 = 5 \Rightarrow x=4$.
+Ejemplo: $2^&#123;x+1&#125; = 2^5 \Rightarrow x+1 = 5 \Rightarrow x=4$.
 
-#### Tipo 2: Igualación de bases
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Tipo 2: Igualación de bases
+
+<TopicSubsectionContent>
 
 $$
 a^&#123;f(x)&#125; = b \Rightarrow f(x) = \log_a b
@@ -55,7 +93,15 @@ $$
 
 Ejemplo: $3^x = 81 = 3^4 \Rightarrow x=4$.
 
-#### Tipo 3: Aplicar logaritmo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Tipo 3: Aplicar logaritmo
+
+<TopicSubsectionContent>
 
 $$
 a^&#123;f(x)&#125; = b \Rightarrow f(x) = (\log b)/(\log a)
@@ -63,24 +109,52 @@ $$
 
 Ejemplo: $5^x=20 \Rightarrow x=(\log 20)/(\log 5) \approx 1.86$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Aplicaciones de Exponenciales
 
-#### Crecimiento o decrecimiento
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Crecimiento o decrecimiento
+
+<TopicSubsectionContent>
 
 $$
-A(t) = A_0 e^(kt)
+A(t) = A_0 e^&#123;kt&#125;
 $$
 
 - $k \gt 0$: crecimiento.
 - $k \lt 0$: decrecimiento.
 
-#### Vida media
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Vida media
+
+<TopicSubsectionContent>
 
 $$
 A(t) = A_0 (1/2)^&#123;t/T_&#123;1/2&#125;&#125;
 $$
 
-#### Interés compuesto
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Interés compuesto
+
+<TopicSubsectionContent>
 
 $$
 A = P(1 + r/n)^&#123;nt&#125;
@@ -89,15 +163,34 @@ $$
 Capitalización continua:
 
 $$
-A = Pe^(rt)
+A = Pe^&#123;rt&#125;
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Teoría de Logaritmos
+
+<TopicSection>
+
+<TopicSectionContent>
+
 Definiciones y propiedades algebraicas para operar expresiones logarítmicas.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Propiedades de Logaritmos
+
+<TopicSubsectionContent>
 
 | Propiedad | Fórmula | Descripción |
 | --- | --- | --- |
@@ -111,10 +204,21 @@ Definiciones y propiedades algebraicas para operar expresiones logarítmicas.
 | Inversa | $a^&#123;\log_a x&#125;=x$ | Se cancelan |
 | Inversa | $\log_a(a^x)=x$ | Se cancelan |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Logaritmo Natural y Decimal
 
-#### Logaritmo natural
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Logaritmo natural
+
+<TopicSubsectionContent>
 
 | Propiedad | Fórmula | Nota |
 | --- | --- | --- |
@@ -125,7 +229,15 @@ Definiciones y propiedades algebraicas para operar expresiones logarítmicas.
 | Cociente | $\ln((x)/(y))=\ln x-\ln y$ | |
 | Potencia | $\ln(x^n)=n\ln x$ | |
 
-#### Logaritmo decimal
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Logaritmo decimal
+
+<TopicSubsectionContent>
 
 | Propiedad | Fórmula | Nota |
 | --- | --- | --- |
@@ -135,10 +247,21 @@ Definiciones y propiedades algebraicas para operar expresiones logarítmicas.
 | Valor notable | $\log 100=2$ | |
 | Valor notable | $\log 1000=3$ | |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Cambio de Base
 
-#### Fórmula general
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmula general
+
+<TopicSubsectionContent>
 
 $$
 \log_a b = (\log_c b)/(\log_c a)
@@ -150,35 +273,85 @@ $$
 \log_a b = (\log b)/(\log a) = (\ln b)/(\ln a)
 $$
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 $$
 \log_3 27 = (\ln 27)/(\ln 3) = 3
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ejemplos de Aplicación
 
-#### Simplificar potencias
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Simplificar potencias
+
+<TopicSubsectionContent>
 
 $$
 (x^5 x^3)/(x^2) = x^6
 $$
 
-#### Simplificar logaritmos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Simplificar logaritmos
+
+<TopicSubsectionContent>
 
 $$
 \log_2(8x^3)=\log_2 8 + \log_2(x^3)=3+3\log_2 x
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
 
 ## Ecuaciones Logarítmicas y Exponenciales
+
+<TopicSection>
+
+<TopicSectionContent>
+
 Estrategias para despejar incógnitas en ecuaciones con exponentes y logaritmos.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Estrategias de Resolución
 
-#### Procedimiento general para ecuaciones logarítmicas
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Procedimiento general para ecuaciones logarítmicas
+
+<TopicSubsectionContent>
 
 1. Agrupar logaritmos en un lado.
 2. Combinar propiedades (suma a producto, resta a cociente).
@@ -186,7 +359,15 @@ Estrategias para despejar incógnitas en ecuaciones con exponentes y logaritmos.
 4. Resolver ecuación resultante.
 5. Verificar dominio (argumentos positivos).
 
-#### Ejemplo 1
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo 1
+
+<TopicSubsectionContent>
 
 $$
 2^x = 8
@@ -200,7 +381,15 @@ $$
 x = (\log 8)/(\log 2)=3
 $$
 
-#### Ejemplo 2
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo 2
+
+<TopicSubsectionContent>
 
 $$
 \log_2 x + \log_2(x-3)=2
@@ -214,7 +403,15 @@ $$
 
 Respuesta: $x=4$.
 
-#### Ejemplo 3
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo 3
+
+<TopicSubsectionContent>
 
 $$
 \log_3(x+1)-\log_3(x-2)=1
@@ -225,8 +422,15 @@ $$
 3. Resolver: $x+1=3x-6 \Rightarrow 7=2x \Rightarrow x=3.5$.
 4. Dominio: $x+1 \gt 0$ y $x-2 \gt 0$ (se cumple).
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Función Exponencial vs Logarítmica
+
+<TopicSubsectionContent>
 
 | Característica | Exponencial $y=a^x$ | Logarítmica $y=\log_a x$ |
 | --- | --- | --- |
@@ -239,5 +443,10 @@ $$
 
 La curva logarítmica es el reflejo de la exponencial respecto de $y=x$.
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
+
+</TopicSection>

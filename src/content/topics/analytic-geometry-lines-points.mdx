@@ -18,12 +18,29 @@ shortcuts:
     variant: accent
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Geometría Analítica: Rectas y Puntos
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Ecuaciones de rectas, pendientes, distancias y punto medio para resolver problemas métricos y de ubicación en el plano.
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
 
 ### Pendiente de una Recta
+
+<TopicSubsectionContent>
 
 | Concepto | Fórmula | Descripción |
 | --- | --- | --- |
@@ -32,15 +49,30 @@ Ecuaciones de rectas, pendientes, distancias y punto medio para resolver problem
 | Pendiente de $Ax + By + C = 0$ | $m = -\frac&#123;A&#125;&#123;B&#125;$ | Forma general |
 | Ángulo de inclinación | $m = \tan(\theta)$ | $\theta$ con el eje $X$ positivo |
 
-#### Interpretación
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Interpretación
+
+<TopicSubsectionContent>
 
 - $m \gt 0$: recta creciente
 - $m \lt 0$: recta decreciente
 - $m = 0$: recta horizontal
 - pendiente indefinida: recta vertical
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ecuaciones de la Recta
+
+<TopicSubsectionContent>
 
 | Forma | Ecuación | Uso |
 | --- | --- | --- |
@@ -52,10 +84,21 @@ Ecuaciones de rectas, pendientes, distancias y punto medio para resolver problem
 | Vertical | $x = k$ | Paralela al eje $Y$ |
 | Horizontal | $y = k$ | Paralela al eje $X$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Conversión entre Formas
 
-#### De Punto-Pendiente a Pendiente-Ordenada
+</TopicSubsection>
+
+<TopicSubsection>
+
+### De Punto-Pendiente a Pendiente-Ordenada
+
+<TopicSubsectionContent>
 
 $y - y_1 = m(x - x_1)$
 
@@ -63,18 +106,41 @@ $\Rightarrow y = mx - mx_1 + y_1$
 
 $\Rightarrow y = mx + b$, donde $b = y_1 - mx_1$
 
-#### De Pendiente-Ordenada a General
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### De Pendiente-Ordenada a General
+
+<TopicSubsectionContent>
 
 $y = mx + b \Rightarrow mx - y + b = 0$
 
-#### De General a Pendiente-Ordenada
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### De General a Pendiente-Ordenada
+
+<TopicSubsectionContent>
 
 $Ax + By + C = 0 \Rightarrow By = -Ax - C$
 
 $\Rightarrow y = -(A/B)x - (C/B)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Relaciones entre Rectas
+
+<TopicSubsectionContent>
 
 | Relación | Condición | Explicación |
 | --- | --- | --- |
@@ -83,7 +149,15 @@ $\Rightarrow y = -(A/B)x - (C/B)$
 | Coincidentes | $m_1 = m_2$ y $b_1 = b_2$ | Misma recta |
 | Secantes | $m_1 \neq m_2$ | Se cortan en un punto |
 
-#### Ejemplos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplos
+
+<TopicSubsectionContent>
 
 | Recta 1 | Recta 2 | Relación |
 | --- | --- | --- |
@@ -91,23 +165,50 @@ $\Rightarrow y = -(A/B)x - (C/B)$
 | $y = 3x + 1$ | $y = -(1/3)x + 2$ | Perpendiculares |
 | $x = 5$ | $y = 3$ | Perpendiculares |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Distancia entre Dos Puntos
 
-#### Fórmula
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmula
+
+<TopicSubsectionContent>
 
 $$
 d = \sqrt&#123;(x_2 - x_1)^2 + (y_2 - y_1)^2&#125;
 $$
 
-#### Casos especiales
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Casos especiales
+
+<TopicSubsectionContent>
 
 | Caso | Fórmula | Condición |
 | --- | --- | --- |
 | Distancia horizontal | $d = \|x_2 - x_1\|$ | $y_1 = y_2$ |
 | Distancia vertical | $d = \|y_2 - y_1\|$ | $x_1 = x_2$ |
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 Entre $(1,2)$ y $(4,6)$:
 
@@ -115,10 +216,21 @@ $$
 d = \sqrt&#123;(4-1)^2 + (6-2)^2&#125; = \sqrt&#123;25&#125; = 5
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Punto Medio
 
-#### Fórmula
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmula
+
+<TopicSubsectionContent>
 
 $$
 M = ((x_1 + x_2)/2, (y_1 + y_2)/2)
@@ -126,7 +238,15 @@ $$
 
 Promedio de las coordenadas de los extremos.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 Entre $(1,3)$ y $(7,11)$:
 
@@ -134,8 +254,15 @@ $$
 M = ((1+7)/2, (3+11)/2) = (4,7)
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Distancia de un Punto a una Recta
+
+<TopicSubsectionContent>
 
 Para punto $(x_0,y_0)$ y recta $Ax + By + C = 0$:
 
@@ -143,7 +270,15 @@ $$
 d = \|Ax_0 + By_0 + C\| / \sqrt&#123;A^2 + B^2&#125;
 $$
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 Punto $(1,2)$ a la recta $3x + 4y - 5 = 0$:
 
@@ -151,8 +286,15 @@ $$
 d = \|3(1) + 4(2) - 5\| / \sqrt&#123;3^2 + 4^2&#125; = 6/5
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Ángulo entre Dos Rectas
+
+<TopicSubsectionContent>
 
 Si $m_1$ y $m_2$ son pendientes:
 
@@ -162,30 +304,72 @@ $$
 
 Si $m_1m_2 = -1$, son perpendiculares y $\theta = 90^\circ$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Interceptos
 
-#### Intercepto en $X$
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Intercepto en $X$
+
+<TopicSubsectionContent>
 
 Hacer $y = 0$ y resolver para $x$.
 
-#### Intercepto en $Y$
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Intercepto en $Y$
+
+<TopicSubsectionContent>
 
 Hacer $x = 0$ y resolver para $y$.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 Para $2x + 3y - 6 = 0$:
 
 - Intercepto en $X$: $(3,0)$
 - Intercepto en $Y$: $(0,2)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Punto de Intersección de Dos Rectas
 
+<TopicSubsectionContent>
+
 Resolver el sistema de ecuaciones formado por ambas rectas.
 
-#### Ejemplo
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ejemplo
+
+<TopicSubsectionContent>
 
 Intersección de $y = 2x + 1$ y $y = -x + 4$:
 
@@ -194,18 +378,41 @@ Intersección de $y = 2x + 1$ y $y = -x + 4$:
 3. Sustituir: $y = 2(1) + 1 = 3$
 4. Punto de intersección: $(1,3)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Recta Tangente y Normal
 
+<TopicSubsectionContent>
+
 Para la curva $y = f(x)$ en $(x_0,y_0)$:
 
-#### Tangente
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Tangente
+
+<TopicSubsectionContent>
 
 $$
 y - y_0 = f'(x_0)(x - x_0)
 $$
 
-#### Normal
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Normal
+
+<TopicSubsectionContent>
 
 $$
 y - y_0 = -(1/f'(x_0))(x - x_0)
@@ -213,8 +420,15 @@ $$
 
 Relación de pendientes: $m_\text&#123;normal&#125; = -1/m_\text&#123;tangente&#125;$.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### División de un Segmento en una Razón
+
+<TopicSubsectionContent>
 
 Si $P$ divide el segmento entre $(x_1,y_1)$ y $(x_2,y_2)$ en razón $r:s$:
 
@@ -224,16 +438,35 @@ $$
 
 Caso especial $r=s=1$: se obtiene el punto medio.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
 
 ### Problemas Tipo
 
-#### Hallar ecuación de una recta con dos puntos
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Hallar ecuación de una recta con dos puntos
+
+<TopicSubsectionContent>
 
 1. Calcular $m = \frac&#123;y_2 - y_1&#125;&#123;x_2 - x_1&#125;$.
 2. Reemplazar en punto-pendiente.
 3. Simplificar a la forma requerida.
 
-#### Hallar recta perpendicular por un punto
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Hallar recta perpendicular por un punto
+
+<TopicSubsectionContent>
 
 Si la recta dada tiene pendiente $m_1$, la perpendicular tiene pendiente $m_2 = -\frac&#123;1&#125;&#123;m_1&#125;$.
 
@@ -244,5 +477,10 @@ Ejemplo: perpendicular a $y = 2x + 3$ por $(1,4)$:
 3. $y - 4 = -\frac&#123;1&#125;&#123;2&#125;(x - 1)$
 4. $y = -\frac&#123;1&#125;&#123;2&#125;x + \frac&#123;9&#125;&#123;2&#125;$
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
+
+</TopicSection>

@@ -15,16 +15,31 @@ shortcuts:
     variant: primary
 ---
 
-## Trigonometría Avanzada
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
 
 Uso del círculo unitario e identidades para simplificación y resolución.
 
+## Ángulos Notables
 
-### Ángulos Notables
+<TopicSection>
+
+<TopicSectionContent>
 
 Tabla completa de valores trigonométricos para ángulos especiales.
 
-#### Tabla de Ángulos Notables
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
+### Tabla de Ángulos Notables
+
+<TopicSubsectionContent>
 
 | Ángulo | Grados | Radianes | $\sin$ | $\cos$ | $\tan$ | $\cot$ | $\sec$ | $\csc$ |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -46,14 +61,30 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 | 330° | $330°$ | $\frac&#123;11\pi&#125;&#123;6&#125;$ | $-\frac&#123;1&#125;&#123;2&#125;$ | $\frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;$ | $-\frac&#123;\sqrt&#123;3&#125;&#125;&#123;3&#125;$ | $-\sqrt&#123;3&#125;$ | $\frac&#123;2\sqrt&#123;3&#125;&#125;&#123;3&#125;$ | $-2$ |
 | 360° | $360°$ | $2\pi$ | $0$ | $1$ | $0$ | $\infty$ | $1$ | $\infty$ |
 
-#### Conversión Grados-Radianes
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Conversión Grados-Radianes
+
+<TopicSubsectionContent>
 
 | Conversión | Fórmula | Ejemplo |
 | --- | --- | --- |
 | Grados a Radianes | $\text&#123;Radianes&#125; = \text&#123;Grados&#125; \times \frac&#123;\pi&#125;&#123;180&#125;$ | $90° = 90 \times \frac&#123;\pi&#125;&#123;180&#125; = \frac&#123;\pi&#125;&#123;2&#125;$ |
 | Radianes a Grados | $\text&#123;Grados&#125; = \text&#123;Radianes&#125; \times \frac&#123;180&#125;&#123;\pi&#125;$ | $\frac&#123;\pi&#125;&#123;3&#125; = \frac&#123;\pi&#125;&#123;3&#125; \times \frac&#123;180&#125;&#123;\pi&#125; = 60°$ |
 
-#### Ángulos Comunes en Radianes
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ángulos Comunes en Radianes
+
+<TopicSubsectionContent>
 
 | Grados | Radianes | Fracción de $\pi$ |
 | --- | --- | --- |
@@ -69,7 +100,15 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 | $270°$ | $\frac&#123;3\pi&#125;&#123;2&#125;$ | $\frac&#123;3&#125;&#123;2&#125;\pi$ |
 | $360°$ | $2\pi$ | $2\pi$ |
 
-#### Valores para Memorizar
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Valores para Memorizar
+
+<TopicSubsectionContent>
 
 | Razón | Valor Decimal | Valor Exacto | Ángulos asociados |
 | --- | --- | --- | --- |
@@ -80,7 +119,15 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 | $1$ | $1$ | $1$ | $45°$, $135°$ (tangente); $0°$, $180°$ (coseno) |
 | $\sqrt&#123;3&#125;$ | $\approx 1.732$ | $\sqrt&#123;3&#125;$ | $60°$, $120°$ (tangente) |
 
-#### Círculo Unitario por Cuadrantes
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Círculo Unitario por Cuadrantes
+
+<TopicSubsectionContent>
 
 | Cuadrante | Ángulos | $\sin$ | $\cos$ | $\tan$ |
 | --- | --- | --- | --- | --- |
@@ -96,9 +143,17 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 - **S**olo la Tangente positiva (Cuadrante III)
 - **C**oseno positivo (Cuadrante IV)
 
-#### Patrones en la Tabla
+</TopicSubsectionContent>
 
-##### Seno
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Patrones en la Tabla
+
+<TopicSubsectionContent>
+
+**Seno**
 
 - $\sin 0° = 0 = \frac&#123;\sqrt&#123;0&#125;&#125;&#123;2&#125;$
 - $\sin 30° = \frac&#123;1&#125;&#123;2&#125; = \frac&#123;\sqrt&#123;1&#125;&#125;&#123;2&#125;$
@@ -106,7 +161,7 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 - $\sin 60° = \frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;$
 - $\sin 90° = 1 = \frac&#123;\sqrt&#123;4&#125;&#125;&#123;2&#125;$
 
-##### Coseno
+**Coseno**
 
 - $\cos 0° = 1 = \frac&#123;\sqrt&#123;4&#125;&#125;&#123;2&#125;$
 - $\cos 30° = \frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;$
@@ -116,7 +171,7 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 
 **Patrón:** Los valores del seno y coseno son opuestos (lo que sube en uno baja en el otro).
 
-##### Tangente
+**Tangente**
 
 - $\tan 30° = \frac&#123;\sqrt&#123;3&#125;&#125;&#123;3&#125; = \frac&#123;1&#125;&#123;\sqrt&#123;3&#125;&#125;$
 - $\tan 45° = 1$
@@ -124,14 +179,37 @@ Tabla completa de valores trigonométricos para ángulos especiales.
 
 **Relación:** $\tan 30° \cdot \tan 60° = \frac&#123;\sqrt&#123;3&#125;&#125;&#123;3&#125; \cdot \sqrt&#123;3&#125; = 1$ (ángulos complementarios).
 
+</TopicSubsectionContent>
 
-### Identidades trigonométricas
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
+## Identidades trigonométricas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 
-#### Tabla de Identidades Principales
+</TopicSectionContent>
 
-##### Identidades Pitagóricas y sus Variantes
+<TopicSubsections>
+
+<TopicSubsection>
+
+### Tabla de Identidades Principales
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades Pitagóricas y sus Variantes
+
+<TopicSubsectionContent>
 
 | Tipo | Identidad | Variante 1 | Variante 2 |
 | --- | --- | --- | --- |
@@ -139,7 +217,15 @@ Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 | Pitagórica con tangente | $1 + \tan^2\theta = \sec^2\theta$ | $\tan^2\theta = \sec^2\theta - 1$ | $\sec^2\theta - \tan^2\theta = 1$ |
 | Pitagórica con cotangente | $1 + \cot^2\theta = \csc^2\theta$ | $\cot^2\theta = \csc^2\theta - 1$ | $\csc^2\theta - \cot^2\theta = 1$ |
 
-##### Identidades de Cociente y sus Formas
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Cociente y sus Formas
+
+<TopicSubsectionContent>
 
 | Tipo | Identidad | Variante 1 | Variante 2 |
 | --- | --- | --- | --- |
@@ -148,7 +234,15 @@ Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 | Relación tangente-cotangente | $\tan\theta = \frac&#123;1&#125;&#123;\cot\theta&#125;$ | - | - |
 | Relación cotangente-tangente | $\cot\theta = \frac&#123;1&#125;&#123;\tan\theta&#125;$ | - | - |
 
-##### Identidades Recíprocas
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades Recíprocas
+
+<TopicSubsectionContent>
 
 | Función | Identidad directa | Identidad inversa |
 | --- | --- | --- |
@@ -156,7 +250,15 @@ Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 | Cosecante | $\csc\theta = \frac&#123;1&#125;&#123;\sin\theta&#125;$ | $\sin\theta = \frac&#123;1&#125;&#123;\csc\theta&#125;$ |
 | Cotangente | $\cot\theta = \frac&#123;1&#125;&#123;\tan\theta&#125;$ | $\tan\theta = \frac&#123;1&#125;&#123;\cot\theta&#125;$ |
 
-##### Identidades de Paridad
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Paridad
+
+<TopicSubsectionContent>
 
 | Función | Par/Impar | Identidad |
 | --- | --- | --- |
@@ -167,7 +269,15 @@ Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 | Secante | Par | $\sec(-\theta) = \sec\theta$ |
 | Cosecante | Impar | $\csc(-\theta) = -\csc\theta$ |
 
-##### Identidades Fundamentales para Potencias
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades Fundamentales para Potencias
+
+<TopicSubsectionContent>
 
 | Expresión | Transformación | Uso |
 | --- | --- | --- |
@@ -179,9 +289,17 @@ Identidades fundamentales, pitagóricas, de ángulo doble y suma/resta.
 | $\cot^2\theta$ | $\csc^2\theta - 1$ | Sustitución |
 | $\sin\theta\cos\theta$ | $\frac&#123;\sin(2\theta)&#125;&#123;2&#125;$ | Simplificación |
 
-#### Derivación de Identidades Pitagóricas
+</TopicSubsectionContent>
 
-##### Cómo obtener $1 + \tan^2\theta = \sec^2\theta$
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Derivación de Identidades Pitagóricas
+
+<TopicSubsectionContent>
+
+**Cómo obtener $1 + \tan^2\theta = \sec^2\theta$**
 
 **Partir de:** $\sin^2\theta + \cos^2\theta = 1$
 
@@ -195,7 +313,7 @@ $$
 \tan^2\theta + 1 = \sec^2\theta
 $$
 
-##### Cómo obtener $1 + \cot^2\theta = \csc^2\theta$
+**Cómo obtener $1 + \cot^2\theta = \csc^2\theta$**
 
 **Partir de:** $\sin^2\theta + \cos^2\theta = 1$
 
@@ -209,7 +327,15 @@ $$
 1 + \cot^2\theta = \csc^2\theta
 $$
 
-#### Identidades de Ángulo Doble
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Ángulo Doble
+
+<TopicSubsectionContent>
 
 | Función | Identidad |
 | --- | --- |
@@ -219,7 +345,15 @@ $$
 | Coseno doble (forma 3) | $\cos(2\theta) = 1 - 2\sin^2\theta$ |
 | Tangente doble | $\tan(2\theta) = \frac&#123;2\tan\theta&#125;&#123;1 - \tan^2\theta&#125;$ |
 
-##### Derivación de variantes del coseno doble
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Derivación de variantes del coseno doble
+
+<TopicSubsectionContent>
 
 **Variante 2:** Sustituir $\sin^2\theta = 1 - \cos^2\theta$ en la forma 1:
 
@@ -238,7 +372,15 @@ $$
 - $\cos^2\theta = \frac&#123;1 + \cos(2\theta)&#125;&#123;2&#125;$
 - $\sin^2\theta = \frac&#123;1 - \cos(2\theta)&#125;&#123;2&#125;$
 
-#### Identidades de Ángulo Medio
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Ángulo Medio
+
+<TopicSubsectionContent>
 
 | Función | Identidad |
 | --- | --- |
@@ -252,7 +394,15 @@ $$
 
 **Nota:** El signo $\pm$ depende del cuadrante donde se encuentra $\frac&#123;\theta&#125;&#123;2&#125;$.
 
-#### Identidades de Ángulo Triple
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Ángulo Triple
+
+<TopicSubsectionContent>
 
 | Función | Identidad |
 | --- | --- |
@@ -260,7 +410,15 @@ $$
 | Coseno triple | $\cos(3\theta) = 4\cos^3\theta - 3\cos\theta$ |
 | Tangente triple | $\tan(3\theta) = \frac&#123;3\tan\theta - \tan^3\theta&#125;&#123;1 - 3\tan^2\theta&#125;$ |
 
-#### Identidades de Suma y Resta
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Suma y Resta
+
+<TopicSubsectionContent>
 
 | Función | Operación | Identidad |
 | --- | --- | --- |
@@ -271,7 +429,15 @@ $$
 | Tangente | Suma | $\tan(\alpha + \beta) = \frac&#123;\tan\alpha + \tan\beta&#125;&#123;1 - \tan\alpha\tan\beta&#125;$ |
 | Tangente | Resta | $\tan(\alpha - \beta) = \frac&#123;\tan\alpha - \tan\beta&#125;&#123;1 + \tan\alpha\tan\beta&#125;$ |
 
-#### Identidades de Producto a Suma
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Producto a Suma
+
+<TopicSubsectionContent>
 
 | Producto | Suma/Resta |
 | --- | --- |
@@ -282,7 +448,15 @@ $$
 
 **Uso:** Convertir productos en sumas para integrar o simplificar.
 
-#### Identidades de Suma a Producto
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Suma a Producto
+
+<TopicSubsectionContent>
 
 | Suma/Resta | Producto |
 | --- | --- |
@@ -293,7 +467,15 @@ $$
 
 **Uso:** Convertir sumas en productos para factorizar o resolver ecuaciones.
 
-#### Identidades de Ángulos Complementarios
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Ángulos Complementarios
+
+<TopicSubsectionContent>
 
 **Ángulos Complementarios:** $\alpha + \beta = 90°$ o $\frac&#123;\pi&#125;&#123;2&#125;$
 
@@ -306,7 +488,15 @@ $$
 | Secante-Cosecante | $\sec(90° - \theta) = \csc\theta$ |
 | Cosecante-Secante | $\csc(90° - \theta) = \sec\theta$ |
 
-#### Identidades de Ángulos Suplementarios
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Ángulos Suplementarios
+
+<TopicSubsectionContent>
 
 **Ángulos Suplementarios:** $\alpha + \beta = 180°$ o $\pi$
 
@@ -316,7 +506,15 @@ $$
 | Coseno | $\cos(180° - \theta) = -\cos\theta$ |
 | Tangente | $\tan(180° - \theta) = -\tan\theta$ |
 
-#### Identidades de Reducción de Ángulos
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Reducción de Ángulos
+
+<TopicSubsectionContent>
 
 | Expresión | Identidad |
 | --- | --- |
@@ -330,7 +528,15 @@ $$
 | $\sin(\theta + 360°)$ | $\sin\theta$ |
 | $\cos(\theta + 360°)$ | $\cos\theta$ |
 
-#### Fórmulas de Potencias
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Fórmulas de Potencias
+
+<TopicSubsectionContent>
 
 | Potencia | Equivalencia | Uso |
 | --- | --- | --- |
@@ -341,7 +547,15 @@ $$
 | $\sin^4\theta$ | $\frac&#123;3 - 4\cos(2\theta) + \cos(4\theta)&#125;&#123;8&#125;$ | Integración |
 | $\cos^4\theta$ | $\frac&#123;3 + 4\cos(2\theta) + \cos(4\theta)&#125;&#123;8&#125;$ | Integración |
 
-#### Identidades de Simplificación Útiles
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades de Simplificación Útiles
+
+<TopicSubsectionContent>
 
 | Expresión | Simplificación |
 | --- | --- |
@@ -352,7 +566,15 @@ $$
 | $1 - \sin\theta$ | $\left(\cos\frac&#123;\theta&#125;&#123;2&#125; - \sin\frac&#123;\theta&#125;&#123;2&#125;\right)^2$ |
 | $1 + \sin\theta$ | $\left(\cos\frac&#123;\theta&#125;&#123;2&#125; + \sin\frac&#123;\theta&#125;&#123;2&#125;\right)^2$ |
 
-#### Identidades con Tangente (Sustitución de Weierstrass)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades con Tangente (Sustitución de Weierstrass)
+
+<TopicSubsectionContent>
 
 **Expresar funciones trigonométricas en términos de $t = \tan\frac&#123;\theta&#125;&#123;2&#125;$:**
 
@@ -364,9 +586,17 @@ $$
 
 **Uso:** Muy útil para integración de funciones racionales trigonométricas.
 
-#### Ley de Senos y Cosenos
+</TopicSubsectionContent>
 
-##### Ley de Senos
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Ley de Senos y Cosenos
+
+<TopicSubsectionContent>
+
+**Ley de Senos**
 
 $$
 \frac&#123;a&#125;&#123;\sin A&#125; = \frac&#123;b&#125;&#123;\sin B&#125; = \frac&#123;c&#125;&#123;\sin C&#125;
@@ -374,14 +604,22 @@ $$
 
 **Uso:** Triángulos oblicuángulos (no rectángulos).
 
-##### Ley de Cosenos
+**Ley de Cosenos**
 
 | Fórmula | Uso |
 | --- | --- |
 | $c^2 = a^2 + b^2 - 2ab\cos C$ | Encontrar el tercer lado conociendo dos lados y el ángulo incluido |
 | $\cos C = \frac&#123;a^2 + b^2 - c^2&#125;&#123;2ab&#125;$ | Encontrar un ángulo conociendo los tres lados |
 
-#### Consejos de Aplicación
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Consejos de Aplicación
+
+<TopicSubsectionContent>
 
 | Situación | Estrategia |
 | --- | --- |
@@ -393,7 +631,15 @@ $$
 | Factorizar | Usa identidades de suma a producto |
 | Expandir productos | Usa identidades de producto a suma |
 
-#### Identidades Hiperbólicas (Relación con Trigonométricas)
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
+### Identidades Hiperbólicas (Relación con Trigonométricas)
+
+<TopicSubsectionContent>
 
 | Función Hiperbólica | Relación con Trigonométrica |
 | --- | --- |
@@ -409,6 +655,10 @@ $$
 
 (Nota la diferencia: resta en lugar de suma).
 
+</TopicSubsectionContent>
 
+</TopicSubsection>
 
+</TopicSubsections>
 
+</TopicSection>

@@ -21,9 +21,23 @@ shortcuts:
     variant: secondary
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Integral Indefinida
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Definición
+
+<TopicSubsectionContent>
 
 $$
 \int f(x) \, dx = F(x) + C
@@ -33,7 +47,19 @@ donde $F'(x) = f(x)$ y $C$ es la constante de integración.
 
 **$F(x)$ es la primitiva o antiderivada de $f(x)$**
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Integral Definida
+
+<TopicSection>
+
+<TopicSectionContent>
 
 $$
     **⚠️ Nota importante:** Si $u'$ no aparece exactamente en el integrando pero es una constante, se puede ajustar multiplicando y dividiendo por esa constante. Si $u'$ no es constante o no aparece, este método no aplica directamente.
@@ -44,13 +70,33 @@ donde $F'(x) = f(x)$
 
 **Notación:** $\left[F(x)\right]_a^b = F(b) - F(a)$
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Ejemplo
+
+<TopicSubsectionContent>
 
 $$
 \int_1^3 x^2 \, dx = \left[\frac&#123;x^3&#125;&#123;3&#125;\right]_1^3 = \frac&#123;3^3&#125;&#123;3&#125; - \frac&#123;1^3&#125;&#123;3&#125; = \frac&#123;27&#125;&#123;3&#125; - \frac&#123;1&#125;&#123;3&#125; = \frac&#123;26&#125;&#123;3&#125;
 $$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Propiedades de la Integral Definida
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Propiedad | Fórmula |
 | --- | --- |
@@ -60,7 +106,15 @@ $$
 | Inversión de límites | $\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx$ |
 | Aditividad de intervalos | $\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Tabla de Integrales Inmediatas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Función | Integral |
 | --- | --- |
@@ -83,7 +137,15 @@ $$
 | $\frac&#123;1&#125;&#123;1+x^2&#125;$ | $\arctan x + C$ |
 | $\frac&#123;1&#125;&#123;x\sqrt&#123;x^2-1&#125;&#125;$ | $\text&#123;arcsec &#125; x + C$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Tabla de Integrales por Sustitución
+
+<TopicSection>
+
+<TopicSectionContent>
 
 **Estas fórmulas aplican cuando se tiene una función compuesta $u$ y su derivada $u'$**
 
@@ -105,7 +167,15 @@ $$
 | $\int \frac&#123;u'&#125;&#123;\sqrt&#123;1-u^2&#125;&#125; \, dx$ | $\arcsin u + C$ | Arcoseno |
 | $\int \frac&#123;u'&#125;&#123;1+u^2&#125; \, dx$ | $\arctan u + C$ | Arcotangente |
 
+</TopicSectionContent>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Ejemplos de Aplicación
+
+<TopicSubsectionContent>
 
 **Ejemplo 1:** $\int 2x \cdot e^&#123;x^2&#125; \, dx$
 
@@ -133,9 +203,25 @@ $$
 
 **⚠️ Nota importante:** Si $u'$ no aparece exactamente en el integrando pero es una constante, se puede ajustar multiplicando y dividiendo por esa constante. Si $u'$ no es constante o no aparece, este método no aplica directamente.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Métodos de Integración
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Método de Sustitución (Cambio de Variable)
+
+<TopicSubsectionContent>
 
 **Cuándo usar:** Cuando aparece una función compuesta y su derivada
 
@@ -156,7 +242,15 @@ $$
 - $u = x^2$ → $du = 2x \, dx$
 - $\int e^u \, du = e^u + C = e^&#123;x^2&#125; + C$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Método de Integración por Partes
+
+<TopicSubsectionContent>
 
 **Fórmula:**
 
@@ -191,9 +285,25 @@ $$
 - $dv = e^x \, dx$ → $v = e^x$
 - $\int x \cdot e^x \, dx = x \cdot e^x - \int e^x \, dx = xe^x - e^x + C$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Cálculo de Áreas
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Área bajo una curva
+
+<TopicSubsectionContent>
 
 **Caso 1:** Función por encima del eje X en $[a,b]$
 
@@ -217,7 +327,15 @@ $$
 
 donde $c$ es la raíz en $(a,b)$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Área entre dos curvas
+
+<TopicSubsectionContent>
 
 **Fórmula general:**
 
@@ -243,9 +361,25 @@ donde $f(x) \geq g(x)$ en $[a,b]$
 - En $[0,1]$: $x \geq x^2$ (recta arriba, parábola abajo)
 - $A = \int_0^1 (x - x^2) \, dx = \left[\frac&#123;x^2&#125;&#123;2&#125; - \frac&#123;x^3&#125;&#123;3&#125;\right]_0^1 = \frac&#123;1&#125;&#123;2&#125; - \frac&#123;1&#125;&#123;3&#125; = \frac&#123;1&#125;&#123;6&#125;$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Integrales de Funciones Racionales
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Fracciones Simples
+
+<TopicSubsectionContent>
 
 **Caso 1:** Grado numerador < Grado denominador
 
@@ -256,7 +390,15 @@ Descomponer en fracciones parciales según los factores del denominador
 1. Dividir polinomios primero
 2. Aplicar fracciones parciales al resto
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Tipos de descomposición
+
+<TopicSubsectionContent>
 
 | Tipo de factor | Descomposición |
 | --- | --- |
@@ -264,9 +406,25 @@ Descomponer en fracciones parciales según los factores del denominador
 | $(x-a)^n$ | $\frac&#123;A_1&#125;&#123;x-a&#125; + \frac&#123;A_2&#125;&#123;(x-a)^2&#125; + \cdots + \frac&#123;A_n&#125;&#123;(x-a)^n&#125;$ |
 | $x^2 + bx + c$ (irreducible) | $\frac&#123;Ax + B&#125;&#123;x^2 + bx + c&#125;$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Integración de Funciones Trigonométricas
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Identidades útiles
+
+<TopicSubsectionContent>
 
 | Integral | Identidad útil | Resultado |
 | --- | --- | --- |
@@ -274,12 +432,25 @@ Descomponer en fracciones parciales según los factores del denominador
 | $\int \cos^2 x \, dx$ | $\cos^2 x = \frac&#123;1 + \cos 2x&#125;&#123;2&#125;$ | $\frac&#123;x&#125;&#123;2&#125; + \frac&#123;\sin 2x&#125;&#123;4&#125; + C$ |
 | $\int \tan^2 x \, dx$ | $\tan^2 x = \sec^2 x - 1$ | $\tan x - x + C$ |
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Consejos Prácticos
+
+<TopicSection>
+
+<TopicSectionContent>
 
 1. **Verificación:** Siempre puedes verificar derivando el resultado
 2. **Constante de integración:** No olvidar $+ C$ en integrales indefinidas
 3. **Simplificación:** Simplificar antes de integrar cuando sea posible
 4. **Tabla de integrales:** Memorizar las integrales inmediatas más comunes
 
+</TopicSectionContent>
 
-
+</TopicSection>

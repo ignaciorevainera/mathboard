@@ -15,7 +15,17 @@ shortcuts:
     variant: accent
 ---
 
+import TopicSection from '../../components/ui/TopicSection.astro';
+import TopicSectionContent from '../../components/ui/TopicSectionContent.astro';
+import TopicSubsections from '../../components/ui/TopicSubsections.astro';
+import TopicSubsection from '../../components/ui/TopicSubsection.astro';
+import TopicSubsectionContent from '../../components/ui/TopicSubsectionContent.astro';
+
 ## Condiciones de Continuidad
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Una función $f(x)$ es **continua en $x = a$** si se cumplen estas 3 condiciones:
 
@@ -27,7 +37,15 @@ Una función $f(x)$ es **continua en $x = a$** si se cumplen estas 3 condiciones
 
 **Si falla alguna condición, la función es discontinua en $x = a$**
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Límites Laterales
+
+<TopicSection>
+
+<TopicSectionContent>
 
 | Límite | Notación | Significado |
 | --- | --- | --- |
@@ -36,9 +54,21 @@ Una función $f(x)$ es **continua en $x = a$** si se cumplen estas 3 condiciones
 
 **El límite existe** si y solo si: $\lim_&#123;x \to a^-&#125; f(x) = \lim_&#123;x \to a^+&#125; f(x)$
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Tipos de Discontinuidad
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Discontinuidad Evitable (Removible)
+
+<TopicSubsectionContent>
 
 | Característica | Descripción |
 | --- | --- |
@@ -55,7 +85,15 @@ $$
 - $\lim_&#123;x \to 2&#125; f(x) = 4$ pero $f(2) = 1$
 - Discontinuidad evitable en $x = 2$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Discontinuidad Esencial (No Removible)
+
+<TopicSubsectionContent>
 
 | Tipo | Descripción | Ejemplo |
 | --- | --- | --- |
@@ -64,9 +102,25 @@ $$
 
 **No se puede evitar:** El límite no existe, no hay forma de redefinir la función para hacerla continua.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Teoremas sobre Continuidad
 
+<TopicSection>
+
+<TopicSubsections>
+
+<TopicSubsection>
+
 ### Teorema de Bolzano
+
+<TopicSubsectionContent>
 
 **Enunciado:**
 
@@ -87,7 +141,15 @@ Demostrar que $f(x) = x^3 - x - 1$ tiene una raíz en $(1, 2)$:
 - $f(1) \cdot f(2) = -5 \lt 0$ ✓
 - Por Bolzano, $\exists c \in (1,2)$ tal que $f(c) = 0$
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+<TopicSubsection>
+
 ### Teorema del Valor Intermedio
+
+<TopicSubsectionContent>
 
 **Enunciado:**
 
@@ -97,7 +159,19 @@ Si $f$ es continua en $[a,b]$ y $k$ es un valor entre $f(a)$ y $f(b)$, entonces 
 
 Una función continua toma todos los valores intermedios entre dos puntos.
 
+</TopicSubsectionContent>
+
+</TopicSubsection>
+
+</TopicSubsections>
+
+</TopicSection>
+
 ## Funciones Continuas Conocidas
+
+<TopicSection>
+
+<TopicSectionContent>
 
 Estas funciones son continuas en todo su dominio:
 
@@ -109,7 +183,15 @@ Estas funciones son continuas en todo su dominio:
 | $\ln x$ | $(0, +\infty)$ | Continua en su dominio |
 | Racionales $\frac&#123;P(x)&#125;&#123;Q(x)&#125;$ | $\mathbb&#123;R&#125; - \{x : Q(x)=0\}$ | Continuas donde $Q(x) \neq 0$ |
 
+</TopicSectionContent>
+
+</TopicSection>
+
 ## Procedimiento para Estudiar Continuidad
+
+<TopicSection>
+
+<TopicSectionContent>
 
 1. **Determinar el dominio** de $f(x)$
 2. **Identificar puntos problemáticos:**
@@ -120,3 +202,7 @@ Estas funciones son continuas en todo su dominio:
    - Calcular $\lim_&#123;x \to a^-&#125; f(x)$ y $\lim_&#123;x \to a^+&#125; f(x)$
    - Comparar límites y valor de la función
 4. **Clasificar la discontinuidad** (si existe)
+
+</TopicSectionContent>
+
+</TopicSection>
