@@ -84,6 +84,31 @@ const selectedSlugSet = new Set(selectedSlugs);
 const tocHeadings = headingCandidates.filter((heading) =>
   selectedSlugSet.has(heading.slug),
 );
+
+type TocHeading = Props["headings"][number];
+
+interface TocBranch {
+  heading: TocHeading;
+  children: TocHeading[];
+}
+
+const tocTree: TocBranch[] = [];
+const orphanTocChildren: TocHeading[] = [];
+
+for (const heading of tocHeadings) {
+  if (heading.depth === 2) {
+    tocTree.push({ heading, children: [] });
+    continue;
+  }
+
+  const lastBranch = tocTree[tocTree.length - 1];
+  if (!lastBranch) {
+    orphanTocChildren.push(heading);
+    continue;
+  }
+
+  lastBranch.children.push(heading);
+}
 ---
 
 <SectionWrapper>
@@ -97,16 +122,35 @@ const tocHeadings = headingCandidates.filter((heading) =>
         <div class="collapse-content pt-0">
           <nav aria-label="En esta pagina">
             <ul class="menu menu-sm p-0">
-              {tocHeadings.map((heading) => (
+              {tocTree.map((branch) => (
+                <li>
+                  <a
+                    href={`#${branch.heading.slug}`}
+                    class="rounded-lg px-2 py-1.5 text-sm font-semibold leading-snug text-base-content/85 transition-colors hover:bg-base-200/70 hover:text-base-content"
+                  >
+                    {branch.heading.text}
+                  </a>
+                  {branch.children.length > 0 && (
+                    <ul class="menu menu-xs mt-1 ml-3 border-l border-base-300/80 pl-2">
+                      {branch.children.map((childHeading) => (
+                        <li>
+                          <a
+                            href={`#${childHeading.slug}`}
+                            class="rounded-md px-2 py-1 text-sm font-medium leading-snug text-base-content/70 transition-colors hover:bg-base-200/60 hover:text-base-content"
+                          >
+                            {childHeading.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+              {orphanTocChildren.map((heading) => (
                 <li>
                   <a
                     href={`#${heading.slug}`}
-                    class:list={[
-                      "rounded-lg leading-snug transition-colors hover:bg-neutral/10 hover:text-base-content",
-                      heading.depth === 2
-                        ? "px-3 py-2 text-sm font-semibold text-base-content/80"
-                        : "ml-3 px-3 py-1.5 text-sm font-medium text-base-content/65",
-                    ]}
+                    class="rounded-md px-2 py-1 text-sm font-medium leading-snug text-base-content/70 transition-colors hover:bg-base-200/60 hover:text-base-content"
                   >
                     {heading.text}
                   </a>
@@ -162,24 +206,45 @@ const tocHeadings = headingCandidates.filter((heading) =>
       class="hidden lg:col-span-4 lg:block lg:sticky lg:top-24 lg:self-start"
     >
       <nav
-        class="rounded-2xl border border-base-300 bg-neutral/5 p-4"
+        class="rounded-2xl border border-base-200 bg-base-100/70 p-4 shadow-sm backdrop-blur-sm"
         aria-label="En esta pagina"
       >
         <div class="flex flex-col gap-4 lg:max-h-screen">
-          <h2 class="card-title text-xl">En esta pagina</h2>
+          <h2 class="font-display text-xl font-semibold tracking-tight">
+            En esta pagina
+          </h2>
           {
             tocHeadings.length > 0 && (
-              <ul class="menu p-0 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
-                {tocHeadings.map((heading) => (
+              <ul class="menu menu-sm p-0 lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
+                {tocTree.map((branch) => (
+                  <li>
+                    <a
+                      href={`#${branch.heading.slug}`}
+                      class="rounded-lg px-2 py-1.5 text-sm font-semibold leading-snug text-base-content/85 transition-colors hover:bg-base-200/70 hover:text-base-content"
+                    >
+                      {branch.heading.text}
+                    </a>
+                    {branch.children.length > 0 && (
+                      <ul class="menu menu-xs mt-1 ml-3 border-l border-base-300/80 pl-2">
+                        {branch.children.map((childHeading) => (
+                          <li>
+                            <a
+                              href={`#${childHeading.slug}`}
+                              class="rounded-md px-2 py-1 text-sm font-medium leading-snug text-base-content/70 transition-colors hover:bg-base-200/60 hover:text-base-content"
+                            >
+                              {childHeading.text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+                {orphanTocChildren.map((heading) => (
                   <li>
                     <a
                       href={`#${heading.slug}`}
-                      class:list={[
-                        "rounded-lg leading-snug transition-colors hover:bg-neutral/10 hover:text-base-content",
-                        heading.depth === 2
-                          ? "px-3 py-2 text-sm font-semibold text-base-content/80"
-                          : "ml-3 px-3 py-1.5 text-sm font-medium text-base-content/65",
-                      ]}
+                      class="rounded-md px-2 py-1 text-sm font-medium leading-snug text-base-content/70 transition-colors hover:bg-base-200/60 hover:text-base-content"
                     >
                       {heading.text}
                     </a>
