@@ -31,3 +31,8 @@ Archivos afectados: src/components/sections/TopicMarkdownContentSection.astro; s
 Problema: Lighthouse marcaba `label-content-name-mismatch` por enlaces con texto visible y `aria-label` diferente, y el script global de theme-change agregaba JS inline innecesario.
 Solucion: quitar `aria-label` en enlaces con texto suficiente y reemplazar theme-change por un toggle inline minimo; ademas mover `meta charset` al inicio del `head` y acotar el render matematico a nodos de contenido.
 Archivos afectados: src/components/ui/TopicCard.astro; src/components/sections/ImportantResourcesSection.astro; src/layouts/BaseLayout.astro; src/components/sections/TopicMarkdownContentSection.astro
+
+### 2026-04-08 — Normalizacion de headings incompleta en pipeline remark de topics
+Problema: la transformacion de `remark-topic-subsection-cards` no normaliza todos los headings profundos cuando quedan dentro de bloques de contenido recolectados (p. ej. `h4`), dejando jerarquia heterogenea entre topics.
+Solucion: aplicar normalizacion de profundidad tambien sobre los nodos de contenido internos (no solo sobre el heading actual del loop) o un recorrido previo global sobre todos los nodos heading del arbol.
+Archivos afectados: src/lib/remark-topic-subsection-cards.js; src/content/topics/*.mdx
