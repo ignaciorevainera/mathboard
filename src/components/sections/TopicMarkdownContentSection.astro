@@ -32,9 +32,57 @@ const {
 const iconToneClasses = getTopicIconToneClasses(topicId, colorVariant);
 const haloToneClasses = getTopicHaloToneClasses(topicId, colorVariant);
 
-const tocHeadings = headings.filter(
+const tocCapacityByTopicId: Record<string, number> = {
+  "analytic-geometry-lines-points": 14,
+  asymptotes: 12,
+  "conic-sections": 14,
+  continuity: 10,
+  "derivative-advanced-analysis": 12,
+  "derivative-applications": 14,
+  "differential-calculus-function-analysis": 12,
+  "factoring-algebraic-expressions": 14,
+  "geometry-trigonometry": 14,
+  "integral-calculus": 12,
+  "inverse-functions": 12,
+  "limits-continuity": 12,
+  "logarithms-exponentials": 14,
+  "sequences-series": 12,
+};
+
+const tocCapacity = tocCapacityByTopicId[topicId] ?? 12;
+
+const headingCandidates = headings.filter(
   (heading) =>
-    heading.depth === 2 && heading.slug && heading.text.trim().length > 0,
+    (heading.depth === 2 || heading.depth === 3) &&
+    heading.slug &&
+    heading.text.trim().length > 0,
+);
+
+const h2Candidates = headingCandidates.filter((heading) => heading.depth === 2);
+const h3Candidates = headingCandidates.filter((heading) => heading.depth === 3);
+
+const selectedSlugs: string[] = [];
+
+for (const heading of h2Candidates) {
+  if (selectedSlugs.length >= tocCapacity) {
+    break;
+  }
+
+  selectedSlugs.push(heading.slug);
+}
+
+for (const heading of h3Candidates) {
+  if (selectedSlugs.length >= tocCapacity) {
+    break;
+  }
+
+  selectedSlugs.push(heading.slug);
+}
+
+const selectedSlugSet = new Set(selectedSlugs);
+
+const tocHeadings = headingCandidates.filter((heading) =>
+  selectedSlugSet.has(heading.slug),
 );
 ---
 
@@ -53,7 +101,12 @@ const tocHeadings = headings.filter(
                 <li>
                   <a
                     href={`#${heading.slug}`}
-                    class="rounded-lg px-3 py-2 text-sm font-semibold leading-snug text-base-content/80 transition-colors hover:bg-neutral/10 hover:text-base-content"
+                    class:list={[
+                      "rounded-lg leading-snug transition-colors hover:bg-neutral/10 hover:text-base-content",
+                      heading.depth === 2
+                        ? "px-3 py-2 text-sm font-semibold text-base-content/80"
+                        : "ml-3 px-3 py-1.5 text-sm font-medium text-base-content/65",
+                    ]}
                   >
                     {heading.text}
                   </a>
@@ -121,7 +174,12 @@ const tocHeadings = headings.filter(
                   <li>
                     <a
                       href={`#${heading.slug}`}
-                      class="rounded-lg px-3 py-2 text-sm font-semibold leading-snug text-base-content/80 transition-colors hover:bg-neutral/10 hover:text-base-content"
+                      class:list={[
+                        "rounded-lg leading-snug transition-colors hover:bg-neutral/10 hover:text-base-content",
+                        heading.depth === 2
+                          ? "px-3 py-2 text-sm font-semibold text-base-content/80"
+                          : "ml-3 px-3 py-1.5 text-sm font-medium text-base-content/65",
+                      ]}
                     >
                       {heading.text}
                     </a>

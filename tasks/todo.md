@@ -1,38 +1,53 @@
-# Tarea: Migrar topics a MDX con componentes Astro (sin plugin remark)
+# Tarea: TOC adaptativo por topic (cantidad de atajos variable)
 Fecha: 2026-04-08
 
 ## Descripcion
-Eliminar la dependencia del archivo [src/lib/remark-topic-subsection-cards.js](src/lib/remark-topic-subsection-cards.js) para el formateo estructural de topics y pasar a una arquitectura declarativa en MDX usando componentes Astro reutilizables (contenedores de informacion, bloques de subseccion, espaciados y divisores), manteniendo hashes/TOC y compatibilidad con KaTeX.
+Optimizar la sección En esta pagina en cada ruta de topic para que no muestre siempre el mismo nivel de headings. Debe variar por topic y aprovechar mejor el espacio lateral, incluyendo subtemas cuando un topic tenga pocas secciones principales.
 
 ## Riesgos identificados
-- La migracion implica editar muchos archivos MDX; existe riesgo de inconsistencias de estilo entre topics si no se aplica una plantilla unica.
-- Si se cambian textos de headings durante la migracion, pueden romperse slugs de anclas y shortcuts existentes.
-- El plugin actual normaliza niveles de heading automaticamente; al retirarlo, la jerarquia dependera del contenido MDX y puede quedar heterogenea.
-- Hay un working tree muy cargado con cambios pendientes; aumenta el riesgo de mezclar alcances y generar conflictos.
-- La sintaxis matematica en MDX tiene historial de errores con llaves/entidades; una migracion agresiva puede romper render si no se valida por lotes.
+- Mostrar demasiados atajos puede saturar el TOC y dificultar escaneo.
+- Cambiar la lógica del TOC puede romper el comportamiento de hash si no se conserva el selector y anclaje existente.
+- Si no se define una regla por topic, el TOC puede quedar inconsistente entre páginas.
+- Agregar h3 en topics muy largos puede generar paneles excesivos si no hay límite de capacidad.
+
+## Matriz de capacidad recomendada
+- analytic-geometry-lines-points.mdx: 14 atajos
+- asymptotes.mdx: 12 atajos
+- conic-sections.mdx: 14 atajos
+- continuity.mdx: 10 atajos
+- derivative-advanced-analysis.mdx: 12 atajos
+- derivative-applications.mdx: 14 atajos
+- differential-calculus-function-analysis.mdx: 12 atajos
+- factoring-algebraic-expressions.mdx: 14 atajos
+- geometry-trigonometry.mdx: 14 atajos
+- integral-calculus.mdx: 12 atajos
+- inverse-functions.mdx: 12 atajos
+- limits-continuity.mdx: 12 atajos
+- logarithms-exponentials.mdx: 14 atajos
+- sequences-series.mdx: 12 atajos
 
 ## Plan de ejecucion
 
-[x] Paso 1 — fullstack: diseñar contrato de componentes MDX para topics
-	Criterio de exito: existe un set minimo de componentes reutilizables en [src/components/ui](src/components/ui) (Section, Subsection, ContentCard, Divider o equivalentes) con API clara para reemplazar lo que hoy hace el plugin.
+[x] Paso 1 — fullstack: definir algoritmo de selección de atajos por topic
+    Criterio de exito: existe regla determinística para mezclar h2 y h3 según capacidad por topic, priorizando h2 y completando con h3 relevantes.
 
-[x] Paso 2 — ui-designer: definir reglas visuales unificadas por componente y breakpoint
-	Criterio de exito: los componentes reflejan un sistema consistente de espaciado, contenedores y contraste (mobile/tablet/desktop) alineado al diseño actual del proyecto.
+[x] Paso 2 — fullstack: implementar TOC adaptativo en TopicMarkdownContentSection
+    Criterio de exito: la sección En esta pagina deja de filtrar solo h2 y aplica la matriz de capacidad por topic con orden semántico estable.
 
-[x] Paso 3 — fullstack: integrar componentes MDX y habilitar su uso global en contenido
-	Criterio de exito: los MDX de topics pueden usar componentes Astro sin JS embebido extra y sin necesidad del wrapping automatico por remark.
+[x] Paso 3 — ui-designer: ajustar presentación visual de niveles en TOC
+    Criterio de exito: h2 y h3 se distinguen visualmente sin perder legibilidad; el panel aprovecha espacio disponible sin saturación.
 
-[x] Paso 4 — fullstack: migrar progresivamente los topics al nuevo esquema declarativo
-	Criterio de exito: cada archivo en [src/content/topics](src/content/topics) usa los componentes de forma consistente para secciones/subsecciones/contenido, preservando headings y anchors existentes.
+[x] Paso 4 — fullstack: validar cobertura de atajos en topics clave
+    Criterio de exito: topics con pocas secciones principales como factoring muestran más atajos útiles de métodos y no solo 2 o 3 entradas.
 
-[x] Paso 5 — fullstack: retirar plugin remark y limpiar configuracion relacionada
-	Criterio de exito: [astro.config.mjs](astro.config.mjs) deja de registrar [src/lib/remark-topic-subsection-cards.js](src/lib/remark-topic-subsection-cards.js), y el archivo puede eliminarse sin regresiones funcionales.
+[x] Paso 5 — qa-reviewer: validar hash, scroll y consistencia entre topics
+    Criterio de exito: click en atajos mantiene hash correcto y scroll preciso en múltiples topics con distintas capacidades.
 
-[x] Paso 6 — qa-reviewer: validar topics completos, hashes y math render
-	Criterio de exito: revision en multiples routes de /topic confirma consistencia visual, TOC/hash funcionando, formulas renderizando bien y sin overflow nuevo.
+[x] Paso 6 — qa-reviewer: ejecutar verificación técnica final
+    Criterio de exito: astro check, smoke de hash-navigation y build en verde tras la lógica adaptativa.
 
 [x] Paso 7 — qa-reviewer: verificar resultado completo y hacer commit
-	Criterio de exito: `astro check`, build y smoke hash-navigation pasan en verde; cambios listos para commit atomico con mensaje claro.
+    Criterio de exito: cambios agrupados en commit lógico de TOC adaptativo y documentación actualizada.
 
 ## Agentes involucrados
 - fullstack
@@ -40,9 +55,8 @@ Eliminar la dependencia del archivo [src/lib/remark-topic-subsection-cards.js](s
 - qa-reviewer
 
 ## Criterio de exito global
-El proyecto deja de depender del plugin JS para estructurar topics y pasa a un sistema limpio basado en MDX + componentes Astro reutilizables, con diseño uniforme por dispositivo, anclas estables y mantenimiento mas simple.
+Cada topic muestra una cantidad de atajos acorde a su estructura real, maximizando utilidad del TOC lateral sin romper navegación ni claridad visual.
 
 ## Estado de validacion
-- `npm run -s astro check` en verde.
-- `npm run -s test:smoke -- tests/smoke/topic-hash-navigation.spec.ts` en verde (2/2).
-- `npm run -s build` en verde (15 paginas generadas).
+- TOC adaptativo implementado con mezcla de `h2`/`h3` y prioridad de `h2`, con capacidad por `topicId`.
+- Validacion tecnica en verde: `astro check`, smoke hash-navigation (2/2), `build` (15 paginas).
