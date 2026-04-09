@@ -36,3 +36,8 @@ Archivos afectados: src/components/ui/TopicCard.astro; src/components/sections/I
 Problema: la transformacion de `remark-topic-subsection-cards` no normaliza todos los headings profundos cuando quedan dentro de bloques de contenido recolectados (p. ej. `h4`), dejando jerarquia heterogenea entre topics.
 Solucion: aplicar normalizacion de profundidad tambien sobre los nodos de contenido internos (no solo sobre el heading actual del loop) o un recorrido previo global sobre todos los nodos heading del arbol.
 Archivos afectados: src/lib/remark-topic-subsection-cards.js; src/content/topics/*.mdx
+
+### 2026-04-09 — Jerarquia semantica en metodos vs. ejemplos/procedimientos
+Problema: en topics como factoreo, headings de detalle como `Procedimiento`, `Ejemplo` y `Formula` estaban al mismo nivel (`h3`) que el metodo principal (por ejemplo `Factor Comun`), generando jerarquia ambigua.
+Solucion: mantener el metodo principal en `h3` y demotar subtitulos de detalle a `h4`, con estilo visual propio para que se perciban como nivel interno.
+Archivos afectados: src/content/topics/factoring-algebraic-expressions.mdx; src/styles/global.css

@@ -88,6 +88,18 @@ body {
   font-family: var(--font-display);
 }
 
+.prose[data-topic-id] :where([data-topic-subsection] > h4) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 2px solid color-mix(in oklab, currentColor 22%, transparent);
+  padding-left: 0.625rem;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: var(--font-display);
+  color: color-mix(in oklab, currentColor 82%, transparent);
+}
+
 .prose[data-topic-id] :where([data-topic-section-content] p,
   [data-topic-subsection-content] p,
   [data-topic-section-content] ul,
@@ -116,6 +128,12 @@ body {
     margin-top: 1.25rem;
     margin-bottom: 0.75rem;
     font-size: 1.5rem;
+  }
+
+  .prose[data-topic-id] :where([data-topic-subsection] > h4) {
+    margin-top: 0.75rem;
+    margin-bottom: 0.625rem;
+    font-size: 1.1875rem;
   }
 }
 
